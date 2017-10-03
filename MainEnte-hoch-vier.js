@@ -17,9 +17,6 @@ var frameTime = 0, lastLoop = new Date, thisLoop;
 // box2D world
 var world;
 var SCALE = 30;
-var myObjects = [];
-var myBoundariesSideOne = [];
-var myBoundariesSideTwo = [];
 // box2D variables
 var   b2Vec2 = Box2D.Common.Math.b2Vec2
     , b2BodyDef = Box2D.Dynamics.b2BodyDef
@@ -33,8 +30,6 @@ var   b2Vec2 = Box2D.Common.Math.b2Vec2
     , b2DebugDraw = Box2D.Dynamics.b2DebugDraw
     , revoluteJointDef =  Box2D.Dynamics.Joints.b2RevoluteJointDef
     ;
-// for car parts
-var myCar;
 
 // Side Num
 var sideNum = 1;
@@ -54,7 +49,7 @@ function onReady() {
     );
 
     draw();
-    console.log("ready to go!");
+    console.log("Go Duck, go!");
 } // end onReady()
 
 
@@ -65,29 +60,8 @@ function draw () {
     ctx.fillStyle="#444444"; // dark gray
     ctx.fillRect(0, 0, canvas.width, canvas.height);
 
+    Box2DSide(sideNum);
 
-    if(sideNum==1){ // Creating Side One
-        if(myBoundariesSideOne.length<3){
-            myBoundariesSideOne.push(new Box2DBondary(canvas.width / 2, 450, 200, 20, 0));
-            myBoundariesSideOne.push(new Box2DBondary(300, 300, 100, 20, 0));
-            myBoundariesSideOne.push(new Box2DBondary(200, 50, 50, 20, 0));
-        }
-        for (var i = 0; i < myBoundariesSideOne.length; i++) {
-            myBoundariesSideOne[i].draw(ctx);
-        }
-    }else if(sideNum==2){ // Creating Side Two
-        for(var z = 0;z < myBoundariesSideOne.length; z++){
-            myBoundariesSideOne.splice(i,1);
-        }
-        if(myBoundariesSideTwo.length<3){
-            myBoundariesSideTwo.push(new Box2DBondary(100, 50, 10, 50, 0));
-            myBoundariesSideTwo.push(new Box2DBondary(300, 300, 10, 100, 0));
-            myBoundariesSideTwo.push(new Box2DBondary(400, 200, 10, 70, 0));
-        }   
-        for (var ii = 0; ii < myBoundariesSideTwo.length; ii++) {
-            myBoundariesSideTwo[ii].draw(ctx);
-        }
-    }
     // printing text in canvas
     ctx.fillStyle = "#bbbbbb";
     ctx.font = "normal 11px Roboto-Medium";
@@ -123,14 +97,18 @@ function keyInput(e) {
     e = e || window.event;
     switch (e.keyCode) {
         case 37: // left arrow
-            sideNum = 1;
+            sideNum--;
             break;
         case 39: // right arrow
-            sideNum = 2;
+            sideNum++;
             break;
         default:
             sideNum = sideNum;
             break;    
+    }
+    // if square is turned around fully go to start page
+    if(sideNum>=5 || sideNum <=0){
+        sideNum=1;
     }
 }
 
