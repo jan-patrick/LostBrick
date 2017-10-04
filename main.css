@@ -2,11 +2,6 @@ html {
     background: #444444;
 }
 
-canvas {
-    width: 1920px;
-    height: 1080px;
-}
-
 h1 {
     font-weight: normal;
     font-variant: normal;

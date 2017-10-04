@@ -66,7 +66,8 @@ function draw () {
     ctx.fillStyle = "#bbbbbb";
     ctx.font = "normal 11px Roboto-Medium";
 
-    ctx.fillText("Side number: "+ sideNum, 10, canvas.height-5);
+    ctx.fillText("Side number: "+ sideNum, 10, canvas.height-25);
+    ctx.fillText("current frame: "+ frameCounter, 10, canvas.height-5);
 
     world.Step(
         1 / 60   //frame-rate
@@ -78,7 +79,7 @@ function draw () {
     frameTime+= (thisFrameTime - frameTime) / filterStrength;
     lastLoop = thisLoop;
     var fpsOut = document.getElementById('frameRate');
-    fpsOut.innerHTML = "current frame = " +frameCounter+ "   currente frame rate = "+(1000/frameTime).toFixed(1) + " fps";
+    //fpsOut.innerHTML = "current frame = " +frameCounter+ "   currente frame rate = "+(1000/frameTime).toFixed(1) + " fps";
     frameCounter += 1;
     requestAnimFrame(draw);
 }
