@@ -15,6 +15,8 @@ this.myPlayers;
 this.playerCounter;
 this.playerX;
 this.playerY;
+this.playDir;
+this.prevDir;
 
 if(prevSquNum != sideNum){
     if(sideNum==1){ // gravity down
@@ -63,11 +65,49 @@ for (var i = 0; i < myPlayers.length; i++) {
 }    
 } // end Box2DPlayer
 
-function PlayerMovement (playDir, sideNum) {
+function PlayerMovement (playDirr, sideNum) {
+
+    var up = 270;
+    var down = 90;
+    var left = 180;
+    var right = 0;
+    var walk = 0.1;
+    var jump = 1;
+
     if(sideNum==1){
-        if(playDir == "a"){
-            this.myPlayers[0].applyImpulse(270, 0.01);
-        }
-    }
-    //playDir = "no";
-}        
+        if(playDirr == "a"){
+            this.myPlayers[0].applyImpulse(left, walk);
+            this.myPlayers[0].draw(ctx);
+        }else if(playDirr == "w" && this.prevDir != playDirr){
+            this.myPlayers[0].applyImpulse(up, jump);
+            this.myPlayers[0].draw(ctx);
+        }else if(playDirr == "d"){
+            this.myPlayers[0].applyImpulse(right, walk);
+            this.myPlayers[0].draw(ctx);
+        }else if(playDirr == "s"){
+            this.myPlayers[0].applyImpulse(down, walk);
+            this.myPlayers[0].draw(ctx);
+        }  
+        this.prevDir = playDirr;
+    }else if(sideNum==2){
+        if(playDirr == "a" && this.prevDir != playDirr){
+            this.myPlayers[0].applyImpulse(left, jump);
+            this.myPlayers[0].draw(ctx);
+        }else if(playDirr == "w"){
+            this.myPlayers[0].applyImpulse(up, walk);
+            this.myPlayers[0].draw(ctx);
+        }else if(playDirr == "d"){
+            this.myPlayers[0].applyImpulse(right, walk);
+            this.myPlayers[0].draw(ctx);
+        }else if(playDirr == "s"){
+            this.myPlayers[0].applyImpulse(down, walk);
+            this.myPlayers[0].draw(ctx);
+        }     
+    this.prevDir = playDirr;
+    }    
+    this.playDir = "no";
+}
+
+function lastjump () {
+    return 
+}

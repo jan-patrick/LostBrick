@@ -44,6 +44,7 @@ var playerX;
 var playerY;
 // player direction
 var playDir = "no";
+var prevDir = "no";
 
 // the Boundaries to jump on
 var mySquaresForJumping = [];
