@@ -41,6 +41,9 @@ var imgSideone;
 var myPlayers = [];
 var playerCounter = 0;
 
+// the Boundaries to jump on
+var mySquaresForJumping = [];
+
 
 function onReady() {
     // your inicialization code here  ----------------------------------------------

@@ -40,6 +40,12 @@ function Box2DBox ( x,  y,  w, h) {
         myAngle = this.Object.GetBody().GetAngle();
     };
 
+    this.applyImpulse = function(degrees, power) {
+        this.Object.GetBody().ApplyImpulse(
+            new b2Vec2(Math.cos(degrees * (Math.PI / 180)) * power, Math.sin(degrees * (Math.PI / 180)) * power),
+            this.Object.GetBody().GetWorldCenter());
+    };    
+
     this.draw = function(ctx) {
         this.update();
         var alpha = 0.3;
