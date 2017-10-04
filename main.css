@@ -1,5 +1,10 @@
-canvas{
-    border:1px solid rgba(84, 84, 102, 0.8)
+html {
+    background: #444444;
+}
+
+canvas {
+    width: 300vh
+    height: 1020px;
 }
 
 h1 {

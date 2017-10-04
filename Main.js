@@ -44,7 +44,7 @@ function onReady() {
 
     // setup world
     world = new b2World(
-        new b2Vec2(0, 10)    //gravity
+        new b2Vec2(0, 0)    //gravity
         ,  true              //allow sleep
     );
 
