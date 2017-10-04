@@ -11,6 +11,7 @@ this.mySquaresForJumping;
 
 if(prevSideNum != sideNum){
     for(var z = 0;z < this.mySquaresForJumping.length; z++){
+        this.mySquaresForJumping[z].removeBody();
         this.mySquaresForJumping.splice(z,1);
     } 
     if(sideNum==1){ // Creating Side One
