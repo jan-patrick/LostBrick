@@ -15,9 +15,11 @@ if(prevSideNum != sideNum){
         this.mySquaresForJumping.splice(z,1);
     } 
     if(sideNum==1){ // Creating Side One
-        this.mySquaresForJumping.push(new Box2DBondary(300, 450, 200, 20, 0));
-        this.mySquaresForJumping.push(new Box2DBondary(300, 300, 100, 20, 0));
-        this.mySquaresForJumping.push(new Box2DBondary(200, 50, 50, 20, 0));
+        this.mySquaresForJumping.push(new Box2DBondary(900, 845, 190, 5, 0));
+        this.mySquaresForJumping.push(new Box2DBondary(1075, 805, 20, 5, 0));
+        this.mySquaresForJumping.push(new Box2DBondary(970, 785, 20, 5, 0));
+        this.mySquaresForJumping.push(new Box2DBondary(855, 765, 20, 5, 0));
+        this.mySquaresForJumping.push(new Box2DBondary(735, 745, 20, 5, 0));
     }else if(sideNum==2){ // Creating Side Two
         this.mySquaresForJumping.push(new Box2DBondary(100, 50, 10, 50, 0));
         this.mySquaresForJumping.push(new Box2DBondary(300, 300, 10, 100, 0));
@@ -32,7 +34,7 @@ if(prevSideNum != sideNum){
         this.mySquaresForJumping.push(new Box2DBondary(400, 200, 10, 70, 0));  
     }    
     
-    // drawing the square borders
+    // drawing the square borders (just needed while creating and coding)
     for (var i = 0; i < this.mySquaresForJumping.length; i++) {
         this.mySquaresForJumping[i].draw(ctx);
     }

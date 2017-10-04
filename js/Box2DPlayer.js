@@ -12,13 +12,14 @@ var gravityDirection;
 var gravitypower = 0.01;
 
 this.myPlayers;
-
 this.playerCounter;
+this.playerX;
+this.playerY;
 
 if(prevSquNum != sideNum){
-    if(sideNum==1){ // Gravity down
-        moveSquX = 20;
-        moveSquY = 20;
+    if(sideNum==1){ // gravity down
+        moveSquX = 730;
+        moveSquY = 820;
         gravityDirection = 90;
     }else if(sideNum==2){ // gravity to the right
         moveSquX = 40;
@@ -36,10 +37,11 @@ if(prevSquNum != sideNum){
     prevSquNum = sideNum;
 }
 
-if(moveSquX <= 0 || moveSquY <= 0){    
+if(this.playerX >= 100 || this.playerY >= 100){
+    this.playerCounter++;    
     for(var z = 0;z < this.myPlayers.length; z++){
+        this.myPlayers[z].removeBody();
         this.myPlayers.splice(z,1);
-        this.playerCounter++;
     }
 } 
 
@@ -48,9 +50,15 @@ if(this.myPlayers.length<=0){
     myPlayers.push(myplayer);    
 }
 
+//this.myPlayers[i].update()
+//this.playerX = this.myPlayers[0].miX;
+//this.playerY = this.myPlayers[0].miY;
+
 // draw the playable square
 for (var i = 0; i < myPlayers.length; i++) {
         this.myPlayers[i].applyImpulse(gravityDirection, gravitypower);
         this.myPlayers[i].draw(ctx);
+        //this.playerX = this.myPlayers[0].miX;
+        //this.playerY = this.myPlayers[0].miY;
 }    
 } // end Box2DPlayer

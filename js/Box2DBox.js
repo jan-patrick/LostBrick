@@ -73,5 +73,8 @@ function Box2DBox ( x,  y,  w, h) {
         }
         return false;
     };
+    this.removeBody = function() {
+        world.DestroyBody(this.Object.GetBody());
+    }; 
 }
 

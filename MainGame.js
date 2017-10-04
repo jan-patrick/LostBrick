@@ -39,7 +39,9 @@ var imgSideone;
 
 // Player
 var myPlayers = [];
-var playerCounter = 0;
+var playerCounter = 1;
+var playerX;
+var playerY;
 
 // the Boundaries to jump on
 var mySquaresForJumping = [];
@@ -85,6 +87,8 @@ function draw () {
     ctx.fillStyle = "#bbbbbb";
     ctx.font = "normal 11px Roboto-Medium";
 
+    ctx.fillText("X-Position: "+ playerX, 10, canvas.height-105);
+    ctx.fillText("Y-Position: "+ playerY, 10, canvas.height-85);
     ctx.fillText("Side number: "+ sideNum, 10, canvas.height-65);
     ctx.fillText("Square number: "+ playerCounter, 10, canvas.height-45);
     ctx.fillText("current frame: "+ frameCounter, 10, canvas.height-25);

@@ -1,5 +1,6 @@
 html {
-    background: #444444;
+    /**background: #444444;**/
+    background-image: url("pictures/background.jpg");**/
 }
 
 h1 {
