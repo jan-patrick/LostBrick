@@ -61,6 +61,7 @@ function draw () {
     ctx.fillRect(0, 0, canvas.width, canvas.height);
 
     Box2DSide(sideNum);
+    Box2DPlayer(10, 10);
 
     // printing text in canvas
     ctx.fillStyle = "#bbbbbb";
