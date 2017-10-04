@@ -34,6 +34,13 @@ var   b2Vec2 = Box2D.Common.Math.b2Vec2
 // Side Num
 var sideNum = 1;
 
+// images
+var imgSideone;
+
+// Player
+var myPlayers = [];
+var playerCounter = 0;
+
 
 function onReady() {
     // your inicialization code here  ----------------------------------------------
@@ -41,6 +48,10 @@ function onReady() {
     ctx = canvas.getContext('2d');
     frameCounter = 0;
     canvas.addEventListener('mousedown', pick);
+
+    // loading pictures
+    imgSideone = new Image();
+    imgSideone.src = "pictures/side1.jpg";
 
     // setup world
     world = new b2World(
@@ -57,18 +68,24 @@ function onReady() {
 function draw () {
     var thisFrameTime = (thisLoop=new Date) - lastLoop;
     // for background
-    ctx.fillStyle="#444444"; // dark gray
-    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    //ctx.fillStyle="#444444"; // dark gray
+    //ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+    // for background
+    ctx.drawImage(imgSideone, 0, 0);
 
     Box2DSide(sideNum);
-    Box2DPlayer(10, 10);
+    Box2DPlayer(sideNum);
+    
 
     // printing text in canvas
     ctx.fillStyle = "#bbbbbb";
     ctx.font = "normal 11px Roboto-Medium";
 
-    ctx.fillText("Side number: "+ sideNum, 10, canvas.height-25);
-    ctx.fillText("current frame: "+ frameCounter, 10, canvas.height-5);
+    ctx.fillText("Side number: "+ sideNum, 10, canvas.height-65);
+    ctx.fillText("Square number: "+ playerCounter, 10, canvas.height-45);
+    ctx.fillText("current frame: "+ frameCounter, 10, canvas.height-25);
+    ctx.fillText("frame rate: " +(1000/frameTime)+ " fps", 10, canvas.height-5);
 
     world.Step(
         1 / 60   //frame-rate
@@ -79,7 +96,7 @@ function draw () {
     // frameRate calculating
     frameTime+= (thisFrameTime - frameTime) / filterStrength;
     lastLoop = thisLoop;
-    var fpsOut = document.getElementById('frameRate');
+    //var fpsOut = document.getElementById('frameRate');
     //fpsOut.innerHTML = "current frame = " +frameCounter+ "   currente frame rate = "+(1000/frameTime).toFixed(1) + " fps";
     frameCounter += 1;
     requestAnimFrame(draw);
