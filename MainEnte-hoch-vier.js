@@ -106,9 +106,11 @@ function keyInput(e) {
             sideNum = sideNum;
             break;    
     }
-    // if square is turned around fully go to start page
-    if(sideNum>=5 || sideNum <=0){
+    // if square is turned around fully go to start / last page
+    if(sideNum>=5){
         sideNum=1;
+    }else if(sideNum<=0){
+        sideNum=4;
     }
 }
 
