@@ -62,3 +62,12 @@ for (var i = 0; i < myPlayers.length; i++) {
         //this.playerY = this.myPlayers[0].miY;
 }    
 } // end Box2DPlayer
+
+function PlayerMovement (playDir, sideNum) {
+    if(sideNum==1){
+        if(playDir == "a"){
+            this.myPlayers[0].applyImpulse(270, 0.01);
+        }
+    }
+    //playDir = "no";
+}        

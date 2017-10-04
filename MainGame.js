@@ -37,11 +37,13 @@ var sideNum = 1;
 // images
 var imgSideone;
 
-// Player
+// player
 var myPlayers = [];
 var playerCounter = 1;
 var playerX;
 var playerY;
+// player direction
+var playDir = "no";
 
 // the Boundaries to jump on
 var mySquaresForJumping = [];
@@ -81,6 +83,7 @@ function draw () {
 
     Box2DSide(sideNum);
     Box2DPlayer(sideNum);
+    PlayerMovement(playDir, sideNum);
     
 
     // printing text in canvas
@@ -128,8 +131,21 @@ function keyInput(e) {
         case 39: // right arrow
             sideNum++;
             break;
+        case 65: // a
+            playDir = "a";
+            break;
+        case 87: // w
+            playDir = "w";
+            break;
+        case 68: // d
+            playDir = "d";
+            break;
+        case 83: // s
+            playDir = "s";
+            break;                        
         default:
             sideNum = sideNum;
+            console.log(e);
             break;    
     }
     // if square is turned around fully go to start / last page
