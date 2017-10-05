@@ -1,6 +1,6 @@
 html {
     background: #444444;
-    /**background-image: url("pictures/background.jpg");**/
+    /**background-image: url("images/background.jpg");**/
 }
 
 canvas {
@@ -8,9 +8,10 @@ canvas {
         padding-right: 0;
         margin-left: auto;
         margin-right: auto;
-        margin-top: auto;
+        margin-top: 6.5px;
         margin-bottom: auto;
         display: block;
+        background-image: url("images/sidetwo.jpg");
 }
 
 @font-face {

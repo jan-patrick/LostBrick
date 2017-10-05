@@ -54,7 +54,6 @@ var mySquaresForJumping = [];
 // for background
 var img;
 var video;
-var imgsource;
 
 function onReady() {
     // your inicialization code here  ----------------------------------------------
@@ -66,7 +65,7 @@ function onReady() {
     // backgroundmusic
     backgroundmusicone = document.createElement('AUDIO');
     backgroundmusicone.src="music/backgroundone.mp3";
-    backgroundmusicone.play();
+    //backgroundmusicone.play();
 
     video = document.createElement('video');
 
@@ -90,9 +89,6 @@ function draw () {
 
     // for background
     Box2DBackground(sideNum);
-    img = new Image();
-    img.src = imgsource;
-    ctx.drawImage(img, 0, 0);
 
     Box2DSide(sideNum);
     Box2DPlayer(sideNum);
