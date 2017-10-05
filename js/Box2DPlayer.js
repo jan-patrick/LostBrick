@@ -17,8 +17,9 @@ this.playerX;
 this.playerY;
 this.playDir;
 this.prevDir;
+this.videoPlayed;
 
-if(prevSquNum != sideNum){
+if(prevSquNum != sideNum && this.videoPlayed){
     if(sideNum==1){ // gravity down
         moveSquX = 730;
         moveSquY = 820;
@@ -58,6 +59,8 @@ if(this.myPlayers.length<=0){
 
 // draw the playable square
 for (var i = 0; i < myPlayers.length; i++) {
+    if(gravityDirection==undefined)gravityDirection=0;
+    if(gravitypower==undefined)gravitypower=0;
         this.myPlayers[i].applyImpulse(gravityDirection, gravitypower);
         this.myPlayers[i].draw(ctx);
         //this.playerX = this.myPlayers[0].miX;

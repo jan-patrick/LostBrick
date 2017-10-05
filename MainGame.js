@@ -38,7 +38,6 @@ var   b2Vec2 = Box2D.Common.Math.b2Vec2
 // Side Num
 var sideNum = 1;
 
-
 // player
 var myPlayers = [];
 var playerCounter = 1;
@@ -53,7 +52,10 @@ var mySquaresForJumping = [];
 
 // for background
 var img;
-var video;
+var videoonetotwo;
+var videoPlayed = true;
+var countFrame = 0;
+var seconds = 0;
 
 function onReady() {
     // your inicialization code here  ----------------------------------------------
@@ -65,9 +67,11 @@ function onReady() {
     // backgroundmusic
     backgroundmusicone = document.createElement('AUDIO');
     backgroundmusicone.src="music/backgroundone.mp3";
-    //backgroundmusicone.play();
+    backgroundmusicone.play();
 
-    video = document.createElement('video');
+    videoonetotwo = document.createElement('video');
+    videoonetotwo.src =  "videos/onetotwo.mp4";
+    videoonetotwo.load();
 
     // setup world
     world = new b2World(
@@ -83,13 +87,13 @@ function onReady() {
 // your drawing code here ---------------------------------------------------
 function draw () {
     var thisFrameTime = (thisLoop=new Date) - lastLoop;
+    seconds = new Date().getTime() / 1000;
     // for background
     //ctx.fillStyle="#444444"; // dark gray
     //ctx.fillRect(0, 0, canvas.width, canvas.height);
 
     // for background
     Box2DBackground(sideNum);
-
     Box2DSide(sideNum);
     Box2DPlayer(sideNum);
     PlayerMovement(playDir, sideNum);
@@ -99,6 +103,8 @@ function draw () {
     ctx.fillStyle = "#bbbbbb";
     ctx.font = "normal 11px Roboto-Medium";
 
+    ctx.fillText("countFrame: "+ countFrame, 10, canvas.height-145);
+    ctx.fillText("Seconds: "+ seconds, 10, canvas.height-125);
     ctx.fillText("X-Position: "+ playerX, 10, canvas.height-105);
     ctx.fillText("Y-Position: "+ playerY, 10, canvas.height-85);
     ctx.fillText("Side number: "+ sideNum, 10, canvas.height-65);
@@ -139,6 +145,8 @@ function keyInput(e) {
             break;
         case 39: // right arrow
             sideNum++;
+            countFrame = seconds+2;
+            videoPlayed = false;
             break;
         case 65: // a
             playDir = "a";
