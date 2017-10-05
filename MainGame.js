@@ -17,6 +17,12 @@ var frameTime = 0, lastLoop = new Date, thisLoop;
 // box2D world
 var world;
 var SCALE = 30;
+
+// backgroundmusic
+backgroundmusicone = document.createElement('AUDIO');
+backgroundmusicone.src="music/backgroundone.mp3";
+backgroundmusicone.play();
+
 // box2D variables
 var   b2Vec2 = Box2D.Common.Math.b2Vec2
     , b2BodyDef = Box2D.Dynamics.b2BodyDef

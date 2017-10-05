@@ -1,26 +1,16 @@
 html {
-    /**background: #444444;**/
-    background-image: url("pictures/background.jpg");**/
+    background: #444444;
+    /**background-image: url("pictures/background.jpg");**/
 }
 
-h1 {
-    font-weight: normal;
-    font-variant: normal;
-    font-style: normal;
-    font-size: 12px;
-    font-family: Roboto-Medium,sans-serif;
-    color:#808080;
-    /*text-align:center;*/
-}
-
-h2 {
-    font-weight: normal;
-    font-variant: normal;
-    font-style: normal;
-    font-size: 10px;
-    font-family: Roboto-Medium,sans-serif;
-    color:#aaaaaa;
-    /*text-align:center;*/
+canvas {
+        padding-left: 0;
+        padding-right: 0;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: auto;
+        margin-bottom: auto;
+        display: block;
 }
 
 @font-face {
