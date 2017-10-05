@@ -80,7 +80,7 @@ function onReady() {
     );
 
     draw();
-    console.log("Go Duck, go!");
+    console.log("Go Franklin, go!");
 } // end onReady()
 
 
@@ -162,7 +162,7 @@ function keyInput(e) {
             break;                        
         default:
             sideNum = sideNum;
-            console.log(e);
+            //console.log(e);
             break;    
     }
     // if square is turned around fully go to start / last page

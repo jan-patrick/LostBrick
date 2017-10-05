@@ -59,8 +59,8 @@ if(this.myPlayers.length<=0){
 
 // draw the playable square
 for (var i = 0; i < myPlayers.length; i++) {
-    if(gravityDirection==undefined)gravityDirection=0;
-    if(gravitypower==undefined)gravitypower=0;
+    if(gravityDirection==undefined || !this.videoPlayed)gravityDirection=0;
+    if(gravitypower==undefined || !this.videoPlayed)gravitypower=0;
         this.myPlayers[i].applyImpulse(gravityDirection, gravitypower);
         this.myPlayers[i].draw(ctx);
         //this.playerX = this.myPlayers[0].miX;

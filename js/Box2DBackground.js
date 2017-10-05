@@ -30,15 +30,15 @@ if(prevImg != sideNum){
         }     
     this.ctx.drawImage(img, 0, 0);      
     }else{
-        this.ctx.clearRect(0, 0, this.ctx.width, this.ctx.height);
+        //this.ctx.clearRect(0, 0, this.ctx.width, this.ctx.height);
         
         if(sideNum == 2){
-            //this.video.src =  "videos/onetotwo.mp4";
-            //this.video.load();
-            //this.videoonetotwo.play();
-            this.img = new Image();  
-            this.img.src = "images/videotest.jpg";
-            this.ctx.drawImage(img, 0, 0);   
+            //this.videoonetotwo.src =  "videos/onetotwo.mp4";
+            //this.videoonetotwo.load();
+            this.videoonetotwo.play();
+            //this.img = new Image();  
+            //this.img.src = "images/videotest.jpg";
+            //this.ctx.drawImage(img, 0, 0);   
             if(this.countFrame<= this.seconds)this.videoPlayed = true;
         }
     //this.ctx.drawImage(this.video, 0, 0);    
