@@ -18,10 +18,8 @@ var frameTime = 0, lastLoop = new Date, thisLoop;
 var world;
 var SCALE = 30;
 
-// backgroundmusic
-backgroundmusicone = document.createElement('AUDIO');
-backgroundmusicone.src="music/backgroundone.mp3";
-backgroundmusicone.play();
+// for animations
+
 
 // box2D variables
 var   b2Vec2 = Box2D.Common.Math.b2Vec2
@@ -40,8 +38,6 @@ var   b2Vec2 = Box2D.Common.Math.b2Vec2
 // Side Num
 var sideNum = 1;
 
-// images
-var imgSideone;
 
 // player
 var myPlayers = [];
@@ -55,6 +51,10 @@ var prevDir = "no";
 // the Boundaries to jump on
 var mySquaresForJumping = [];
 
+// for background
+var img;
+var video;
+var imgsource;
 
 function onReady() {
     // your inicialization code here  ----------------------------------------------
@@ -63,9 +63,12 @@ function onReady() {
     frameCounter = 0;
     canvas.addEventListener('mousedown', pick);
 
-    // loading pictures
-    imgSideone = new Image();
-    imgSideone.src = "pictures/side1.jpg";
+    // backgroundmusic
+    backgroundmusicone = document.createElement('AUDIO');
+    backgroundmusicone.src="music/backgroundone.mp3";
+    backgroundmusicone.play();
+
+    video = document.createElement('video');
 
     // setup world
     world = new b2World(
@@ -86,7 +89,10 @@ function draw () {
     //ctx.fillRect(0, 0, canvas.width, canvas.height);
 
     // for background
-    ctx.drawImage(imgSideone, 0, 0);
+    Box2DBackground(sideNum);
+    img = new Image();
+    img.src = imgsource;
+    ctx.drawImage(img, 0, 0);
 
     Box2DSide(sideNum);
     Box2DPlayer(sideNum);

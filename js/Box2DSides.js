@@ -9,17 +9,17 @@ var prevSideNum;
 
 this.mySquaresForJumping;
 
-if(prevSideNum != sideNum){
+if(prevSideNum != sideNum && sideNum%1==0){
     for(var z = 0;z < this.mySquaresForJumping.length; z++){
         this.mySquaresForJumping[z].removeBody();
         this.mySquaresForJumping.splice(z,1);
     } 
     if(sideNum==1){ // Creating Side One
-        this.mySquaresForJumping.push(new Box2DBondary(900, 845, 190, 5, 0));
-        this.mySquaresForJumping.push(new Box2DBondary(1075, 805, 20, 5, 0));
-        this.mySquaresForJumping.push(new Box2DBondary(970, 785, 20, 5, 0));
-        this.mySquaresForJumping.push(new Box2DBondary(855, 765, 20, 5, 0));
-        this.mySquaresForJumping.push(new Box2DBondary(735, 745, 20, 5, 0));
+        this.mySquaresForJumping.push(new Box2DBondary(910, 845, 190, 5, 0));
+        this.mySquaresForJumping.push(new Box2DBondary(1085, 805, 20, 5, 0));
+        this.mySquaresForJumping.push(new Box2DBondary(980, 785, 20, 5, 0));
+        this.mySquaresForJumping.push(new Box2DBondary(865, 765, 20, 5, 0));
+        this.mySquaresForJumping.push(new Box2DBondary(745, 745, 20, 5, 0));
     }else if(sideNum==2){ // Creating Side Two
         this.mySquaresForJumping.push(new Box2DBondary(1200, 845, 5, 50, 0));
         this.mySquaresForJumping.push(new Box2DBondary(300, 300, 5, 100, 0));
