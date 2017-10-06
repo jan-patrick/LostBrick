@@ -39,7 +39,7 @@ var   b2Vec2 = Box2D.Common.Math.b2Vec2
     ;
 
 // Side Num
-var sideNum = 2;
+var sideNum = 1;
 
 // player
 var myPlayers = [];
@@ -57,6 +57,7 @@ var mySquaresForJumping = [];
 var img;
 var videoonetotwo;
 var videotwotoone;
+var videotwotothree;
 var videoPlayed = true;
 var countFrame = 0;
 var seconds = 0;
@@ -83,6 +84,10 @@ function onReady() {
     videotwotoone = document.createElement('video');
     videotwotoone.src =  "videos/sidetwotoone.mp4";
     videotwotoone.load();
+
+    videotwotothree = document.createElement('video');
+    videotwotothree.src =  "videos/sidetwotothree.mp4";
+    videotwotothree.load();
 
     playerX = 500;
     playerY = 500;
@@ -128,12 +133,17 @@ function draw () {
     // change side if player reached right plattform
     if(videoPlayed == true){
         if(sideNum==1){
-            if(playerX>=1123 && playerX<=1127 && playerY<=703 && playerY>=700){
+            if(playerX>=1121 && playerX<=1127 && playerY<=703 && playerY>=700){
                 sideNum++;
                 countFrame = seconds+2;
                 videoPlayed = false;
                 whichVideo = "onetotwo";
                 //Box2DTransporter(playerX, playerY);
+            }else if(playerX>=1121 && playerX<=1127 && playerY<=467 && playerY>=465){
+                sideNum++;
+                countFrame = seconds+2;
+                videoPlayed = false;
+                whichVideo = "onetotwo";
             }
         }else if(sideNum==2){
             if(playerX>=698 && playerX<=700 && playerY<=586 && playerY>=582){
@@ -141,6 +151,11 @@ function draw () {
                 countFrame = seconds+2;
                 videoPlayed = false;
                 whichVideo = "twotoone";
+            }else if(playerX>=1122 && playerX<=1130 && playerY<=382 && playerY>=335){
+                sideNum++;
+                countFrame = seconds+2;
+                videoPlayed = false;
+                whichVideo = "twotothree";
             }
         }    
     }

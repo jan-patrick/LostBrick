@@ -9,6 +9,8 @@ var prevImg;
 
 this.img;
 this.videoonetotwo;
+this.videotwotoone;
+this.videotwotothree;
 var imgsource;
 
 this.ctx;
@@ -37,6 +39,9 @@ if(prevImg != sideNum){
         }else if(this.whichVideo == "twotoone"){
             this.videotwotoone.play();
             this.ctx.drawImage(videotwotoone, 0, 0);
+        }else if(this.whichVideo == "twotothree"){
+            this.videotwotothree.play();
+            this.ctx.drawImage(videotwotothree, 0, 0);
         }
         if(this.countFrame<= this.seconds)this.videoPlayed = true;   
     }

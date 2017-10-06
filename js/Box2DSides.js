@@ -35,7 +35,7 @@ if(prevSideNum != sideNum){
             this.mySquaresForJumping.push(new Box2DBondary(1140, 375, 5, 40, 0));
         }else if(sideNum==3){ // Creating Side Three
             this.mySquaresForJumping.push(new Box2DBondary(120, 50, 30, 10, 0));
-            this.mySquaresForJumping.push(new Box2DBondary(300, 300, 200, 10, 0));
+            this.mySquaresForJumping.push(new Box2DBondary(500, 300, 200, 10, 0));
             this.mySquaresForJumping.push(new Box2DBondary(400, 200, 100, 10, 0));   
         }else if(sideNum==4){ // Creating Side Four
             this.mySquaresForJumping.push(new Box2DBondary(200, 400, 10, 100, 0));
