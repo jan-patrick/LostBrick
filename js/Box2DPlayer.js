@@ -21,26 +21,26 @@ this.videoPlayed;
 
 if(prevSquNum != sideNum && this.videoPlayed){
     if(sideNum==1){ // gravity down
-        moveSquX = 730;
-        moveSquY = 820;
+        moveSquX = 740;
+        moveSquY = 815;
         gravityDirection = 90;
     }else if(sideNum==2){ // gravity to the right
-        moveSquX = 40;
-        moveSquY = 20;
+        moveSquX = 740;
+        moveSquY = 715;
         gravityDirection = 0;
     }else if(sideNum==3){ // gravity up
-        moveSquX = 60;
-        moveSquY = 20;
+        moveSquX = 840;
+        moveSquY = 815;
         gravityDirection = 270;
     }else if(sideNum==4){ // gravity to the left
-        moveSquX = 30;
-        moveSquY = 70;
+        moveSquX = 660;
+        moveSquY = 815;
         gravityDirection = 180;
     }
     prevSquNum = sideNum;
 }
 
-if(this.playerX >= 1000 || this.playerY >= 1000){
+if(this.playerX >= 1170 || this.playerY >= 950 || this.playerX <= 650 || this.playerY <= 100){
     this.playerCounter++;    
     for(var z = 0;z < this.myPlayers.length; z++){
         this.myPlayers[z].removeBody();

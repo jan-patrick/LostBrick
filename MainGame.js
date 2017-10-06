@@ -56,6 +56,7 @@ var videoonetotwo;
 var videoPlayed = true;
 var countFrame = 0;
 var seconds = 0;
+var prevImg = 0;
 
 function onReady() {
     // your inicialization code here  ----------------------------------------------
@@ -67,7 +68,7 @@ function onReady() {
     // backgroundmusic
     backgroundmusicone = document.createElement('AUDIO');
     backgroundmusicone.src="music/backgroundone.mp3";
-    backgroundmusicone.play();
+    //backgroundmusicone.play();
 
     videoonetotwo = document.createElement('video');
     videoonetotwo.src =  "videos/onetotwo.mp4";
@@ -99,7 +100,10 @@ function draw () {
     Box2DBackground(sideNum);
     Box2DSide(sideNum);
     Box2DPlayer(sideNum);
-    PlayerMovement(playDir, sideNum);    
+    PlayerMovement(playDir, sideNum); 
+    
+    playerX = myPlayers[0].getXpos();
+    playerY = myPlayers[0].getYpos();
 
     // printing text in canvas
     ctx.fillStyle = "#bbbbbb";
