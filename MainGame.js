@@ -39,7 +39,7 @@ var   b2Vec2 = Box2D.Common.Math.b2Vec2
     ;
 
 // Side Num
-var sideNum = 1;
+var sideNum = 2;
 
 // player
 var myPlayers = [];
@@ -117,7 +117,10 @@ function draw () {
     Box2DBackground(sideNum);
     Box2DSide(sideNum);
     Box2DPlayer(sideNum);
-    PlayerMovement(playDir, sideNum); 
+    PlayerMovement(playDir, sideNum);
+    
+    // JUST FOR TESTING
+    //Box2DTransporter(200, 200);
     
     playerX = myPlayers[0].getXpos();
     playerY = myPlayers[0].getYpos();
@@ -130,6 +133,7 @@ function draw () {
                 countFrame = seconds+2;
                 videoPlayed = false;
                 whichVideo = "onetotwo";
+                //Box2DTransporter(playerX, playerY);
             }
         }else if(sideNum==2){
             if(playerX>=698 && playerX<=700 && playerY<=586 && playerY>=582){

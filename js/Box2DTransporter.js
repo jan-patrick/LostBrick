@@ -1,7 +1,7 @@
 /**
  * Created by franklinhc on 28/3/17.
  */
-function Box2Dbasket ( x,  y) {
+function Box2DTransporter ( x,  y) {
     var miX,miY,myAngle;
     var miWidht  = 180 / SCALE/2;
     var miHeight = 10 / SCALE/2;

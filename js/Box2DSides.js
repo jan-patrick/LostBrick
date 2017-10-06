@@ -28,7 +28,11 @@ if(prevSideNum != sideNum){
             this.mySquaresForJumping.push(new Box2DBondary(713, 703, 5, 15, 0));
             this.mySquaresForJumping.push(new Box2DBondary(753, 680, 5, 40, 0));
             this.mySquaresForJumping.push(new Box2DBondary(713, 590, 5, 15, 0));
-            this.mySquaresForJumping.push(new Box2DBondary(400, 200, 5, 70, 0));
+            this.mySquaresForJumping.push(new Box2DBondary(795, 590, 5, 20, 0));
+            this.mySquaresForJumping.push(new Box2DBondary(755, 525, 5, 20, 0));
+            this.mySquaresForJumping.push(new Box2DBondary(737, 479, 50, 4, 0));
+            this.mySquaresForJumping.push(new Box2DBondary(1095, 440, 5, 20, 0));
+            this.mySquaresForJumping.push(new Box2DBondary(1140, 375, 5, 40, 0));
         }else if(sideNum==3){ // Creating Side Three
             this.mySquaresForJumping.push(new Box2DBondary(120, 50, 30, 10, 0));
             this.mySquaresForJumping.push(new Box2DBondary(300, 300, 200, 10, 0));
