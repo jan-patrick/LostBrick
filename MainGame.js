@@ -56,10 +56,12 @@ var mySquaresForJumping = [];
 // for background
 var img;
 var videoonetotwo;
+var videotwotoone;
 var videoPlayed = true;
 var countFrame = 0;
 var seconds = 0;
 var prevImg = 0;
+var whichVideo = "no";
 
 function onReady() {
     // your inicialization code here  ----------------------------------------------
@@ -73,9 +75,14 @@ function onReady() {
     backgroundmusicone.src="music/backgroundone.mp3";
     //backgroundmusicone.play();
 
+    // import of all needed videos
     videoonetotwo = document.createElement('video');
-    videoonetotwo.src =  "videos/onetotwo.mp4";
+    videoonetotwo.src =  "videos/sideonetotwo.mp4";
     videoonetotwo.load();
+
+    videotwotoone = document.createElement('video');
+    videotwotoone.src =  "videos/sidetwotoone.mp4";
+    videotwotoone.load();
 
     playerX = 500;
     playerY = 500;
@@ -99,6 +106,13 @@ function draw () {
     //ctx.fillStyle="#444444"; // dark gray
     //ctx.fillRect(0, 0, canvas.width, canvas.height);
 
+    // if square is turned around fully go to start / last page
+    if(sideNum>=5){
+        sideNum=1;
+    }else if(sideNum<=0){
+        sideNum=4;
+    }
+
     // for background
     Box2DBackground(sideNum);
     Box2DSide(sideNum);
@@ -115,8 +129,16 @@ function draw () {
                 sideNum++;
                 countFrame = seconds+2;
                 videoPlayed = false;
+                whichVideo = "onetotwo";
             }
-        }
+        }else if(sideNum==2){
+            if(playerX>=698 && playerX<=700 && playerY<=586 && playerY>=582){
+                sideNum--;
+                countFrame = seconds+2;
+                videoPlayed = false;
+                whichVideo = "twotoone";
+            }
+        }    
     }
 
     // printing text in canvas
@@ -170,7 +192,8 @@ function keyInput(e) {
                 videoPlayed = false;
                 break;
         }
-    }    
+    }
+    if(videoPlayed==true){    
         switch (e.keyCode) {            
             case 65: // a
                 playDir = "a";
@@ -189,12 +212,7 @@ function keyInput(e) {
                 //console.log(e);
                 break;    
         }
-    // if square is turned around fully go to start / last page
-    if(sideNum>=5){
-        sideNum=1;
-    }else if(sideNum<=0){
-        sideNum=4;
-    }
+    }    
 }
 
 // for animation request  ---------------------------------------------------

@@ -15,6 +15,7 @@ this.ctx;
 this.videoPlayed;
 this.frameCounter;
 this.countFrame;
+this.whichVideo;
 
 if(prevImg != sideNum){
     if(this.videoPlayed){ // show background image
@@ -30,12 +31,14 @@ if(prevImg != sideNum){
         }     
     this.ctx.drawImage(img, 0, 0);      
     }else{ // show video transition       
-        if(sideNum == 2){
+        if(this.whichVideo == "onetotwo"){
             this.videoonetotwo.play();
-            this.ctx.drawImage(videoonetotwo, 0, 0);  
-            if(this.countFrame<= this.seconds)this.videoPlayed = true;
+            this.ctx.drawImage(videoonetotwo, 0, 0);             
+        }else if(this.whichVideo == "twotoone"){
+            this.videotwotoone.play();
+            this.ctx.drawImage(videotwotoone, 0, 0);
         }
-    //this.ctx.drawImage(this.video, 0, 0);    
+        if(this.countFrame<= this.seconds)this.videoPlayed = true;   
     }
     prevImg = sideNum;
 }    

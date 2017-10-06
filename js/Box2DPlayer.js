@@ -40,7 +40,7 @@ if(prevSquNum != sideNum && this.videoPlayed){
     prevSquNum = sideNum;
 }
 
-if(this.playerX >= 1170 || this.playerY >= 950 || this.playerX <= 650 || this.playerY <= 100){
+if(this.playerX >= 1200 || this.playerY >= 950 || this.playerX <= 600 || this.playerY <= 100){
     this.playerCounter++;    
     for(var z = 0;z < this.myPlayers.length; z++){
         this.myPlayers[z].removeBody();
