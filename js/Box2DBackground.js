@@ -36,6 +36,7 @@ if(prevImg != sideNum){
             //this.videoonetotwo.src =  "videos/onetotwo.mp4";
             //this.videoonetotwo.load();
             this.videoonetotwo.play();
+            this.ctx.drawImage(videoonetotwo, 0, 0);
             //this.img = new Image();  
             //this.img.src = "images/videotest.jpg";
             //this.ctx.drawImage(img, 0, 0);   

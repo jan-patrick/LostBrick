@@ -7,7 +7,9 @@ function Box2DBox ( x,  y,  w, h) {
     var b2BodyDef = Box2D.Dynamics.b2BodyDef;
     var b2PolygonShape = Box2D.Collision.Shapes.b2PolygonShape;
     var b2Body = Box2D.Dynamics.b2Body;
-    var miX,miY,myAngle;
+    var miX = 0;
+    var miY = 0;
+    var myAngle;
 
     var miWidht  = w / SCALE;
     var miHeight = h / SCALE;

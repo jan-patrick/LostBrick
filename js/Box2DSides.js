@@ -16,7 +16,7 @@ if(prevSideNum != sideNum){
     }
     if(this.videoPlayed){ 
         if(sideNum==1){ // Creating Side One
-            this.mySquaresForJumping.push(new Box2DBondary(910, 845, 190, 5, 0));
+            this.mySquaresForJumping.push(new Box2DBondary(760, 835, 40, 5, 0));
             this.mySquaresForJumping.push(new Box2DBondary(1085, 805, 20, 5, 0));
             this.mySquaresForJumping.push(new Box2DBondary(980, 785, 20, 5, 0));
             this.mySquaresForJumping.push(new Box2DBondary(865, 765, 20, 5, 0));

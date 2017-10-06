@@ -40,7 +40,7 @@ if(prevSquNum != sideNum && this.videoPlayed){
     prevSquNum = sideNum;
 }
 
-if(this.playerX >= 100 || this.playerY >= 100){
+if(this.playerX >= 1000 || this.playerY >= 1000){
     this.playerCounter++;    
     for(var z = 0;z < this.myPlayers.length; z++){
         this.myPlayers[z].removeBody();
@@ -53,19 +53,15 @@ if(this.myPlayers.length<=0){
     myPlayers.push(myplayer);    
 }
 
-//this.myPlayers[i].update()
-//this.playerX = this.myPlayers[0].miX;
-//this.playerY = this.myPlayers[0].miY;
-
 // draw the playable square
 for (var i = 0; i < myPlayers.length; i++) {
     if(gravityDirection==undefined || !this.videoPlayed)gravityDirection=0;
     if(gravitypower==undefined || !this.videoPlayed)gravitypower=0;
         this.myPlayers[i].applyImpulse(gravityDirection, gravitypower);
         this.myPlayers[i].draw(ctx);
-        //this.playerX = this.myPlayers[0].miX;
-        //this.playerY = this.myPlayers[0].miY;
-}    
+        this.playerX = myPlayers[i].miX;
+        this.playerY = myPlayers[i].miY;
+}
 } // end Box2DPlayer
 
 function PlayerMovement (playDirr, sideNum) {

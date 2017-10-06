@@ -73,6 +73,9 @@ function onReady() {
     videoonetotwo.src =  "videos/onetotwo.mp4";
     videoonetotwo.load();
 
+    playerX = 500;
+    playerY = 500;
+
     // setup world
     world = new b2World(
         new b2Vec2(0, 0)    //gravity
@@ -96,8 +99,7 @@ function draw () {
     Box2DBackground(sideNum);
     Box2DSide(sideNum);
     Box2DPlayer(sideNum);
-    PlayerMovement(playDir, sideNum);
-    
+    PlayerMovement(playDir, sideNum);    
 
     // printing text in canvas
     ctx.fillStyle = "#bbbbbb";
