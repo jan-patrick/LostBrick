@@ -4,6 +4,9 @@
 document.onkeydown=function(){keyInput()};
 window.onload = onReady; // first function call
 
+// test mode
+var godmode = false;
+
 // mouse position any time
 var mouseX, mouseY;
 
@@ -40,7 +43,7 @@ var sideNum = 1;
 
 // player
 var myPlayers = [];
-var playerCounter = 1;
+var playerCounter = 0;
 var playerX;
 var playerY;
 // player direction
@@ -105,6 +108,17 @@ function draw () {
     playerX = myPlayers[0].getXpos();
     playerY = myPlayers[0].getYpos();
 
+    // change side if player reached right plattform
+    if(videoPlayed == true){
+        if(sideNum==1){
+            if(playerX>=1123 && playerX<=1127 && playerY<=701 && playerY>=699){
+                sideNum++;
+                countFrame = seconds+2;
+                videoPlayed = false;
+            }
+        }
+    }
+
     // printing text in canvas
     ctx.fillStyle = "#bbbbbb";
     ctx.font = "normal 11px Roboto-Medium";
@@ -145,32 +159,36 @@ function pick(event) {
 // changeing the Sides
 function keyInput(e) {
     e = e || window.event;
-    switch (e.keyCode) {
-        case 37: // left arrow
-            sideNum--;
-            break;
-        case 39: // right arrow
-            sideNum++;
-            countFrame = seconds+2;
-            videoPlayed = false;
-            break;
-        case 65: // a
-            playDir = "a";
-            break;
-        case 87: // w
-            playDir = "w";
-            break;
-        case 68: // d
-            playDir = "d";
-            break;
-        case 83: // s
-            playDir = "s";
-            break;                        
-        default:
-            sideNum = sideNum;
-            //console.log(e);
-            break;    
-    }
+    if(godmode){
+        switch (e.keyCode) {
+            case 37: // left arrow
+                sideNum--;
+                break;
+            case 39: // right arrow
+                sideNum++;
+                countFrame = seconds+2;
+                videoPlayed = false;
+                break;
+        }
+    }    
+        switch (e.keyCode) {            
+            case 65: // a
+                playDir = "a";
+                break;
+            case 87: // w
+                playDir = "w";
+                break;
+            case 68: // d
+                playDir = "d";
+                break;
+            case 83: // s
+                playDir = "s";
+                break;                        
+            default:
+                sideNum = sideNum;
+                //console.log(e);
+                break;    
+        }
     // if square is turned around fully go to start / last page
     if(sideNum>=5){
         sideNum=1;

@@ -16,11 +16,14 @@ if(prevSideNum != sideNum){
     }
     if(this.videoPlayed){ 
         if(sideNum==1){ // Creating Side One
-            this.mySquaresForJumping.push(new Box2DBondary(760, 835, 40, 5, 0));
-            this.mySquaresForJumping.push(new Box2DBondary(1085, 805, 20, 5, 0));
-            this.mySquaresForJumping.push(new Box2DBondary(980, 785, 20, 5, 0));
-            this.mySquaresForJumping.push(new Box2DBondary(865, 765, 20, 5, 0));
-            this.mySquaresForJumping.push(new Box2DBondary(745, 745, 20, 5, 0));
+            this.mySquaresForJumping.push(new Box2DBondary(762, 835, 40, 5, 0));
+            this.mySquaresForJumping.push(new Box2DBondary(872, 797, 40, 5, 0));
+            this.mySquaresForJumping.push(new Box2DBondary(990, 757, 40, 5, 0));
+            this.mySquaresForJumping.push(new Box2DBondary(1095, 715, 40, 5, 0));
+            this.mySquaresForJumping.push(new Box2DBondary(1095, 605, 40, 5, 0));
+            this.mySquaresForJumping.push(new Box2DBondary(1013, 560, 20, 5, 0));
+            this.mySquaresForJumping.push(new Box2DBondary(1067, 520, 20, 5, 0));
+            this.mySquaresForJumping.push(new Box2DBondary(1116, 480, 20, 5, 0));
         }else if(sideNum==2){ // Creating Side Two
             this.mySquaresForJumping.push(new Box2DBondary(1200, 845, 5, 50, 0));
             this.mySquaresForJumping.push(new Box2DBondary(300, 300, 5, 100, 0));
