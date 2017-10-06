@@ -111,7 +111,7 @@ function draw () {
     // change side if player reached right plattform
     if(videoPlayed == true){
         if(sideNum==1){
-            if(playerX>=1123 && playerX<=1127 && playerY<=701 && playerY>=699){
+            if(playerX>=1123 && playerX<=1127 && playerY<=703 && playerY>=700){
                 sideNum++;
                 countFrame = seconds+2;
                 videoPlayed = false;
