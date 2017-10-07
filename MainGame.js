@@ -49,6 +49,7 @@ var myPlayers = [];
 var playerCounter = 0;
 var playerX;
 var playerY;
+var playerMoved = false;
 // player direction
 var playDir = "no";
 var prevDir = "no";
@@ -74,6 +75,8 @@ var whichVideo = "no";
 var myTransporter = [];
 var transporterX;
 var transporterY;
+var transporterDrive = 0;
+var actFrame;
 
 function onReady() {
     // your inicialization code here  ----------------------------------------------
@@ -169,8 +172,12 @@ function draw () {
         Box2DPlayer(sideNum);
         PlayerMovement(playDir, sideNum);
         
-        playerX = myPlayers[0].getXpos();
-        playerY = myPlayers[0].getYpos();
+        if(videoPlayed==true){
+            playerX = myPlayers[0].getXpos();
+            playerY = myPlayers[0].getYpos();
+        }
+
+        Box2DTransporter(playerX, playerY);
 
         if(this.videoPlayed == false){
             for(var t = 0;t < myTransporter.length; t++){
@@ -187,6 +194,7 @@ function draw () {
                     countFrame = seconds+2;
                     videoPlayed = false;
                     whichVideo = "onetotwo";
+                    actFrame = frameCounter;
                     //Box2DTransporter(playerX, playerY);
                 }else if(playerX>=1121 && playerX<=1127 && playerY<=467 && playerY>=465){
                     sideNum++;

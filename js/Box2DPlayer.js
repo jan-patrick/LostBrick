@@ -18,49 +18,61 @@ this.playerY;
 this.playDir;
 this.prevDir;
 this.videoPlayed;
+this.playerMoved;
 
-if(prevSquNum != sideNum && this.videoPlayed){
-    if(sideNum==1){ // gravity down
-        moveSquX = 740;
-        moveSquY = 815;
-        gravityDirection = 90;
-    }else if(sideNum==2){ // gravity to the right
-        moveSquX = 690;
-        moveSquY = 700;
-        gravityDirection = 0;
-    }else if(sideNum==3){ // gravity up
-        moveSquX = 720;
-        moveSquY = 415;
-        gravityDirection = 270;
-    }else if(sideNum==4){ // gravity to the left
-        moveSquX = 700;
-        moveSquY = 435;
-        gravityDirection = 180;
+if(this.videoPlayed){
+    if(prevSquNum != sideNum || prevSquNum != sideNum && this.playerMoved==true || this.playerMoved==true){
+        if(sideNum==1){ // gravity down
+            moveSquX = 740;
+            moveSquY = 815;
+            gravityDirection = 90;
+        }else if(sideNum==2){ // gravity to the right
+            moveSquX = 690;
+            moveSquY = 700;
+            gravityDirection = 0;
+        }else if(sideNum==3){ // gravity up
+            moveSquX = 720;
+            moveSquY = 415;
+            gravityDirection = 270;
+        }else if(sideNum==4){ // gravity to the left
+            moveSquX = 700;
+            moveSquY = 435;
+            gravityDirection = 180;
+        }
+        this.playerMoved = false;
+        prevSquNum = sideNum;
     }
-    prevSquNum = sideNum;
-}
 
-if(this.playerX >= 1200 || this.playerY >= 950 || this.playerX <= 600 || this.playerY <= 100){
-    this.playerCounter++;    
-    for(var z = 0;z < this.myPlayers.length; z++){
-        this.myPlayers[z].removeBody();
-        this.myPlayers.splice(z,1);
+    if(this.playerX >= 1200 || this.playerY >= 950 || this.playerX <= 600 || this.playerY <= 100){
+        this.playerCounter++;    
+        for(var z = 0;z < this.myPlayers.length; z++){
+            this.myPlayers[z].removeBody();
+            this.myPlayers.splice(z,1);
+        }
+    } 
+
+    if(this.myPlayers.length<=0){
+        var myplayer = new Box2DBox(moveSquX, moveSquY, w, h);
+        myPlayers.push(myplayer);    
     }
-} 
 
-if(this.myPlayers.length<=0){
-    var myplayer = new Box2DBox(moveSquX, moveSquY, w, h);
-    myPlayers.push(myplayer);    
-}
-
-// draw the playable square
-for (var i = 0; i < myPlayers.length; i++) {
-    if(gravityDirection==undefined || !this.videoPlayed)gravityDirection=0;
-    if(gravitypower==undefined || !this.videoPlayed)gravitypower=0;
-        this.myPlayers[i].applyImpulse(gravityDirection, gravitypower);
-        this.myPlayers[i].draw(ctx);
-        this.playerX = myPlayers[i].miX;
-        this.playerY = myPlayers[i].miY;
+    // draw the playable square
+    for (var i = 0; i < myPlayers.length; i++) {
+        if(gravityDirection==undefined || !this.videoPlayed)gravityDirection=0;
+        if(gravitypower==undefined || !this.videoPlayed)gravitypower=0;
+            this.myPlayers[i].applyImpulse(gravityDirection, gravitypower);
+            this.myPlayers[i].draw(ctx);
+            this.playerX = myPlayers[i].miX;
+            this.playerY = myPlayers[i].miY;
+    }
+}else{
+    if(this.myTransporter.length>=0){
+        for(var z = 0;z < this.myPlayers.length; z++){
+            this.myPlayers[z].removeBody();
+            this.myPlayers.splice(z,1);
+        }
+    }
+    this.playerMoved = true;
 }
 } // end Box2DPlayer
 

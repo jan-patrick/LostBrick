@@ -32,11 +32,12 @@ if(prevImg != sideNum){
             this.img.src = "images/sidefour.jpg";
         }     
     this.ctx.drawImage(img, 0, 0);      
-    }else{ // show video transition
-        Box2DTransporter(this.playerX, this.playerY);       
+    }else{ // show video transition       
         if(this.whichVideo == "onetotwo"){
             this.videoonetotwo.play();
-            this.ctx.drawImage(videoonetotwo, 0, 0);             
+            this.ctx.drawImage(videoonetotwo, 0, 0);
+            //driveTransporter(this.frameCounter);
+            //setMyTransporterLoc();             
         }else if(this.whichVideo == "twotoone"){
             this.videotwotoone.play();
             this.ctx.drawImage(videotwotoone, 0, 0);
