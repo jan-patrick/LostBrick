@@ -29,12 +29,12 @@ if(prevSquNum != sideNum && this.videoPlayed){
         moveSquY = 700;
         gravityDirection = 0;
     }else if(sideNum==3){ // gravity up
-        moveSquX = 840;
-        moveSquY = 815;
+        moveSquX = 720;
+        moveSquY = 415;
         gravityDirection = 270;
     }else if(sideNum==4){ // gravity to the left
-        moveSquX = 660;
-        moveSquY = 815;
+        moveSquX = 700;
+        moveSquY = 435;
         gravityDirection = 180;
     }
     prevSquNum = sideNum;
@@ -86,8 +86,7 @@ function PlayerMovement (playDirr, sideNum) {
         }else if(playDirr == "s"){
             this.myPlayers[0].applyImpulse(down, walk);
             this.myPlayers[0].draw(ctx);
-        }  
-        this.prevDir = playDirr;
+        }
     }else if(sideNum==2){
         if(playDirr == "a" && this.prevDir != playDirr){
             this.myPlayers[0].applyImpulse(left, jump);
@@ -101,9 +100,37 @@ function PlayerMovement (playDirr, sideNum) {
         }else if(playDirr == "s"){
             this.myPlayers[0].applyImpulse(down, walk);
             this.myPlayers[0].draw(ctx);
-        }     
-    this.prevDir = playDirr;
-    }    
+        }         
+    }else if(sideNum==3){
+        if(playDirr == "a"){
+            this.myPlayers[0].applyImpulse(left, walk);
+            this.myPlayers[0].draw(ctx);
+        }else if(playDirr == "w"){
+            this.myPlayers[0].applyImpulse(up, walk);
+            this.myPlayers[0].draw(ctx);
+        }else if(playDirr == "d"){
+            this.myPlayers[0].applyImpulse(right, walk);
+            this.myPlayers[0].draw(ctx);
+        }else if(playDirr == "s" && this.prevDir != playDirr){
+            this.myPlayers[0].applyImpulse(down, jump);
+            this.myPlayers[0].draw(ctx);
+        }
+    }else if(sideNum==4){
+        if(playDirr == "a"){
+            this.myPlayers[0].applyImpulse(left, walk);
+            this.myPlayers[0].draw(ctx);
+        }else if(playDirr == "w"){
+            this.myPlayers[0].applyImpulse(up, walk);
+            this.myPlayers[0].draw(ctx);
+        }else if(playDirr == "d"  && this.prevDir != playDirr){
+            this.myPlayers[0].applyImpulse(right, jump);
+            this.myPlayers[0].draw(ctx);
+        }else if(playDirr == "s"){
+            this.myPlayers[0].applyImpulse(down, walk);
+            this.myPlayers[0].draw(ctx);
+        }
+    } 
+    this.prevDir = playDirr;    
     this.playDir = "no";
 }
 

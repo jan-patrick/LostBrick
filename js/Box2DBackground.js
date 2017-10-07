@@ -41,7 +41,10 @@ if(prevImg != sideNum){
             this.ctx.drawImage(videotwotoone, 0, 0);
         }else if(this.whichVideo == "twotothree"){
             this.videotwotothree.play();
-            this.ctx.drawImage(videotwotothree, 0, 0);
+            this.ctx.drawImage(videotwotothree, 0, 0);  
+        }else if(this.whichVideo == "threetofour"){
+            this.videothreetofour.play();
+            this.ctx.drawImage(videothreetofour, 0, 0);
         }
         if(this.countFrame<= this.seconds)this.videoPlayed = true;   
     }
