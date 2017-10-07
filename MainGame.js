@@ -132,7 +132,7 @@ function draw () {
     PlayerMovement(playDir, sideNum);
     
     // JUST FOR TESTING
-    Box2DTransporter(700, 200);
+    Box2DTransporter();
     
     playerX = myPlayers[0].getXpos();
     playerY = myPlayers[0].getYpos();
