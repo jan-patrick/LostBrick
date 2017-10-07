@@ -1,6 +1,7 @@
 /**
- * Created by Jan Schneider on 21/9/17.
+ * Created by Roman Kuhn, Marcus Schoch, Jan Schneider on 3/10/17.
  */
+
 function Box2Dbasket ( x,  y) {
     var miX,miY,myAngle;
     var miWidht  = 70 / 60;

@@ -6,6 +6,7 @@ window.onload = onReady; // first function call
 
 // test mode
 var godmode = false;
+var gamemode = "play";
 
 // mouse position any time
 var mouseX, mouseY;
@@ -16,6 +17,8 @@ var ctx;
 // for frame rate
 var filterStrength = 20;
 var frameTime = 0, lastLoop = new Date, thisLoop;
+var timeSet = false;
+var playedSeconds;
 
 // box2D world
 var world;
@@ -55,9 +58,12 @@ var mySquaresForJumping = [];
 
 // for background
 var img;
+var videomenu;
+var videointro;
 var videoonetotwo;
 var videotwotoone;
 var videothreetofour;
+var videoend;
 var videoPlayed = true;
 var countFrame = 0;
 var seconds = 0;
@@ -66,6 +72,8 @@ var whichVideo = "no";
 
 // transporter (while transition between sides)
 var myTransporter = [];
+var transporterX;
+var transporterY;
 
 function onReady() {
     // your inicialization code here  ----------------------------------------------
@@ -80,6 +88,14 @@ function onReady() {
     //backgroundmusicone.play();
 
     // import of all needed videos
+    videomenu = document.createElement('video');
+    videomenu.src =  "videos/menu.mp4";
+    videomenu.load();
+
+    videointro = document.createElement('video');
+    videointro.src =  "videos/intro.mp4";
+    videointro.load();
+
     videoonetotwo = document.createElement('video');
     videoonetotwo.src =  "videos/sideonetotwo.mp4";
     videoonetotwo.load();
@@ -95,6 +111,10 @@ function onReady() {
     videothreetofour = document.createElement('video');
     videothreetofour.src =  "videos/sidethreetofour.mp4";
     videothreetofour.load();
+
+    videoend = document.createElement('video');
+    videoend.src =  "videos/end.mp4";
+    videoend.load();
 
     playerX = 500;
     playerY = 500;
@@ -112,99 +132,138 @@ function onReady() {
 
 // your drawing code here ---------------------------------------------------
 function draw () {
-    var thisFrameTime = (thisLoop=new Date) - lastLoop;
-    seconds = new Date().getTime() / 1000;
-    // for background
-    //ctx.fillStyle="#444444"; // dark gray
-    //ctx.fillRect(0, 0, canvas.width, canvas.height);
+    if(gamemode=="menu"){
+        //videomenu.play();
+        //ctx.drawImage(videomenu, 0, 0);
 
-    // if square is turned around fully go to start / last page
-    if(sideNum>=5){
-        sideNum=1;
-    }else if(sideNum<=0){
-        sideNum=4;
-    }
+        img = new Image();
+        img.src = "images/sidefour.jpg";
+        ctx.drawImage(img, 0, 0);
 
-    // for background
-    Box2DBackground(sideNum);
-    Box2DSide(sideNum);
-    Box2DPlayer(sideNum);
-    PlayerMovement(playDir, sideNum);
-    
-    // JUST FOR TESTING
-    Box2DTransporter();
-    
-    playerX = myPlayers[0].getXpos();
-    playerY = myPlayers[0].getYpos();
+        ctx.fillStyle = "#ffffff";
+        ctx.font = "normal 20px DINPro";
+        ctx.fillText("press any key to start", 400, canvas.height/2);  
+    }else if(gamemode=="intro"){
+        countFrame = seconds+2;
+        videointro.play();
+        ctx.drawImage(videointro, 0, 0);  
+        if(countFrame<= seconds)gamemode = "play";
+    }else if(gamemode=="play"){
+        var thisFrameTime = (thisLoop=new Date) - lastLoop;
+        seconds = new Date().getTime() / 1000;
+        if(!timeSet)playedSeconds=seconds;
+        // for background
+        //ctx.fillStyle="#444444"; // dark gray
+        //ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-    // change side if player reached right plattform
-    if(videoPlayed == true){
-        if(sideNum==1){
-            if(playerX>=1121 && playerX<=1127 && playerY<=703 && playerY>=700){
-                sideNum++;
-                countFrame = seconds+2;
-                videoPlayed = false;
-                whichVideo = "onetotwo";
-                //Box2DTransporter(playerX, playerY);
-            }else if(playerX>=1121 && playerX<=1127 && playerY<=467 && playerY>=465){
-                sideNum++;
-                countFrame = seconds+2;
-                videoPlayed = false;
-                whichVideo = "onetotwo";
+        // if square is turned around fully go to start / last page
+        if(sideNum>=5){
+            sideNum=1;
+        }else if(sideNum<=0){
+            sideNum=4;
+        }
+
+        // for background
+        Box2DBackground(sideNum);
+        Box2DSide(sideNum);
+        Box2DPlayer(sideNum);
+        PlayerMovement(playDir, sideNum);
+        
+        playerX = myPlayers[0].getXpos();
+        playerY = myPlayers[0].getYpos();
+
+        if(this.videoPlayed == false){
+            for(var t = 0;t < myTransporter.length; t++){
+                myTransporter[t].removeBody();
+                myTransporter.splice(t,1);
             }
-        }else if(sideNum==2){
-            if(playerX>=698 && playerX<=700 && playerY<=586 && playerY>=582){
-                sideNum--;
-                countFrame = seconds+2;
-                videoPlayed = false;
-                whichVideo = "twotoone";
-            }else if(playerX>=1122 && playerX<=1130 && playerY<=413 && playerY>=410){
-                sideNum++;
-                countFrame = seconds+2;
-                videoPlayed = false;
-                whichVideo = "twotothree";
-            }
-        }else if(sideNum==3){
-            if(playerX>=1123 && playerX<=1135 && playerY<=563 && playerY>=560){
-                sideNum++;
-                countFrame = seconds+2;
-                videoPlayed = false;
-                whichVideo = "threetofour";
-            }else if(playerX>=1123 && playerX<=1128 && playerY<=433 && playerY>=430){
-                sideNum++;
-                countFrame = seconds+2;
-                videoPlayed = false;
-                whichVideo = "threetofour";
-            }    
-        }    
+        }
+
+        // change side if player reached right plattform
+        if(videoPlayed == true){
+            if(sideNum==1){
+                if(playerX>=1121 && playerX<=1127 && playerY<=703 && playerY>=700){
+                    sideNum++;
+                    countFrame = seconds+2;
+                    videoPlayed = false;
+                    whichVideo = "onetotwo";
+                    //Box2DTransporter(playerX, playerY);
+                }else if(playerX>=1121 && playerX<=1127 && playerY<=467 && playerY>=465){
+                    sideNum++;
+                    countFrame = seconds+2;
+                    videoPlayed = false;
+                    whichVideo = "onetotwo";
+                }
+            }else if(sideNum==2){
+                if(playerX>=698 && playerX<=700 && playerY<=586 && playerY>=582){
+                    sideNum--;
+                    countFrame = seconds+2;
+                    videoPlayed = false;
+                    whichVideo = "twotoone";
+                }else if(playerX>=1122 && playerX<=1130 && playerY<=413 && playerY>=410){
+                    sideNum++;
+                    countFrame = seconds+2;
+                    videoPlayed = false;
+                    whichVideo = "twotothree";
+                }
+            }else if(sideNum==3){
+                if(playerX>=1123 && playerX<=1135 && playerY<=563 && playerY>=560){
+                    sideNum++;
+                    countFrame = seconds+2;
+                    videoPlayed = false;
+                    whichVideo = "threetofour";
+                }else if(playerX>=1123 && playerX<=1128 && playerY<=433 && playerY>=430){
+                    sideNum++;
+                    countFrame = seconds+2;
+                    videoPlayed = false;
+                    whichVideo = "threetofour";
+                }    
+            }else if(sideNum==4){
+                if(playerX>=1086 && playerX<=1090 && playerY<=166 && playerY>=157){
+                    gamemode="end";
+                }
+            }        
+        }
+
+        // printing text in canvas
+        ctx.fillStyle = "#bbbbbb";
+        ctx.font = "normal 11px DINPro";
+
+        ctx.fillText("countFrame: "+ countFrame, 10, canvas.height-145);
+        ctx.fillText("Seconds: "+ seconds, 10, canvas.height-125);
+        ctx.fillText("X-Position: "+ playerX, 10, canvas.height-105);
+        ctx.fillText("Y-Position: "+ playerY, 10, canvas.height-85);
+        ctx.fillText("Side number: "+ sideNum, 10, canvas.height-65);
+        ctx.fillText("Square number: "+ playerCounter, 10, canvas.height-45);
+        ctx.fillText("current frame: "+ frameCounter, 10, canvas.height-25);
+        ctx.fillText("frame rate: " +(1000/frameTime)+ " fps", 10, canvas.height-5);
+
+        world.Step(
+            1 / 60   //frame-rate
+            ,  10       //velocity iterations
+            ,  10       //position iterations
+        );
+
+        // frameRate calculating
+        frameTime+= (thisFrameTime - frameTime) / filterStrength;
+        lastLoop = thisLoop;
+        //var fpsOut = document.getElementById('frameRate');
+        //fpsOut.innerHTML = "current frame = " +frameCounter+ "   currente frame rate = "+(1000/frameTime).toFixed(1) + " fps";
+        frameCounter += 1;
+        requestAnimFrame(draw);
+    }else if(gamemode=="end"){
+        img = new Image();
+        img.src = "images/sidefour.jpg";
+        ctx.drawImage(img, 0, 0);
+
+        Box2DSide(sideNum);
+        Box2DPlayer(sideNum);
+
+        ctx.fillStyle = "#ffffff";
+        ctx.font = "normal 20px DINPro";
+        ctx.fillText("time: "+ seconds-playedSeconds, 400, canvas.height/2);
+        ctx.fillText("lifes: "+ playerCounter, 400, canvas.height/2+20);  
     }
-
-    // printing text in canvas
-    ctx.fillStyle = "#bbbbbb";
-    ctx.font = "normal 11px Roboto-Medium";
-
-    ctx.fillText("countFrame: "+ countFrame, 10, canvas.height-145);
-    ctx.fillText("Seconds: "+ seconds, 10, canvas.height-125);
-    ctx.fillText("X-Position: "+ playerX, 10, canvas.height-105);
-    ctx.fillText("Y-Position: "+ playerY, 10, canvas.height-85);
-    ctx.fillText("Side number: "+ sideNum, 10, canvas.height-65);
-    ctx.fillText("Square number: "+ playerCounter, 10, canvas.height-45);
-    ctx.fillText("current frame: "+ frameCounter, 10, canvas.height-25);
-    ctx.fillText("frame rate: " +(1000/frameTime)+ " fps", 10, canvas.height-5);
-
-    world.Step(
-        1 / 60   //frame-rate
-        ,  10       //velocity iterations
-        ,  10       //position iterations
-    );
-
-    // frameRate calculating
-    frameTime+= (thisFrameTime - frameTime) / filterStrength;
-    lastLoop = thisLoop;
-    //var fpsOut = document.getElementById('frameRate');
-    //fpsOut.innerHTML = "current frame = " +frameCounter+ "   currente frame rate = "+(1000/frameTime).toFixed(1) + " fps";
-    frameCounter += 1;
-    requestAnimFrame(draw);
 }
 
 
@@ -231,7 +290,13 @@ function keyInput(e) {
                 break;
         }
     }
-    if(videoPlayed==true){    
+    if(gamemode=="menu"){
+        switch (e.keyCode) {            
+            default: // else if any key pressed start intro video
+                gamemode="intro";
+                break;
+        }        
+    }else if(gamemode=="play" && videoPlayed==true){    
         switch (e.keyCode) {            
             case 65: // a
                 playDir = "a";

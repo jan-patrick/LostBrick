@@ -32,7 +32,8 @@ if(prevImg != sideNum){
             this.img.src = "images/sidefour.jpg";
         }     
     this.ctx.drawImage(img, 0, 0);      
-    }else{ // show video transition       
+    }else{ // show video transition
+        Box2DTransporter(this.playerX, this.playerY);       
         if(this.whichVideo == "onetotwo"){
             this.videoonetotwo.play();
             this.ctx.drawImage(videoonetotwo, 0, 0);             
