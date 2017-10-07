@@ -7,5 +7,4 @@ Roman Kuhn,
 Marcus Schoch, 
 Jan Schneider
 
-![icon](https://github.com/JanPSchneider/LostBrick/blob/master/logo.svg)
-<img src="https://github.com/JanPSchneider/LostBrick/blob/master/logo.svg">
+![icon](https://github.com/JanPSchneider/LostBrick/blob/master/images/fulllogo.jpg)
