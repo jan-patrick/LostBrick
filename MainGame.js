@@ -6,7 +6,7 @@ window.onload = onReady; // first function call
 
 // test mode
 var godmode = false;
-var gamemode = "play";
+var gamemode = "menu";
 
 // mouse position any time
 var mouseX, mouseY;
@@ -71,6 +71,9 @@ var seconds = 0;
 var prevImg = 0;
 var whichVideo = "no";
 
+// for intro
+var introStarted = false;
+
 // transporter (while transition between sides)
 var myTransporter = [];
 var transporterX;
@@ -91,10 +94,6 @@ function onReady() {
     //backgroundmusicone.play();
 
     // import of all needed videos
-    videomenu = document.createElement('video');
-    videomenu.src =  "videos/menu.mp4";
-    videomenu.load();
-
     videointro = document.createElement('video');
     videointro.src =  "videos/intro.mp4";
     videointro.load();
@@ -135,25 +134,25 @@ function onReady() {
 
 // your drawing code here ---------------------------------------------------
 function draw () {
+    var thisFrameTime = (thisLoop=new Date) - lastLoop;
+    seconds = new Date().getTime() / 1000;
     if(gamemode=="menu"){
-        //videomenu.play();
-        //ctx.drawImage(videomenu, 0, 0);
-
         img = new Image();
-        img.src = "images/sidefour.jpg";
+        img.src = "images/menu.jpg";
         ctx.drawImage(img, 0, 0);
 
         ctx.fillStyle = "#ffffff";
-        ctx.font = "normal 20px DINPro";
-        ctx.fillText("press any key to start", 400, canvas.height/2);  
+        ctx.font = "normal 41px DINPro";
+        ctx.fillText("press any key to start", 600, 800);  
     }else if(gamemode=="intro"){
-        countFrame = seconds+2;
+        if(!introStarted){
+            countFrame = seconds+8;
+            introStarted = true;
+        }    
         videointro.play();
         ctx.drawImage(videointro, 0, 0);  
         if(countFrame<= seconds)gamemode = "play";
     }else if(gamemode=="play"){
-        var thisFrameTime = (thisLoop=new Date) - lastLoop;
-        seconds = new Date().getTime() / 1000;
         if(!timeSet)playedSeconds=seconds;
         // for background
         //ctx.fillStyle="#444444"; // dark gray
@@ -179,7 +178,7 @@ function draw () {
 
         Box2DTransporter();
 
-        if(this.videoPlayed == false){
+        if(this.videoPlayed == false && myTransporter.length>0){
             for(var t = 0;t < myTransporter.length; t++){
                 myTransporter[t].removeBody();
                 myTransporter.splice(t,1);
@@ -192,6 +191,7 @@ function draw () {
                 if(playerX>=1121 && playerX<=1127 && playerY<=703 && playerY>=700){
                     sideNum++;
                     countFrame = seconds+2;
+                    actFrame = countFrame;
                     videoPlayed = false;
                     whichVideo = "onetotwo";
                 }else if(playerX>=1121 && playerX<=1127 && playerY<=467 && playerY>=465){
@@ -244,19 +244,6 @@ function draw () {
         ctx.fillText("current frame: "+ frameCounter, 10, canvas.height-25);
         ctx.fillText("frame rate: " +(1000/frameTime)+ " fps", 10, canvas.height-5);
 
-        world.Step(
-            1 / 60   //frame-rate
-            ,  10       //velocity iterations
-            ,  10       //position iterations
-        );
-
-        // frameRate calculating
-        frameTime+= (thisFrameTime - frameTime) / filterStrength;
-        lastLoop = thisLoop;
-        //var fpsOut = document.getElementById('frameRate');
-        //fpsOut.innerHTML = "current frame = " +frameCounter+ "   currente frame rate = "+(1000/frameTime).toFixed(1) + " fps";
-        frameCounter += 1;
-        requestAnimFrame(draw);
     }else if(gamemode=="end"){
         img = new Image();
         img.src = "images/sidefour.jpg";
@@ -270,6 +257,20 @@ function draw () {
         ctx.fillText("time: "+ seconds-playedSeconds, 400, canvas.height/2);
         ctx.fillText("lifes: "+ playerCounter, 400, canvas.height/2+20);  
     }
+
+        world.Step(
+            1 / 60   //frame-rate
+            ,  10       //velocity iterations
+            ,  10       //position iterations
+        );
+
+        // frameRate calculating
+        frameTime+= (thisFrameTime - frameTime) / filterStrength;
+        lastLoop = thisLoop;
+        //var fpsOut = document.getElementById('frameRate');
+        //fpsOut.innerHTML = "current frame = " +frameCounter+ "   currente frame rate = "+(1000/frameTime).toFixed(1) + " fps";
+        frameCounter += 1;
+        requestAnimFrame(draw);
 }
 
 

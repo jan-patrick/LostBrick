@@ -5,8 +5,8 @@
 
 function Box2DPlayer (sideNum) {
 
-var w = 8;
-var h = 8;    
+var w = 9;
+var h = 9;    
 var prevSquNum;
 var gravityDirection;
 var gravitypower = 0.01;
@@ -23,8 +23,8 @@ this.playerMoved;
 if(this.videoPlayed){
     if(prevSquNum != sideNum || prevSquNum != sideNum && this.playerMoved==true || this.playerMoved==true){
         if(sideNum==1){ // gravity down
-            moveSquX = 740;
-            moveSquY = 815;
+            moveSquX = 755;
+            moveSquY = 819;
             gravityDirection = 90;
         }else if(sideNum==2){ // gravity to the right
             moveSquX = 690;

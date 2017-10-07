@@ -110,9 +110,9 @@ function Box2Dbasket ( x,  y) {
 
     this.draw = function(ctx) {
         this.update();
-        var alpha = 0.3;
-        ctx.fillStyle = "rgba(151, 151, 255, " + alpha + ")";
-        ctx.strokeStyle = "rgba(151, 151, 255, 0.9)";
+        var alpha = 1;
+        ctx.fillStyle = "rgba(141, 141, 141, " + alpha + ")";
+        ctx.strokeStyle = "rgba(141, 141, 141, " + alpha + ")";
 
         //drawing rect
         ctx.save();

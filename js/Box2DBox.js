@@ -61,8 +61,8 @@ function Box2DBox ( x,  y,  w, h) {
         var alpha = 1;
 
         ctx.save();
-        ctx.fillStyle = "rgba(255, 255, 255, " + alpha + ")";
-        ctx.strokeStyle = "rgba(255, 255, 255, " + alpha + ")";
+        ctx.fillStyle = "rgba(141, 141, 141, " + alpha + ")";
+        ctx.strokeStyle = "rgba(141, 141, 141, " + alpha + ")";
 
         ctx.beginPath();
         ctx.translate(miX, miY);

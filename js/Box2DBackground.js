@@ -21,6 +21,7 @@ this.whichVideo;
 
 if(prevImg != sideNum){
     if(this.videoPlayed){ // show background image
+        deleteTransporter();
         this.img = new Image(); 
         if(sideNum==1){ // creating background one                     
             this.img.src = "images/sideone.jpg";
