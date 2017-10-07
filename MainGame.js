@@ -39,7 +39,7 @@ var   b2Vec2 = Box2D.Common.Math.b2Vec2
     ;
 
 // Side Num
-var sideNum = 4;
+var sideNum = 1;
 
 // player
 var myPlayers = [];
@@ -63,6 +63,9 @@ var countFrame = 0;
 var seconds = 0;
 var prevImg = 0;
 var whichVideo = "no";
+
+// transporter (while transition between sides)
+var myTransporter = [];
 
 function onReady() {
     // your inicialization code here  ----------------------------------------------
@@ -129,7 +132,7 @@ function draw () {
     PlayerMovement(playDir, sideNum);
     
     // JUST FOR TESTING
-    //Box2DTransporter(200, 200);
+    Box2DTransporter(700, 200);
     
     playerX = myPlayers[0].getXpos();
     playerY = myPlayers[0].getYpos();
