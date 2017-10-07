@@ -177,7 +177,7 @@ function draw () {
             playerY = myPlayers[0].getYpos();
         }
 
-        Box2DTransporter(playerX, playerY);
+        Box2DTransporter();
 
         if(this.videoPlayed == false){
             for(var t = 0;t < myTransporter.length; t++){
@@ -194,8 +194,6 @@ function draw () {
                     countFrame = seconds+2;
                     videoPlayed = false;
                     whichVideo = "onetotwo";
-                    actFrame = frameCounter;
-                    //Box2DTransporter(playerX, playerY);
                 }else if(playerX>=1121 && playerX<=1127 && playerY<=467 && playerY>=465){
                     sideNum++;
                     countFrame = seconds+2;
