@@ -5,7 +5,7 @@ document.onkeydown=function(){keyInput()};
 window.onload = onReady; // first function call
 
 // the most important variables
-var gamemode = "play";
+var gamemode = "intro";
 var sideNum = 1;
 
 // test mode
@@ -86,6 +86,7 @@ var introStarted = false;
 
 // for rain
 var myRain = [];
+var itisraining = false;
 
 function onReady() {
     // your inicialization code here  ----------------------------------------------
@@ -152,7 +153,7 @@ function onReady() {
         ,  true              //alloww sleep
     );
 
-    // collision listener
+    if(godmode==false){    // collision listener
     var listener = new Box2D.Dynamics.b2ContactListener;
     listener.BeginContact = function (contact) {
         var a = contact.GetFixtureA().GetBody().GetUserData();
@@ -163,6 +164,7 @@ function onReady() {
         }
     };
     world.SetContactListener(listener);
+  }
 
     draw();
     console.log("Go Franklin, go!");
@@ -173,12 +175,12 @@ function onReady() {
 function draw () {
     var thisFrameTime = (thisLoop=new Date) - lastLoop;
     seconds = new Date().getTime() / 1000;
-    if(menuopacity<=0.3){
-        menutextgrowing=true;
-    }else if(menuopacity>=1){
-        menutextgrowing=false;
-    }
     if(gamemode=="menu"){
+        if(menuopacity<=0.3){
+            menutextgrowing=true;
+        }else if(menuopacity>=1){
+            menutextgrowing=false;
+        }
         if(menutextgrowing){
             menuopacity+=0.005;
         }else{menuopacity-=0.005;
@@ -196,7 +198,7 @@ function draw () {
         }
         videointro.play();
         ctx.drawImage(videointro, 0, 0);
-        if(countFrame-1<= seconds)gamemode = "play";
+        if(countFrame-5<= seconds)itisraining = true;
         if(countFrame<= seconds)gamemode = "play";
     }else if(gamemode=="play"){
         if(!timeSet){
@@ -213,6 +215,7 @@ function draw () {
         }else if(sideNum<=0){
             sideNum=4;
         }
+        itisraining = true;
 
         // for background
         Box2DBackground(sideNum);

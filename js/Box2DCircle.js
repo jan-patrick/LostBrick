@@ -9,12 +9,14 @@ function Box2DCircle ( x,  y,  r) {
     var b2Body = Box2D.Dynamics.b2Body;
     var b2Vec2 = Box2D.Common.Math.b2Vec2;
 
+    var rainAlpha;
+
     this.miX = 0;
     this.miY = 0;
 
     this.fixDef = new b2FixtureDef;
     this.fixDef.density = 0;
-    this.fixDef.friction = 0.5;
+    this.fixDef.friction = 0;
     this.fixDef.restitution = 0.2;
     this.bodyDef = new b2BodyDef;
     this.bodyDef.type = b2Body.b2_dynamicBody;
@@ -24,10 +26,23 @@ function Box2DCircle ( x,  y,  r) {
 
     this.Object = world.CreateBody(this.bodyDef).CreateFixture(this.fixDef);
 
+    if(rainAlpha==undefined){
+      rainAlpha=0.002;
+    }
+
     this.update = function() {
         this.miX = this.Object.GetBody().GetPosition().x * SCALE;
         this.miY = this.Object.GetBody().GetPosition().y * SCALE;
         //console.log("miX = " + miX + "   miY = " + miY);
+        if(rainAlpha<=0.5){
+          rainAlpha+=0.001;
+        }else{
+          rainAlpha-=0.001;
+        }
+    };
+
+    this.getRainAlpha = function() {
+        return this.Object.rainAlpha;
     };
 
     this.applyImpulse = function(degrees, power) {
@@ -38,9 +53,8 @@ function Box2DCircle ( x,  y,  r) {
 
     this.draw = function(ctx) {
         this.update();
-        var alpha = Math.random();
-        ctx.fillStyle = "rgba(51, 190, 0, " + alpha + ")";
-        ctx.strokeStyle = "rgba(51, 190, 0, " + alpha + ")";
+        ctx.fillStyle = "rgba(10, 100, 255, " + rainAlpha + ")";
+        ctx.strokeStyle = "rgba(10, 100, 255, " + rainAlpha + ")";
         ctx.beginPath();
         ctx.arc(this.miX , this.miY , r , 0, Math.PI * 2, true);
         ctx.closePath();
@@ -57,12 +71,9 @@ function Box2DCircle ( x,  y,  r) {
     };
 
     this.done = function() {
-        //console.log("miX = "+ miX +"   miY = "+ miY);
-        if (this.miY > canvas.height + r || this.miX < -r || this.miX > canvas.width + r ) {
-        //if (miY > canvas.height + r) {
+        if (rainAlpha>=0.9) {
+            this.deleteRain = true;
             world.DestroyBody(this.Object.GetBody());
-            return true;
         }
-        return false;
     };
 }  // end Box2DCircle
