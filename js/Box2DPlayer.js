@@ -104,13 +104,16 @@ function PlayerMovement (playDirr, sideNum) {
     var jump = 3;
     var doIt = false;
 
+    this.playerOnGround;
+
     if(sideNum==1){
         if(playDirr == "a"){
             this.myPlayers[0].applyImpulse(left, walk);
             this.myPlayers[0].draw(ctx);
-        }else if(playDirr == "w" && this.prevDir != playDirr){
+        }else if(playDirr == "w" && playerOnGround){
             this.myPlayers[0].applyImpulse(up, jump);
             this.myPlayers[0].draw(ctx);
+            this.playerOnGround=false;
         }else if(playDirr == "d"){
             this.myPlayers[0].applyImpulse(right, walk);
             this.myPlayers[0].draw(ctx);
@@ -119,9 +122,10 @@ function PlayerMovement (playDirr, sideNum) {
             this.myPlayers[0].draw(ctx);
         }
     }else if(sideNum==2){
-        if(playDirr == "a" && this.prevDir != playDirr){
+        if(playDirr == "a" && playerOnGround){
             this.myPlayers[0].applyImpulse(left, jump);
             this.myPlayers[0].draw(ctx);
+            this.playerOnGround=false;
         }else if(playDirr == "w"){
             this.myPlayers[0].applyImpulse(up, walk);
             this.myPlayers[0].draw(ctx);
@@ -142,9 +146,10 @@ function PlayerMovement (playDirr, sideNum) {
         }else if(playDirr == "d"){
             this.myPlayers[0].applyImpulse(right, walk);
             this.myPlayers[0].draw(ctx);
-        }else if(playDirr == "s" && this.prevDir != playDirr){
+        }else if(playDirr == "s" && playerOnGround){
             this.myPlayers[0].applyImpulse(down, jump);
             this.myPlayers[0].draw(ctx);
+            this.playerOnGround=false;
         }
     }else if(sideNum==4){
         if(playDirr == "a"){
@@ -153,9 +158,10 @@ function PlayerMovement (playDirr, sideNum) {
         }else if(playDirr == "w"){
             this.myPlayers[0].applyImpulse(up, walk);
             this.myPlayers[0].draw(ctx);
-        }else if(playDirr == "d"  && this.prevDir != playDirr){
+        }else if(playDirr == "d"  && playerOnGround){
             this.myPlayers[0].applyImpulse(right, jump);
             this.myPlayers[0].draw(ctx);
+            this.playerOnGround=false;
         }else if(playDirr == "s"){
             this.myPlayers[0].applyImpulse(down, walk);
             this.myPlayers[0].draw(ctx);
@@ -163,4 +169,13 @@ function PlayerMovement (playDirr, sideNum) {
     }
     this.prevDir = playDirr;
     this.playDir = "no";
+}
+function jumpingAllowed() {
+  if(this.jumpyTime+1<=this.seconds){
+      playerOnGround=true;
+      this.jumpyTime=this.seconds;
+  }else if(this.jumpyTime==undefined){
+      playerOnGround=true;
+      this.jumpyTime=this.seconds;
+  }
 }

@@ -51,7 +51,8 @@ var spawnpoint = 0;
 // player direction
 var playDir = "no";
 var prevDir = "no";
-var playerDirections = [];
+var playerOnGround = true;
+var jumpyTime;
 
 // the Boundaries to jump on
 var mySquaresForJumping = [];
@@ -148,7 +149,7 @@ function onReady() {
     // setup world
     world = new b2World(
         new b2Vec2(0, 0)    //gravity
-        ,  true              //allow sleep
+        ,  true              //alloww sleep
     );
 
     // collision listener
@@ -158,7 +159,7 @@ function onReady() {
         var b = contact.GetFixtureB().GetBody().GetUserData();
         // between the particles
         if((a instanceof Box2DBox && b instanceof Box2DBondary)||(a instanceof Box2DBondary && b instanceof Box2DBox)) {
-            console.log("hit");
+            jumpingAllowed();
         }
     };
     world.SetContactListener(listener);
@@ -373,7 +374,6 @@ function keyInput(e) {
                 //console.log(e);
                 break;
         }
-        playerDirections.push(playDir);
     }else if(gamemode=="end" && endTime<=seconds){
         switch (e.keyCode) {
             default: // if any key pressed go to menu
