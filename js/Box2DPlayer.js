@@ -6,10 +6,10 @@
 function Box2DPlayer (sideNum) {
 
 var w = 9;
-var h = 9;    
+var h = 9;
 var prevSquNum;
 var gravityDirection;
-var gravitypower = 0.01;
+var gravitypower = 0.1;
 
 this.myPlayers;
 this.playerCounter;
@@ -23,8 +23,8 @@ this.spawnpoint;
 
     if(prevSquNum != sideNum || prevSquNum != sideNum && this.playerMoved==true || this.playerMoved==true){
         if(sideNum==1 && this.spawnpoint == 0){ // gravity down
-            moveSquX = 755;
-            moveSquY = 819;
+            moveSquX = 754;
+            moveSquY = 822;
             gravityDirection = 90;
         }else if(sideNum==1 && this.spawnpoint == 2){ // gravity to the right
             moveSquX = 1125;
@@ -64,16 +64,16 @@ if(this.videoPlayed){
             this.whichVideo = "fourtothree";
             this.spawnpoint = 4;
         }
-        this.playerCounter++;    
+        this.playerCounter++;
         for(var z = 0;z < this.myPlayers.length; z++){
             this.myPlayers[z].removeBody();
             this.myPlayers.splice(z,1);
         }
-    } 
+    }
 
     if(this.myPlayers.length<=0){
         var myplayer = new Box2DBox(moveSquX, moveSquY, w, h);
-        myPlayers.push(myplayer);    
+        myPlayers.push(myplayer);
     }
 
     // draw the playable square
@@ -100,8 +100,9 @@ function PlayerMovement (playDirr, sideNum) {
     var down = 90;
     var left = 180;
     var right = 0;
-    var walk = 0.07;
-    var jump = 0.8;
+    var walk = 1;
+    var jump = 3;
+    var doIt = false;
 
     if(sideNum==1){
         if(playDirr == "a"){
@@ -130,7 +131,7 @@ function PlayerMovement (playDirr, sideNum) {
         }else if(playDirr == "s"){
             this.myPlayers[0].applyImpulse(down, walk);
             this.myPlayers[0].draw(ctx);
-        }         
+        }
     }else if(sideNum==3){
         if(playDirr == "a"){
             this.myPlayers[0].applyImpulse(left, walk);
@@ -159,11 +160,7 @@ function PlayerMovement (playDirr, sideNum) {
             this.myPlayers[0].applyImpulse(down, walk);
             this.myPlayers[0].draw(ctx);
         }
-    } 
-    this.prevDir = playDirr;    
+    }
+    this.prevDir = playDirr;
     this.playDir = "no";
-}
-
-function lastjump () {
-    return 
 }

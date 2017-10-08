@@ -27,9 +27,6 @@ var playedSeconds;
 var world;
 var SCALE = 30;
 
-// for animations
-
-
 // box2D variables
 var   b2Vec2 = Box2D.Common.Math.b2Vec2
     , b2BodyDef = Box2D.Dynamics.b2BodyDef
@@ -54,6 +51,7 @@ var spawnpoint = 0;
 // player direction
 var playDir = "no";
 var prevDir = "no";
+var playerDirections = [];
 
 // the Boundaries to jump on
 var mySquaresForJumping = [];
@@ -67,7 +65,6 @@ var videoonetotwohigh;
 var videotwotoone;
 var videothreetofourlow;
 var videothreetofourhigh;
-var videoend;
 var videoPlayed = true;
 var countFrame = 0;
 var seconds = 0;
@@ -145,10 +142,6 @@ function onReady() {
     videofourtothree.src =  "videos/sidefourtothree.mp4";
     videofourtothree.load();
 
-    videoend = document.createElement('video');
-    videoend.src =  "videos/end.mp4";
-    videoend.load();
-
     playerX = 500;
     playerY = 500;
 
@@ -157,6 +150,18 @@ function onReady() {
         new b2Vec2(0, 0)    //gravity
         ,  true              //allow sleep
     );
+
+    // collision listener
+    var listener = new Box2D.Dynamics.b2ContactListener;
+    listener.BeginContact = function (contact) {
+        var a = contact.GetFixtureA().GetBody().GetUserData();
+        var b = contact.GetFixtureB().GetBody().GetUserData();
+        // between the particles
+        if((a instanceof Box2DBox && b instanceof Box2DBondary)||(a instanceof Box2DBondary && b instanceof Box2DBox)) {
+            console.log("hit");
+        }
+    };
+    world.SetContactListener(listener);
 
     draw();
     console.log("Go Franklin, go!");
@@ -212,7 +217,7 @@ function draw () {
         Box2DSide(sideNum);
         Box2DPlayer(sideNum);
         PlayerMovement(playDir, sideNum);
-        Box2DRain(sideNum);
+        //Box2DRain(sideNum);
 
         if(videoPlayed==true){
             playerX = myPlayers[0].getXpos();
@@ -368,6 +373,7 @@ function keyInput(e) {
                 //console.log(e);
                 break;
         }
+        playerDirections.push(playDir);
     }else if(gamemode=="end" && endTime<=seconds){
         switch (e.keyCode) {
             default: // if any key pressed go to menu

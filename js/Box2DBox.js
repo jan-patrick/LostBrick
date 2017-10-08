@@ -54,15 +54,15 @@ function Box2DBox ( x,  y,  w, h) {
         this.Object.GetBody().ApplyImpulse(
             new b2Vec2(Math.cos(degrees * (Math.PI / 180)) * power, Math.sin(degrees * (Math.PI / 180)) * power),
             this.Object.GetBody().GetWorldCenter());
-    };    
+    };
 
     this.draw = function(ctx) {
         this.update();
         var alpha = 1;
 
         ctx.save();
-        ctx.fillStyle = "rgba(64, 64, 64, " + alpha + ")";
-        ctx.strokeStyle = "rgba(64, 64, 64, " + alpha + ")";
+        ctx.fillStyle = "rgba(68, 68, 68, " + alpha + ")";
+        ctx.strokeStyle = "rgba(68, 68, 68, " + alpha + ")";
 
         ctx.beginPath();
         ctx.translate(miX, miY);
@@ -85,6 +85,5 @@ function Box2DBox ( x,  y,  w, h) {
     };
     this.removeBody = function() {
         world.DestroyBody(this.Object.GetBody());
-    }; 
+    };
 }
-

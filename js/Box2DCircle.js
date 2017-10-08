@@ -13,7 +13,7 @@ function Box2DCircle ( x,  y,  r) {
     this.miY = 0;
 
     this.fixDef = new b2FixtureDef;
-    this.fixDef.density = 1.0;
+    this.fixDef.density = 0;
     this.fixDef.friction = 0.5;
     this.fixDef.restitution = 0.2;
     this.bodyDef = new b2BodyDef;
@@ -38,9 +38,9 @@ function Box2DCircle ( x,  y,  r) {
 
     this.draw = function(ctx) {
         this.update();
-        var alpha = 0.3;
+        var alpha = Math.random();
         ctx.fillStyle = "rgba(51, 190, 0, " + alpha + ")";
-        ctx.strokeStyle = "rgba(51, 190, 0, 0.9)";
+        ctx.strokeStyle = "rgba(51, 190, 0, " + alpha + ")";
         ctx.beginPath();
         ctx.arc(this.miX , this.miY , r , 0, Math.PI * 2, true);
         ctx.closePath();
@@ -66,7 +66,3 @@ function Box2DCircle ( x,  y,  r) {
         return false;
     };
 }  // end Box2DCircle
-
-
-
-
