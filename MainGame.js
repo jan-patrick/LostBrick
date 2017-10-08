@@ -5,7 +5,7 @@ document.onkeydown=function(){keyInput()};
 window.onload = onReady; // first function call
 
 // the most important variables
-var gamemode = "intro";
+var gamemode = "menu";
 var sideNum = 1;
 
 // test mode
