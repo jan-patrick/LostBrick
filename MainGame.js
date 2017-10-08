@@ -6,7 +6,7 @@ window.onload = onReady; // first function call
 
 // the most important variables
 var gamemode = "play";
-var sideNum = 3;
+var sideNum = 1;
 
 // test mode
 var godmode = false;
@@ -85,6 +85,9 @@ var endTime;
 
 // for intro
 var introStarted = false;
+
+// for rain
+var myRain = [];
 
 function onReady() {
     // your inicialization code here  ----------------------------------------------
@@ -209,6 +212,7 @@ function draw () {
         Box2DSide(sideNum);
         Box2DPlayer(sideNum);
         PlayerMovement(playDir, sideNum);
+        Box2DRain(sideNum);
 
         if(videoPlayed==true){
             playerX = myPlayers[0].getXpos();
