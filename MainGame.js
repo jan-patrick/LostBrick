@@ -71,6 +71,10 @@ var seconds = 0;
 var prevImg = 0;
 var whichVideo = "no";
 
+// for menu text
+var menuopacity = 0.3;
+var menutextgrowing = true;
+
 // for intro
 var introStarted = false;
 
@@ -136,12 +140,20 @@ function onReady() {
 function draw () {
     var thisFrameTime = (thisLoop=new Date) - lastLoop;
     seconds = new Date().getTime() / 1000;
+    if(menuopacity<=0.3){
+        menutextgrowing=true;
+    }else if(menuopacity>=1){
+        menutextgrowing=false;
+    }
     if(gamemode=="menu"){
+        if(menutextgrowing){
+            menuopacity+=0.005;
+        }else{menuopacity-=0.005;
+        }    
         img = new Image();
         img.src = "images/menu.jpg";
         ctx.drawImage(img, 0, 0);
-
-        ctx.fillStyle = "#ffffff";
+        ctx.fillStyle = "rgba(255, 255, 255, " + menuopacity + ")";
         ctx.font = "normal 41px DINPro";
         ctx.fillText("press any key to start", 600, 800);  
     }else if(gamemode=="intro"){
