@@ -48,7 +48,7 @@ this.spawnpoint;
             gravityDirection = 180;
         }else if(sideNum==4 && this.spawnpoint == 6){ // gravity to the left
             moveSquX = 700;
-            moveSquY = 435;
+            moveSquY = 432;
             gravityDirection = 180;
         }
         this.playerMoved = false;

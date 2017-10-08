@@ -4,9 +4,12 @@
 document.onkeydown=function(){keyInput()};
 window.onload = onReady; // first function call
 
+// the most important variables
+var gamemode = "play";
+var sideNum = 3;
+
 // test mode
 var godmode = false;
-var gamemode = "play";
 
 // mouse position any time
 var mouseX, mouseY;
@@ -41,9 +44,6 @@ var   b2Vec2 = Box2D.Common.Math.b2Vec2
     , revoluteJointDef =  Box2D.Dynamics.Joints.b2RevoluteJointDef
     ;
 
-// Side Num
-var sideNum = 3;
-
 // player
 var myPlayers = [];
 var playerCounter = 0;
@@ -62,9 +62,11 @@ var mySquaresForJumping = [];
 var img;
 var videomenu;
 var videointro;
-var videoonetotwo;
+var videoonetotwolow;
+var videoonetotwohigh;
 var videotwotoone;
-var videothreetofour;
+var videothreetofourlow;
+var videothreetofourhigh;
 var videoend;
 var videoPlayed = true;
 var countFrame = 0;
@@ -75,6 +77,11 @@ var whichVideo = "no";
 // for menu text
 var menuopacity = 0.3;
 var menutextgrowing = true;
+
+// for end (result)
+var resultTime = 0;
+var ended = true;
+var endTime;
 
 // for intro
 var introStarted = false;
@@ -95,7 +102,7 @@ function onReady() {
         spawnpoint=4; // 4
     }else if(sideNum==4){
         spawnpoint=6; // 6
-    }    
+    }
 
     // backgroundmusic
     backgroundmusicone = document.createElement('AUDIO');
@@ -107,9 +114,13 @@ function onReady() {
     videointro.src =  "videos/intro.mp4";
     videointro.load();
 
-    videoonetotwo = document.createElement('video');
-    videoonetotwo.src =  "videos/sideonetotwo.mp4";
-    videoonetotwo.load();
+    videoonetotwolow = document.createElement('video');
+    videoonetotwolow.src =  "videos/sideonetotwolow.mp4";
+    videoonetotwolow.load();
+
+    videoonetotwohigh = document.createElement('video');
+    videoonetotwohigh.src =  "videos/sideonetotwohigh.mp4";
+    videoonetotwohigh.load();
 
     videotwotoone = document.createElement('video');
     videotwotoone.src =  "videos/sidetwotoone.mp4";
@@ -119,9 +130,13 @@ function onReady() {
     videotwotothree.src =  "videos/sidetwotothree.mp4";
     videotwotothree.load();
 
-    videothreetofour = document.createElement('video');
-    videothreetofour.src =  "videos/sidethreetofour.mp4";
-    videothreetofour.load();
+    videothreetofourlow = document.createElement('video');
+    videothreetofourlow.src =  "videos/sidethreetofourlow.mp4";
+    videothreetofourlow.load();
+
+    videothreetofourhigh = document.createElement('video');
+    videothreetofourhigh.src =  "videos/sidethreetofourhigh.mp4";
+    videothreetofourhigh.load();
 
     videofourtothree = document.createElement('video');
     videofourtothree.src =  "videos/sidefourtothree.mp4";
@@ -158,23 +173,26 @@ function draw () {
         if(menutextgrowing){
             menuopacity+=0.005;
         }else{menuopacity-=0.005;
-        }    
+        }
         img = new Image();
         img.src = "images/menu.jpg";
         ctx.drawImage(img, 0, 0);
         ctx.fillStyle = "rgba(255, 255, 255, " + menuopacity + ")";
         ctx.font = "normal 41px DINPro";
-        ctx.fillText("press any key to start", 600, 800);  
+        ctx.fillText("press any key to start", 600, 800);
     }else if(gamemode=="intro"){
         if(!introStarted){
             countFrame = seconds+8;
             introStarted = true;
-        }    
+        }
         videointro.play();
-        ctx.drawImage(videointro, 0, 0);  
+        ctx.drawImage(videointro, 0, 0);
         if(countFrame<= seconds)gamemode = "play";
     }else if(gamemode=="play"){
-        if(!timeSet)playedSeconds=seconds;
+        if(!timeSet){
+            playedSeconds=seconds;
+            timeSet=true;
+        }
         // for background
         //ctx.fillStyle="#444444"; // dark gray
         //ctx.fillRect(0, 0, canvas.width, canvas.height);
@@ -191,7 +209,7 @@ function draw () {
         Box2DSide(sideNum);
         Box2DPlayer(sideNum);
         PlayerMovement(playDir, sideNum);
-        
+
         if(videoPlayed==true){
             playerX = myPlayers[0].getXpos();
             playerY = myPlayers[0].getYpos();
@@ -205,13 +223,13 @@ function draw () {
                     countFrame = seconds+2;
                     actFrame = countFrame;
                     videoPlayed = false;
-                    whichVideo = "onetotwo";
+                    whichVideo = "onetotwolow";
                     spawnpoint = 1;
                 }else if(playerX>=1121 && playerX<=1127 && playerY<=467 && playerY>=465){
                     sideNum++;
                     countFrame = seconds+2;
                     videoPlayed = false;
-                    whichVideo = "onetotwo";
+                    whichVideo = "onetotwohigh";
                     spawnpoint = 3;
                 }
             }else if(sideNum==2){
@@ -233,29 +251,29 @@ function draw () {
                     sideNum++;
                     countFrame = seconds+2;
                     videoPlayed = false;
-                    whichVideo = "threetofour";
+                    whichVideo = "threetofourlow";
                     spawnpoint = 5;
                 }else if(playerX>=1123 && playerX<=1128 && playerY<=433 && playerY>=430){
                     sideNum++;
                     countFrame = seconds+2;
                     videoPlayed = false;
-                    whichVideo = "threetofour";
+                    whichVideo = "threetofourhigh";
                     spawnpoint = 6;
-                }    
+                }
             }else if(sideNum==4){
                 if(playerX>=1086 && playerX<=1090 && playerY<=166 && playerY>=157){
                     gamemode="end";
-                    spawnpoint = 0;
                 }
-            }        
+            }
         }
+        resultTime = seconds-playedSeconds;
 
         // printing text in canvas
         ctx.fillStyle = "#bbbbbb";
         ctx.font = "normal 11px DINPro";
 
         ctx.fillText("countFrame: "+ countFrame, 10, canvas.height-145);
-        ctx.fillText("Seconds: "+ seconds, 10, canvas.height-125);
+        ctx.fillText("time playing: "+ resultTime, 10, canvas.height-125);
         ctx.fillText("X-Position: "+ playerX, 10, canvas.height-105);
         ctx.fillText("Y-Position: "+ playerY, 10, canvas.height-85);
         ctx.fillText("Side number: "+ sideNum, 10, canvas.height-65);
@@ -264,6 +282,10 @@ function draw () {
         ctx.fillText("frame rate: " +(1000/frameTime)+ " fps", 10, canvas.height-5);
 
     }else if(gamemode=="end"){
+        if(ended){
+            endTime = seconds+=3;
+            ended=false;
+        }
         img = new Image();
         img.src = "images/sidefour.jpg";
         ctx.drawImage(img, 0, 0);
@@ -272,9 +294,10 @@ function draw () {
         Box2DPlayer(sideNum);
 
         ctx.fillStyle = "#ffffff";
-        ctx.font = "normal 20px DINPro";
-        ctx.fillText("time: "+ seconds-playedSeconds, 400, canvas.height/2);
-        ctx.fillText("lifes: "+ playerCounter, 400, canvas.height/2+20);  
+        ctx.font = "normal 41px DINPro";
+        ctx.fillText("time: "+ Math.round(resultTime)+" seconds", 400, canvas.height/2);
+        ctx.fillText("lifes: "+ playerCounter, 400, canvas.height/2+40);
+        if(endTime+27<=seconds)gamemode="menu";
     }
 
         world.Step(
@@ -317,13 +340,13 @@ function keyInput(e) {
         }
     }
     if(gamemode=="menu"){
-        switch (e.keyCode) {            
-            default: // else if any key pressed start intro video
+        switch (e.keyCode) {
+            default: // if any key pressed start intro video
                 gamemode="intro";
                 break;
-        }        
-    }else if(gamemode=="play" && videoPlayed==true){    
-        switch (e.keyCode) {            
+        }
+    }else if(gamemode=="play" && videoPlayed==true){
+        switch (e.keyCode) {
             case 65: // a
                 playDir = "a";
                 break;
@@ -335,13 +358,20 @@ function keyInput(e) {
                 break;
             case 83: // s
                 playDir = "s";
-                break;                        
+                break;
             default:
                 sideNum = sideNum;
                 //console.log(e);
-                break;    
+                break;
         }
-    }    
+    }else if(gamemode=="end" && endTime<=seconds){
+        switch (e.keyCode) {
+            default: // if any key pressed go to menu
+                gamemode="menu";
+                spawnpoint=0;
+                break;
+        }
+    }
 }
 
 // for animation request  ---------------------------------------------------
