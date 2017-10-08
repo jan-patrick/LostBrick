@@ -11,4 +11,4 @@ professor: [Prof. Dr. Franklin Hernández-Castro](http://skizata.com)
 
 ![LostBrick-Logo](https://github.com/JanPSchneider/LostBrick/blob/master/images/fulllogo.jpg)
 
-The game is only playable with screensize 1824x1018 and bigger and by using the keys w,a,s,d on a keyboard.
+The game is only playable with screensize 1824x1018 and higher and by using the keys w,a,s,d on a keyboard.

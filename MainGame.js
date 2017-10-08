@@ -109,7 +109,7 @@ function onReady() {
     // backgroundmusic
     backgroundmusicone = document.createElement('AUDIO');
     backgroundmusicone.src="music/backgroundone.mp3";
-    //backgroundmusicone.play();
+    backgroundmusicone.play();
 
     // import of all needed videos
     videointro = document.createElement('video');
