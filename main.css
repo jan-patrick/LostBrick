@@ -1,9 +1,8 @@
 html {
     background: #444444;
-    /**background-image: url("images/background.jpg");**/
 }
 
-#canvas {
+canvas {
     padding-left: 0;
     padding-right: 0;
     margin-left: auto;
@@ -11,12 +10,9 @@ html {
     margin-top: 6.5px;
     margin-bottom: auto;
     display: block;
-    z-index: 1;
 }
 
 @font-face {
-    font-family: 'DINPro-Cond';
-    src: url("DINPro-Cond.otf");
     font-family: 'DINPro';
     src: url("DINPro.otf");
 }

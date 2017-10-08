@@ -196,6 +196,7 @@ function draw () {
         }
         videointro.play();
         ctx.drawImage(videointro, 0, 0);
+        if(countFrame-1<= seconds)gamemode = "play";
         if(countFrame<= seconds)gamemode = "play";
     }else if(gamemode=="play"){
         if(!timeSet){
@@ -218,7 +219,7 @@ function draw () {
         Box2DSide(sideNum);
         Box2DPlayer(sideNum);
         PlayerMovement(playDir, sideNum);
-        //Box2DRain(sideNum);
+        Box2DRain();
 
         if(videoPlayed==true){
             playerX = myPlayers[0].getXpos();
@@ -282,6 +283,7 @@ function draw () {
         ctx.fillStyle = "#bbbbbb";
         ctx.font = "normal 11px DINPro";
 
+        ctx.fillText("Raindrops: "+ myRain.length, 10, canvas.height-165);
         ctx.fillText("countFrame: "+ countFrame, 10, canvas.height-145);
         ctx.fillText("time playing: "+ resultTime, 10, canvas.height-125);
         ctx.fillText("X-Position: "+ playerX, 10, canvas.height-105);

@@ -9,7 +9,6 @@ var gravityDirection;
 var gravitypower = 0.01;
 var startPointX;
 var startPointY;
-if(this.gamemode=="play"){
   if(this.sideNum==1){ // gravity down
       startPointX = Math.random() * 1824;
       startPointY = -5;
@@ -27,21 +26,20 @@ if(this.gamemode=="play"){
       startPointY = Math.random() * 1018;
       gravityDirection = 180;
   }
-
-    if (Math.random() > 0.2) {
-        var myZs = Math.random();
-        var myCurrentObj = new Box2DCircle(startPointX, startPointY, myZs);
+    if (Math.random() > 0.8) {
+        var myCurrentObj = new Box2DCircle(startPointX, startPointY, Math.random());
         this.myRain.push(myCurrentObj);
     }
-
+    // deleting all rain out of canvas
     for (var r = 0; r < this.myRain.length; r++) {
-        this.myRain[r].applyImpulse(gravityDirection, gravitypower);
-        this.myRain[r].draw(ctx);
-        if (this.myRain[r].miX <= -10 || this.myRain[r].miX >= 1829 || this.myRain[r].miY <= -10 || this.myRain[r].miY >= 1023){
-        //if(this.myRain[r].done()){
+        if (this.myRain[r].miX <= -50 || this.myRain[r].miX >= 2000 || this.myRain[r].miY <= -50 || this.myRain[r].miY >= 1100){
+            //if(this.myRain[r].done()){
             this.myRain[r].removeBody();
             this.myRain.splice(i, 1);
         }
     }
-  }
+    for (var r = 0; r < this.myRain.length; r++) {
+        this.myRain[r].applyImpulse(gravityDirection, gravitypower);
+        this.myRain[r].draw(ctx);
+    }
 }
