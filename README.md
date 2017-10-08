@@ -7,8 +7,8 @@ students:
 [Marcus Schoch](https://iot.hfg-gmuend.de/author/marcus_schoch),
 [Jan Schneider](http://jan-patrick.de/)
 
-professor: Prof. Dr. Franklin Hernández-Castro
+professor: [Prof. Dr. Franklin Hernández-Castro](http://skizata.com/)
 
-![icon](https://github.com/JanPSchneider/LostBrick/blob/master/images/fulllogo.jpg)
+![LostBrick-Logo](https://github.com/JanPSchneider/LostBrick/blob/master/images/fulllogo.jpg)
 
 The game is only playable with screensize 1824x1018 and bigger and by using the keys w,a,s,d on a keyboard.
