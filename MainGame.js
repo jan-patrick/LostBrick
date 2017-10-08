@@ -6,7 +6,7 @@ window.onload = onReady; // first function call
 
 // test mode
 var godmode = false;
-var gamemode = "menu";
+var gamemode = "play";
 
 // mouse position any time
 var mouseX, mouseY;
@@ -42,7 +42,7 @@ var   b2Vec2 = Box2D.Common.Math.b2Vec2
     ;
 
 // Side Num
-var sideNum = 1;
+var sideNum = 3;
 
 // player
 var myPlayers = [];
@@ -50,6 +50,7 @@ var playerCounter = 0;
 var playerX;
 var playerY;
 var playerMoved = false;
+var spawnpoint = 0;
 // player direction
 var playDir = "no";
 var prevDir = "no";
@@ -78,19 +79,23 @@ var menutextgrowing = true;
 // for intro
 var introStarted = false;
 
-// transporter (while transition between sides)
-var myTransporter = [];
-var transporterX;
-var transporterY;
-var transporterDrive = 0;
-var actFrame;
-
 function onReady() {
     // your inicialization code here  ----------------------------------------------
     canvas = document.getElementById('canvas');
     ctx = canvas.getContext('2d');
     frameCounter = 0;
     canvas.addEventListener('mousedown', pick);
+
+    // for testing and setting start side manuell
+    if(sideNum==1){
+        spawnpoint=0; // 0
+    }else if(sideNum==2){
+        spawnpoint=1; // 1
+    }else if(sideNum==3){
+        spawnpoint=4; // 4
+    }else if(sideNum==4){
+        spawnpoint=6; // 6
+    }    
 
     // backgroundmusic
     backgroundmusicone = document.createElement('AUDIO');
@@ -117,6 +122,10 @@ function onReady() {
     videothreetofour = document.createElement('video');
     videothreetofour.src =  "videos/sidethreetofour.mp4";
     videothreetofour.load();
+
+    videofourtothree = document.createElement('video');
+    videofourtothree.src =  "videos/sidefourtothree.mp4";
+    videofourtothree.load();
 
     videoend = document.createElement('video');
     videoend.src =  "videos/end.mp4";
@@ -188,15 +197,6 @@ function draw () {
             playerY = myPlayers[0].getYpos();
         }
 
-        Box2DTransporter();
-
-        if(this.videoPlayed == false && myTransporter.length>0){
-            for(var t = 0;t < myTransporter.length; t++){
-                myTransporter[t].removeBody();
-                myTransporter.splice(t,1);
-            }
-        }
-
         // change side if player reached right plattform
         if(videoPlayed == true){
             if(sideNum==1){
@@ -206,11 +206,13 @@ function draw () {
                     actFrame = countFrame;
                     videoPlayed = false;
                     whichVideo = "onetotwo";
+                    spawnpoint = 1;
                 }else if(playerX>=1121 && playerX<=1127 && playerY<=467 && playerY>=465){
                     sideNum++;
                     countFrame = seconds+2;
                     videoPlayed = false;
                     whichVideo = "onetotwo";
+                    spawnpoint = 3;
                 }
             }else if(sideNum==2){
                 if(playerX>=698 && playerX<=700 && playerY<=586 && playerY>=582){
@@ -218,11 +220,13 @@ function draw () {
                     countFrame = seconds+2;
                     videoPlayed = false;
                     whichVideo = "twotoone";
+                    spawnpoint = 2;
                 }else if(playerX>=1122 && playerX<=1130 && playerY<=413 && playerY>=410){
                     sideNum++;
                     countFrame = seconds+2;
                     videoPlayed = false;
                     whichVideo = "twotothree";
+                    spawnpoint = 4;
                 }
             }else if(sideNum==3){
                 if(playerX>=1123 && playerX<=1135 && playerY<=563 && playerY>=560){
@@ -230,15 +234,18 @@ function draw () {
                     countFrame = seconds+2;
                     videoPlayed = false;
                     whichVideo = "threetofour";
+                    spawnpoint = 5;
                 }else if(playerX>=1123 && playerX<=1128 && playerY<=433 && playerY>=430){
                     sideNum++;
                     countFrame = seconds+2;
                     videoPlayed = false;
                     whichVideo = "threetofour";
+                    spawnpoint = 6;
                 }    
             }else if(sideNum==4){
                 if(playerX>=1086 && playerX<=1090 && playerY<=166 && playerY>=157){
                     gamemode="end";
+                    spawnpoint = 0;
                 }
             }        
         }

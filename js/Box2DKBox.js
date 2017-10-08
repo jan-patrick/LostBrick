@@ -49,8 +49,8 @@ function Box2DKBox ( x,  y,  w, h) {
         var alpha = 0.5;
 
         ctx.save();
-        ctx.fillStyle = "rgba(151, 151, 255," + alpha + ")";
-        ctx.strokeStyle = "rgba(151, 151, 255," + alpha + ")";
+        ctx.fillStyle = "rgba(131, 131, 131," + alpha + ")";
+        ctx.strokeStyle = "rgba(131, 131, 131," + alpha + ")";
 
         ctx.beginPath();
         ctx.translate(miX, miY);

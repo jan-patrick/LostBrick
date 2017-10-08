@@ -19,31 +19,51 @@ this.playDir;
 this.prevDir;
 this.videoPlayed;
 this.playerMoved;
+this.spawnpoint;
 
-if(this.videoPlayed){
     if(prevSquNum != sideNum || prevSquNum != sideNum && this.playerMoved==true || this.playerMoved==true){
-        if(sideNum==1){ // gravity down
+        if(sideNum==1 && this.spawnpoint == 0){ // gravity down
             moveSquX = 755;
             moveSquY = 819;
             gravityDirection = 90;
-        }else if(sideNum==2){ // gravity to the right
-            moveSquX = 690;
+        }else if(sideNum==1 && this.spawnpoint == 2){ // gravity to the right
+            moveSquX = 1125;
+            moveSquY = 590;
+            gravityDirection = 90;
+        }else if(sideNum==2 && this.spawnpoint == 1){ // gravity to the right
+            moveSquX = 700;
             moveSquY = 700;
             gravityDirection = 0;
-        }else if(sideNum==3){ // gravity up
-            moveSquX = 720;
-            moveSquY = 415;
+        }else if(sideNum==2 && this.spawnpoint == 3){ // gravity to the right
+            moveSquX = 700;
+            moveSquY = 464;
+            gravityDirection = 0;
+        }else if(sideNum==3 && this.spawnpoint == 4){ // gravity up
+            moveSquX = 700;
+            moveSquY = 412;
             gravityDirection = 270;
-        }else if(sideNum==4){ // gravity to the left
+        }else if(sideNum==4 && this.spawnpoint == 5){ // gravity to the left
+            moveSquX = 700;
+            moveSquY = 562;
+            gravityDirection = 180;
+        }else if(sideNum==4 && this.spawnpoint == 6){ // gravity to the left
             moveSquX = 700;
             moveSquY = 435;
             gravityDirection = 180;
         }
         this.playerMoved = false;
         prevSquNum = sideNum;
-    }
+}
 
+if(this.videoPlayed){
     if(this.playerX >= 1200 || this.playerY >= 950 || this.playerX <= 600 || this.playerY <= 100){
+        if(sideNum==4 && this.spawnpoint==5){
+            this.sideNum--;
+            this.countFrame = seconds+2;
+            this.videoPlayed = false;
+            this.whichVideo = "fourtothree";
+            this.spawnpoint = 4;
+        }
         this.playerCounter++;    
         for(var z = 0;z < this.myPlayers.length; z++){
             this.myPlayers[z].removeBody();
@@ -66,11 +86,9 @@ if(this.videoPlayed){
             this.playerY = myPlayers[i].miY;
     }
 }else{
-    if(this.myTransporter.length>=0){
-        for(var z = 0;z < this.myPlayers.length; z++){
-            this.myPlayers[z].removeBody();
-            this.myPlayers.splice(z,1);
-        }
+    for(var z = 0;z < this.myPlayers.length; z++){
+        this.myPlayers[z].removeBody();
+        this.myPlayers.splice(z,1);
     }
     this.playerMoved = true;
 }

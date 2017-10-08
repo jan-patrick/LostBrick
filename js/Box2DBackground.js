@@ -21,7 +21,6 @@ this.whichVideo;
 
 if(prevImg != sideNum){
     if(this.videoPlayed){ // show background image
-        deleteTransporter();
         this.img = new Image(); 
         if(sideNum==1){ // creating background one                     
             this.img.src = "images/sideone.jpg";
@@ -33,8 +32,7 @@ if(prevImg != sideNum){
             this.img.src = "images/sidefour.jpg";
         }     
     this.ctx.drawImage(img, 0, 0);      
-    }else{ // show video transition  
-        driveTransporter();     
+    }else{ // show video transition       
         if(this.whichVideo == "onetotwo"){
             this.videoonetotwo.play();
             this.ctx.drawImage(videoonetotwo, 0, 0);            
@@ -47,6 +45,9 @@ if(prevImg != sideNum){
         }else if(this.whichVideo == "threetofour"){
             this.videothreetofour.play();
             this.ctx.drawImage(videothreetofour, 0, 0);
+        }else if(this.whichVideo == "fourtothree"){
+            this.videofourtothree.play();
+            this.ctx.drawImage(videofourtothree, 0, 0);
         }
         if(this.countFrame<= this.seconds)this.videoPlayed = true;   
     }
