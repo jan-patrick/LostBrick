@@ -6,8 +6,11 @@ window.onload = onReady; // first function call
 
 // the most important variables
 var level = 1;
-var gamemode = "play";
+var gamemode = "menu";
 var sideNum = 1;
+
+// if muted (true) music does not play
+var mute = false;
 
 // test mode
 var godmode = false;
@@ -120,7 +123,7 @@ function onReady() {
         // backgroundmusic
         backgroundmusicone = document.createElement('AUDIO');
         backgroundmusicone.src="level1/music/backgroundone.mp3";
-        //backgroundmusicone.play();
+        if(!mute)backgroundmusicone.play();
 
         // import of all needed videos
         videointro = document.createElement('video');
@@ -198,7 +201,7 @@ function draw () {
         }else{menuopacity-=0.005;
         }
         img = new Image();
-        img.src = "images/menu.jpg";
+        img.src = "level1/images/menu.jpg";
         ctx.drawImage(img, 0, 0);
         ctx.fillStyle = "rgba(255, 255, 255, " + menuopacity + ")";
         ctx.font = "normal 41px DINPro";
@@ -320,7 +323,7 @@ function draw () {
             ended=false;
         }
         img = new Image();
-        img.src = "images/sidefour.jpg";
+        img.src = "level1/images/sidefour.jpg";
         ctx.drawImage(img, 0, 0);
 
         Box2DSide(sideNum);
@@ -328,8 +331,8 @@ function draw () {
 
         ctx.fillStyle = "#ffffff";
         ctx.font = "normal 41px DINPro";
-        ctx.fillText("time: "+ Math.round(resultTime)+" seconds", 400, canvas.height/2);
-        ctx.fillText("lifes: "+ playerCounter, 400, canvas.height/2+40);
+        ctx.fillText("time: "+ Math.round(resultTime)+" seconds", 360, canvas.height/2);
+        ctx.fillText("lifes: "+ playerCounter, 360, canvas.height/2+60);
         if(endTime+27<=seconds)gamemode="menu";
     }
 
