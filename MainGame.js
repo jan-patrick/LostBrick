@@ -5,7 +5,7 @@ document.onkeydown=function(){keyInput()};
 window.onload = onReady; // first function call
 
 // the most important variables
-var gamemode = "play";
+var gamemode = "menu";
 var sideNum = 1;
 
 // test mode
@@ -118,7 +118,7 @@ function onReady() {
     // backgroundmusic
     backgroundmusicone = document.createElement('AUDIO');
     backgroundmusicone.src="music/backgroundone.mp3";
-    //backgroundmusicone.play();
+    backgroundmusicone.play();
 
     // import of all needed videos
     videointro = document.createElement('video');
@@ -248,12 +248,14 @@ function draw () {
                     videoPlayed = false;
                     whichVideo = "onetotwolow";
                     spawnpoint = 1;
+                    resetUsedVariables();
                 }else if(playerX>=1121 && playerX<=1127 && playerY<=467 && playerY>=465){
                     sideNum++;
                     countFrame = seconds+2;
                     videoPlayed = false;
                     whichVideo = "onetotwohigh";
                     spawnpoint = 3;
+                    resetUsedVariables();
                 }
             }else if(sideNum==2){
                 if(playerX>=698 && playerX<=700 && playerY<=586 && playerY>=582){
@@ -262,12 +264,14 @@ function draw () {
                     videoPlayed = false;
                     whichVideo = "twotoone";
                     spawnpoint = 2;
+                    resetUsedVariables();
                 }else if(playerX>=1122 && playerX<=1130 && playerY<=413 && playerY>=410){
                     sideNum++;
                     countFrame = seconds+2;
                     videoPlayed = false;
                     whichVideo = "twotothree";
                     spawnpoint = 4;
+                    resetUsedVariables();
                 }
             }else if(sideNum==3){
                 if(playerX>=1123 && playerX<=1135 && playerY<=563 && playerY>=560){
@@ -276,12 +280,14 @@ function draw () {
                     videoPlayed = false;
                     whichVideo = "threetofourlow";
                     spawnpoint = 5;
+                    resetUsedVariables();
                 }else if(playerX>=1123 && playerX<=1128 && playerY<=433 && playerY>=430){
                     sideNum++;
                     countFrame = seconds+2;
                     videoPlayed = false;
                     whichVideo = "threetofourhigh";
                     spawnpoint = 6;
+                    resetUsedVariables();
                 }
             }else if(sideNum==4){
                 if(playerX>=1086 && playerX<=1090 && playerY<=166 && playerY>=157){
@@ -303,7 +309,7 @@ function draw () {
         //ctx.fillText("Side number: "+ sideNum, 10, canvas.height-65);
         //ctx.fillText("Square number: "+ playerCounter, 10, canvas.height-45);
         //ctx.fillText("current frame: "+ frameCounter, 10, canvas.height-25);
-        //ctx.fillText("frame rate: " +(1000/frameTime)+ " fps", 10, canvas.height-5);
+        ctx.fillText("frame rate: " +(1000/frameTime)+ " fps", 10, canvas.height-5);
 
     }else if(gamemode=="end"){
         if(ended){

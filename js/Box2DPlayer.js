@@ -64,6 +64,7 @@ if(this.videoPlayed){
             this.whichVideo = "fourtothree";
             this.spawnpoint = 4;
         }
+        resetUsedVariables();
         this.playerCounter++;
         for(var z = 0;z < this.myPlayers.length; z++){
             this.myPlayers[z].removeBody();
@@ -116,14 +117,14 @@ function PlayerMovement (playDirr, sideNum) {
     this.lastusedfour;
     this.lastusedfive;
 
-    if(sideNum==1){
+    if(this.lastusedfive==playDirr && this.lastusedfour==playDirr && this.lastusedthree==playDirr && this.lastusedtwo==playDirr && this.lastusedone==playDirr){
+      doIt=false;
+    }else{
+      doIt=true;
+    }
 
-        if(this.lastusedfive==playDirr && this.lastusedfour==playDirr && this.lastusedthree==playDirr && this.lastusedtwo==playDirr && this.lastusedone==playDirr){
-          doIt=false;
-        }else{
-          doIt=true;
-        }
-        if(doIt){
+    if(sideNum==1 && doIt){
+
         if(playDirr == "a"){
             this.myPlayers[0].applyImpulse(left, walk);
             this.myPlayers[0].draw(ctx);
@@ -138,29 +139,10 @@ function PlayerMovement (playDirr, sideNum) {
             this.myPlayers[0].applyImpulse(down, walk);
             this.myPlayers[0].draw(ctx);
         }
-        }
-
-    if(this.buttonPressed){
-    this.lastusedfive = this.lastusedfour;
-    this.lastusedfour = this.lastusedthree;
-    this.lastusedthree = this.lastusedtwo;
-    this.lastusedtwo = this.lastusedone;
-    this.lastusedone = playDirr;
-    this.buttonPressed = false;
-
-    console.log(this.lastusedone);
-    console.log(this.lastusedtwo);
-    console.log(this.lastusedthree);
-    console.log(this.lastusedfour);
-    console.log(this.lastusedfive);
-
-    }
-
     }else if(sideNum==2){
         if(playDirr == "a" && playerOnGround){
             this.myPlayers[0].applyImpulse(left, jump);
             this.myPlayers[0].draw(ctx);
-            console.log(useda);
             if(this.godmode==false)this.playerOnGround=false;
         }else if(playDirr == "w"){
             this.myPlayers[0].applyImpulse(up, walk);
@@ -203,9 +185,20 @@ function PlayerMovement (playDirr, sideNum) {
             this.myPlayers[0].draw(ctx);
         }
     }
+
+    if(this.buttonPressed){
+    this.lastusedfive = this.lastusedfour;
+    this.lastusedfour = this.lastusedthree;
+    this.lastusedthree = this.lastusedtwo;
+    this.lastusedtwo = this.lastusedone;
+    this.lastusedone = playDirr;
+    this.buttonPressed = false;
+
     this.prevDir = playDirr;
     this.playDir = "no";
+    }
 }
+
 function jumpingAllowed() {
   if(this.godmode==false){
       if(this.jumpyTime+1<=this.seconds){
@@ -218,4 +211,12 @@ function jumpingAllowed() {
   }else{
     playerOnGround = true;
   }
+}
+
+function resetUsedVariables() {
+  this.lastusedfive = "here";
+  this.lastusedtwo = "could";
+  this.lastusedthree = "be";
+  this.lastusedfour = "your";
+  this.lastusedfive = "advertising";
 }
