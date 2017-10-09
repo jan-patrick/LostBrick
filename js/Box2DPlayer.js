@@ -67,12 +67,16 @@ if(this.level==1){
                 this.spawnpoint = 4;
         }
         resetUsedVariables();
-        this.playerCounter++;
+        if(!this.deadCounted){
+            this.playerCounter++;
+            this.deadCounted = true;
+        }
         for(var z = 0;z < this.myPlayers.length; z++){
             this.myPlayers[z].removeBody();
             this.myPlayers.splice(z,1);
         }
     }
+    this.deadCounted = false;
 
     if(this.myPlayers.length<=0){
         var myplayer = new Box2DBox(moveSquX, moveSquY, w, h);

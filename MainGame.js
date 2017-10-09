@@ -48,6 +48,7 @@ var   b2Vec2 = Box2D.Common.Math.b2Vec2
 // player
 var myPlayers = [];
 var playerCounter = 0;
+var deadCounted = false;
 var playerX;
 var playerY;
 var playerMoved = false;
@@ -313,7 +314,7 @@ function draw () {
         //ctx.fillText("X-Position: "+ playerX, 10, canvas.height-105);
         //ctx.fillText("Y-Position: "+ playerY, 10, canvas.height-85);
         //ctx.fillText("Side number: "+ sideNum, 10, canvas.height-65);
-        //ctx.fillText("Square number: "+ playerCounter, 10, canvas.height-45);
+        ctx.fillText("Square number: "+ playerCounter, 10, canvas.height-45);
         //ctx.fillText("current frame: "+ frameCounter, 10, canvas.height-25);
         ctx.fillText("frame rate: " +(1000/frameTime)+ " fps", 10, canvas.height-5);
 
