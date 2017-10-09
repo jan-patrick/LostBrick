@@ -5,7 +5,7 @@ document.onkeydown=function(){keyInput()};
 window.onload = onReady; // first function call
 
 // the most important variables
-var gamemode = "menu";
+var gamemode = "play";
 var sideNum = 1;
 
 // test mode
@@ -222,12 +222,12 @@ function draw () {
         Box2DSide(sideNum);
         Box2DPlayer(sideNum);
         PlayerMovement(playDir, sideNum);
-        Box2DRain();
 
         if(videoPlayed==true){
             playerX = myPlayers[0].getXpos();
             playerY = myPlayers[0].getYpos();
         }
+        Box2DRain();
 
         // change side if player reached right plattform
         if(videoPlayed == true){

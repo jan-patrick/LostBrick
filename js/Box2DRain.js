@@ -38,5 +38,13 @@ if(this.itisraining){
         this.myRain[r].applyImpulse(gravityDirection, gravitypower);
         this.myRain[r].draw(ctx);
     }
+    for(var r = 0; r < this.myRain.length; r++) {
+        var rainXleftToBrick = this.myRain[r].miX-this.playerX;
+        var rainYoverBrick = this.myRain[r].miY-this.playerY;
+        if(rainXleftToBrick<=10 && rainXleftToBrick>=-10 && rainYoverBrick<=10 && rainYoverBrick>=-10){
+          this.myRain[r].removeBody();
+          this.myRain.splice(r, 1);
+        }
+    }
 }
 }
