@@ -381,9 +381,8 @@ function keyInput(e) {
         }
     }else if(gamemode=="end" && endTime<=seconds){
         switch (e.keyCode) {
-            default: // if any key pressed go to menu
-                gamemode="menu";
-                spawnpoint=0;
+            default: // if any key pressed go to menu by reloading and refreshing the complete game / document
+                window.location.reload();
                 break;
         }
     }
