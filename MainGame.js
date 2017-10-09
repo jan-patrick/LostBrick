@@ -48,11 +48,20 @@ var playerX;
 var playerY;
 var playerMoved = false;
 var spawnpoint = 0;
+
 // player direction
 var playDir = "no";
 var prevDir = "no";
 var playerOnGround = true;
 var jumpyTime;
+
+// player control control variables
+var lastusedone = "here";
+var lastusedtwo = "could";
+var lastusedthree = "be";
+var lastusedfour = "your";
+var lastusedfive = "advertising";
+var buttonPressed = false;
 
 // the Boundaries to jump on
 var mySquaresForJumping = [];
@@ -286,15 +295,15 @@ function draw () {
         ctx.fillStyle = "#bbbbbb";
         ctx.font = "normal 11px DINPro";
 
-        ctx.fillText("Raindrops: "+ myRain.length, 10, canvas.height-165);
-        ctx.fillText("countFrame: "+ countFrame, 10, canvas.height-145);
-        ctx.fillText("time playing: "+ resultTime, 10, canvas.height-125);
-        ctx.fillText("X-Position: "+ playerX, 10, canvas.height-105);
-        ctx.fillText("Y-Position: "+ playerY, 10, canvas.height-85);
-        ctx.fillText("Side number: "+ sideNum, 10, canvas.height-65);
-        ctx.fillText("Square number: "+ playerCounter, 10, canvas.height-45);
-        ctx.fillText("current frame: "+ frameCounter, 10, canvas.height-25);
-        ctx.fillText("frame rate: " +(1000/frameTime)+ " fps", 10, canvas.height-5);
+        //ctx.fillText("Raindrops: "+ myRain.length, 10, canvas.height-165);
+        //ctx.fillText("countFrame: "+ countFrame, 10, canvas.height-145);
+        //ctx.fillText("time playing: "+ resultTime, 10, canvas.height-125);
+        //ctx.fillText("X-Position: "+ playerX, 10, canvas.height-105);
+        //ctx.fillText("Y-Position: "+ playerY, 10, canvas.height-85);
+        //ctx.fillText("Side number: "+ sideNum, 10, canvas.height-65);
+        //ctx.fillText("Square number: "+ playerCounter, 10, canvas.height-45);
+        //ctx.fillText("current frame: "+ frameCounter, 10, canvas.height-25);
+        //ctx.fillText("frame rate: " +(1000/frameTime)+ " fps", 10, canvas.height-5);
 
     }else if(gamemode=="end"){
         if(ended){
@@ -364,18 +373,23 @@ function keyInput(e) {
         switch (e.keyCode) {
             case 65: // a
                 playDir = "a";
+                buttonPressed=true;
                 break;
             case 87: // w
                 playDir = "w";
+                buttonPressed=true;
                 break;
             case 68: // d
                 playDir = "d";
+                buttonPressed=true;
                 break;
             case 83: // s
                 playDir = "s";
+                buttonPressed=true;
                 break;
             default:
                 sideNum = sideNum;
+                buttonPressed=true;
                 //console.log(e);
                 break;
         }
