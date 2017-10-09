@@ -73,9 +73,9 @@ if(this.level==1){
             }
 
             // drawing the square borders (just needed while creating and coding)
-            for (var i = 0; i < this.mySquaresForJumping.length; i++) {
-                this.mySquaresForJumping[i].draw(ctx);
-            }
+            //for (var i = 0; i < this.mySquaresForJumping.length; i++) {
+            //    this.mySquaresForJumping[i].draw(ctx);
+            //}
             //make sure that we just redraw when we change the side (to the dark)
             prevSideNum = sideNum;
         }
