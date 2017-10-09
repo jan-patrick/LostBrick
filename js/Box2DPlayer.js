@@ -11,6 +11,7 @@ var prevSquNum;
 var gravityDirection;
 var gravitypower = 0.1;
 
+this.level;
 this.myPlayers;
 this.playerCounter;
 this.playerX;
@@ -21,6 +22,7 @@ this.videoPlayed;
 this.playerMoved;
 this.spawnpoint;
 
+if(this.level==1){
     if(prevSquNum != sideNum || prevSquNum != sideNum && this.playerMoved==true || this.playerMoved==true){
         if(sideNum==1 && this.spawnpoint == 0){ // gravity down
             moveSquX = 754;
@@ -53,16 +55,16 @@ this.spawnpoint;
         }
         this.playerMoved = false;
         prevSquNum = sideNum;
-}
+    }
 
-if(this.videoPlayed){
-    if(this.playerX >= 1200 || this.playerY >= 950 || this.playerX <= 600 || this.playerY <= 100){
-        if(sideNum==4 && this.spawnpoint==5){
-            this.sideNum--;
-            this.countFrame = seconds+2;
-            this.videoPlayed = false;
-            this.whichVideo = "fourtothree";
-            this.spawnpoint = 4;
+    if(this.videoPlayed){
+        if(this.playerX >= 1200 || this.playerY >= 950 || this.playerX <= 600 || this.playerY <= 100){
+            if(sideNum==4 && this.spawnpoint==5){
+                this.sideNum--;
+                this.countFrame = seconds+2;
+                this.videoPlayed = false;
+                this.whichVideo = "fourtothree";
+                this.spawnpoint = 4;
         }
         resetUsedVariables();
         this.playerCounter++;
@@ -86,17 +88,19 @@ if(this.videoPlayed){
             this.playerX = myPlayers[i].miX;
             this.playerY = myPlayers[i].miY;
     }
-}else{
-    for(var z = 0;z < this.myPlayers.length; z++){
-        this.myPlayers[z].removeBody();
-        this.myPlayers.splice(z,1);
+    }else{
+        for(var z = 0;z < this.myPlayers.length; z++){
+            this.myPlayers[z].removeBody();
+            this.myPlayers.splice(z,1);
+        }
+        this.playerMoved = true;
     }
-    this.playerMoved = true;
 }
 } // end Box2DPlayer
 
 function PlayerMovement (playDirr, sideNum) {
 
+if(level==1){
     var up = 270;
     var down = 90;
     var left = 180;
@@ -197,6 +201,7 @@ function PlayerMovement (playDirr, sideNum) {
     this.prevDir = playDirr;
     this.playDir = "no";
     }
+}
 }
 
 function jumpingAllowed() {

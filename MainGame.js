@@ -5,7 +5,8 @@ document.onkeydown=function(){keyInput()};
 window.onload = onReady; // first function call
 
 // the most important variables
-var gamemode = "menu";
+var level = 1;
+var gamemode = "play";
 var sideNum = 1;
 
 // test mode
@@ -104,57 +105,59 @@ function onReady() {
     frameCounter = 0;
     canvas.addEventListener('mousedown', pick);
 
-    // for testing and setting start side manuell
-    if(sideNum==1){
-        spawnpoint=0; // 0
-    }else if(sideNum==2){
-        spawnpoint=1; // 1
-    }else if(sideNum==3){
-        spawnpoint=4; // 4
-    }else if(sideNum==4){
-        spawnpoint=6; // 6
+    if(level==1){
+        // for testing and setting start side manuell
+        if(sideNum==1){
+            spawnpoint=0; // 0
+        }else if(sideNum==2){
+            spawnpoint=1; // 1
+        }else if(sideNum==3){
+            spawnpoint=4; // 4
+        }else if(sideNum==4){
+            spawnpoint=6; // 6
+        }
+
+        // backgroundmusic
+        backgroundmusicone = document.createElement('AUDIO');
+        backgroundmusicone.src="level1/music/backgroundone.mp3";
+        //backgroundmusicone.play();
+
+        // import of all needed videos
+        videointro = document.createElement('video');
+        videointro.src =  "level1/videos/intro.mp4";
+        videointro.load();
+
+        videoonetotwolow = document.createElement('video');
+        videoonetotwolow.src =  "level1/videos/sideonetotwolow.mp4";
+        videoonetotwolow.load();
+
+        videoonetotwohigh = document.createElement('video');
+        videoonetotwohigh.src =  "level1/videos/sideonetotwohigh.mp4";
+        videoonetotwohigh.load();
+
+        videotwotoone = document.createElement('video');
+        videotwotoone.src =  "level1/videos/sidetwotoone.mp4";
+        videotwotoone.load();
+
+        videotwotothree = document.createElement('video');
+        videotwotothree.src =  "level1/videos/sidetwotothree.mp4";
+        videotwotothree.load();
+
+        videothreetofourlow = document.createElement('video');
+        videothreetofourlow.src =  "level1/videos/sidethreetofourlow.mp4";
+        videothreetofourlow.load();
+
+        videothreetofourhigh = document.createElement('video');
+        videothreetofourhigh.src =  "level1/videos/sidethreetofourhigh.mp4";
+        videothreetofourhigh.load();
+
+        videofourtothree = document.createElement('video');
+        videofourtothree.src =  "level1/videos/sidefourtothree.mp4";
+        videofourtothree.load();
+
+        playerX = 500;
+        playerY = 500;
     }
-
-    // backgroundmusic
-    backgroundmusicone = document.createElement('AUDIO');
-    backgroundmusicone.src="music/backgroundone.mp3";
-    backgroundmusicone.play();
-
-    // import of all needed videos
-    videointro = document.createElement('video');
-    videointro.src =  "videos/intro.mp4";
-    videointro.load();
-
-    videoonetotwolow = document.createElement('video');
-    videoonetotwolow.src =  "videos/sideonetotwolow.mp4";
-    videoonetotwolow.load();
-
-    videoonetotwohigh = document.createElement('video');
-    videoonetotwohigh.src =  "videos/sideonetotwohigh.mp4";
-    videoonetotwohigh.load();
-
-    videotwotoone = document.createElement('video');
-    videotwotoone.src =  "videos/sidetwotoone.mp4";
-    videotwotoone.load();
-
-    videotwotothree = document.createElement('video');
-    videotwotothree.src =  "videos/sidetwotothree.mp4";
-    videotwotothree.load();
-
-    videothreetofourlow = document.createElement('video');
-    videothreetofourlow.src =  "videos/sidethreetofourlow.mp4";
-    videothreetofourlow.load();
-
-    videothreetofourhigh = document.createElement('video');
-    videothreetofourhigh.src =  "videos/sidethreetofourhigh.mp4";
-    videothreetofourhigh.load();
-
-    videofourtothree = document.createElement('video');
-    videofourtothree.src =  "videos/sidefourtothree.mp4";
-    videofourtothree.load();
-
-    playerX = 500;
-    playerY = 500;
 
     // setup world
     world = new b2World(
