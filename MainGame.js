@@ -316,7 +316,7 @@ function draw () {
         //ctx.fillText("Side number: "+ sideNum, 10, canvas.height-65);
         //ctx.fillText("Square number: "+ playerCounter, 10, canvas.height-45);
         //ctx.fillText("current frame: "+ frameCounter, 10, canvas.height-25);
-        ctx.fillText("frame rate: " +(1000/frameTime)+ " fps", 10, canvas.height-5);
+        //ctx.fillText("frame rate: " +(1000/frameTime)+ " fps", 10, canvas.height-5);
 
     }else if(gamemode=="end"){
         if(ended){
