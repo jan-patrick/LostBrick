@@ -16,7 +16,7 @@ function Box2DCircle ( x,  y,  r) {
 
     this.fixDef = new b2FixtureDef;
     this.fixDef.density = 0;
-    this.fixDef.friction = 0;
+    this.fixDef.friction = 0.0001;
     this.fixDef.restitution = 0.2;
     this.bodyDef = new b2BodyDef;
     this.bodyDef.type = b2Body.b2_dynamicBody;
