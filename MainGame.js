@@ -7,7 +7,7 @@ window.onload = onReady; // first function call
 // the most important variables
 var level = 2; // 1 = easy; 2 = hard
 var gamemode = "play";
-var sideNum = 1;
+var sideNum = 2;
 
 // if muted (true) music does not play
 var mute = false;
@@ -282,7 +282,11 @@ function draw () {
         ctx.fillText("press right to play with your mind", 1000, 800);
     }else if(gamemode=="intro"){
         if(!introStarted){
-            countFrame = seconds+8;
+            if(level==1){
+                countFrame = seconds+8;
+            }else if(level==2){
+                countFrame = seconds+9;
+            }
             introStarted = true;
         }
         if(level==1){
@@ -382,36 +386,22 @@ function draw () {
                 }
             }else if(level==2){ // on hard level
                 if(sideNum==1){
-                    if(playerX>=1121 && playerX<=1127 && playerY<=703 && playerY>=700){
+                    if(playerX>=1098 && playerX<=1105 && playerY<=667 && playerY>=664){
                         sideNum++;
                         countFrame = seconds+2;
                         actFrame = countFrame;
                         videoPlayed = false;
-                        whichVideo = "onetotwolow";
-                        spawnpoint = 11;
-                        resetUsedVariables();
-                    }else if(playerX>=1121 && playerX<=1127 && playerY<=467 && playerY>=465){
-                        sideNum++;
-                        countFrame = seconds+2;
-                        videoPlayed = false;
-                        whichVideo = "onetotwohigh";
-                        spawnpoint = 13;
+                        whichVideo = "onetotwo";
+                        spawnpoint = 1;
                         resetUsedVariables();
                     }
                 }else if(sideNum==2){
-                    if(playerX>=698 && playerX<=700 && playerY<=586 && playerY>=582){
-                        sideNum--;
-                        countFrame = seconds+2;
-                        videoPlayed = false;
-                        whichVideo = "twotoone";
-                        spawnpoint = 12;
-                        resetUsedVariables();
-                    }else if(playerX>=1122 && playerX<=1130 && playerY<=413 && playerY>=410){
+                    if(playerX>=1097 && playerX<=1100 && playerY<=690 && playerY>=685){
                         sideNum++;
                         countFrame = seconds+2;
                         videoPlayed = false;
                         whichVideo = "twotothree";
-                        spawnpoint = 14;
+                        spawnpoint = 2;
                         resetUsedVariables();
                     }
                 }else if(sideNum==3){
@@ -420,14 +410,7 @@ function draw () {
                         countFrame = seconds+2;
                         videoPlayed = false;
                         whichVideo = "threetofourlow";
-                        spawnpoint = 15;
-                        resetUsedVariables();
-                    }else if(playerX>=1123 && playerX<=1128 && playerY<=433 && playerY>=430){
-                        sideNum++;
-                        countFrame = seconds+2;
-                        videoPlayed = false;
-                        whichVideo = "threetofourhigh";
-                        spawnpoint = 16;
+                        spawnpoint = 3;
                         resetUsedVariables();
                     }
                 }else if(sideNum==4){
@@ -446,8 +429,8 @@ function draw () {
         //ctx.fillText("Raindrops: "+ myRain.length, 10, canvas.height-165);
         //ctx.fillText("countFrame: "+ countFrame, 10, canvas.height-145);
         //ctx.fillText("time playing: "+ resultTime, 10, canvas.height-125);
-        //ctx.fillText("X-Position: "+ playerX, 10, canvas.height-105);
-        //ctx.fillText("Y-Position: "+ playerY, 10, canvas.height-85);
+        ctx.fillText("X-Position: "+ playerX, 10, canvas.height-105);
+        ctx.fillText("Y-Position: "+ playerY, 10, canvas.height-85);
         //ctx.fillText("Side number: "+ sideNum, 10, canvas.height-65);
         //ctx.fillText("Square number: "+ playerCounter, 10, canvas.height-45);
         //ctx.fillText("current frame: "+ frameCounter, 10, canvas.height-25);

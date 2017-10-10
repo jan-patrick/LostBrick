@@ -105,29 +105,17 @@ if(this.level==1){
             moveSquX = 764;
             moveSquY = 780;
             gravityDirection = 90;
-        }else if(sideNum==1 && this.spawnpoint == 2){ // gravity to the right
-            moveSquX = 1125;
-            moveSquY = 590;
-            gravityDirection = 90;
         }else if(sideNum==2 && this.spawnpoint == 1){ // gravity to the right
+            moveSquX = 722;
+            moveSquY = 665;
+            gravityDirection = 0;
+        }else if(sideNum==3 && this.spawnpoint == 2){ // gravity to the right
             moveSquX = 700;
             moveSquY = 700;
-            gravityDirection = 0;
-        }else if(sideNum==2 && this.spawnpoint == 3){ // gravity to the right
+            gravityDirection = 270;
+        }else if(sideNum==4 && this.spawnpoint == 3){ // gravity to the right
             moveSquX = 700;
             moveSquY = 464;
-            gravityDirection = 0;
-        }else if(sideNum==3 && this.spawnpoint == 4){ // gravity up
-            moveSquX = 700;
-            moveSquY = 412;
-            gravityDirection = 270;
-        }else if(sideNum==4 && this.spawnpoint == 5){ // gravity to the left
-            moveSquX = 700;
-            moveSquY = 562;
-            gravityDirection = 180;
-        }else if(sideNum==4 && this.spawnpoint == 6){ // gravity to the left
-            moveSquX = 700;
-            moveSquY = 432;
             gravityDirection = 180;
         }
         this.playerMoved = false;

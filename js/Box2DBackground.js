@@ -76,10 +76,7 @@ if(this.level==1){
             }
         this.ctx.drawImage(img, 0, 0);
         }else{ // show video transition
-            if(this.whichVideo == "onetotwolow"){
-                this.video12.play();
-                this.ctx.drawImage(video12, 0, 0);
-            }else if(this.whichVideo == "onetotwohigh"){
+            if(this.whichVideo == "onetotwo"){
                 this.video12.play();
                 this.ctx.drawImage(video12, 0, 0);
             }else if(this.whichVideo == "twotoone"){
