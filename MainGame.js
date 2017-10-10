@@ -13,7 +13,7 @@ var sideNum = 1;
 var mute = false;
 
 // test mode
-var godmode = true;
+var godmode = false;
 
 // mouse position any time
 var mouseX, mouseY;
