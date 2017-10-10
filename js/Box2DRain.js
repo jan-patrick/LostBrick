@@ -13,7 +13,6 @@ var gravitypower = 0.01;
 var startPointX;
 var startPointY;
 
-if(level==1){
     if(this.itisraining){
 
       if(this.sideNum==1){ // gravity down
@@ -49,5 +48,4 @@ if(level==1){
             }
         }
     }
-}
 }

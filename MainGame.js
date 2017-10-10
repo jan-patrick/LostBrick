@@ -5,8 +5,8 @@ document.onkeydown=function(){keyInput()};
 window.onload = onReady; // first function call
 
 // the most important variables
-var level = 1; // 1 = easy; 2 = hard
-var gamemode = "menu";
+var level = 2; // 1 = easy; 2 = hard
+var gamemode = "play";
 var sideNum = 1;
 
 // if muted (true) music does not play
@@ -73,6 +73,7 @@ var mySquaresForJumping = [];
 
 // for background
 var img;
+var started = false;
 var videointroeasy;
 var videoonetotwolow;
 var videoonetotwohigh;
@@ -119,17 +120,6 @@ function onReady() {
     frameCounter = 0;
     canvas.addEventListener('mousedown', pick);
 
-        // for testing and setting start side manuell
-        if(sideNum==1){
-            spawnpoint=0; // 0
-        }else if(sideNum==2){
-            spawnpoint=1; // 1
-        }else if(sideNum==3){
-            spawnpoint=4; // 4
-        }else if(sideNum==4){
-            spawnpoint=6; // 6
-        }
-
         // backgroundmusic easy
         backgroundmusicone = document.createElement('AUDIO');
         backgroundmusicone.src="level1/music/backgroundone.mp3";
@@ -167,17 +157,6 @@ function onReady() {
         videofourtothree = document.createElement('video');
         videofourtothree.src =  "level1/videos/sidefourtothree.mp4";
         videofourtothree.load();
-
-        // for testing and setting start side manuell
-        if(sideNum==1){
-            spawnpoint=0; // 0
-        }else if(sideNum==2){
-            spawnpoint=1; // 1
-        }else if(sideNum==3){
-            spawnpoint=4; // 4
-        }else if(sideNum==4){
-            spawnpoint=6; // 6
-        }
 
         // backgroundmusic hard
         backgroundmusicone = document.createElement('AUDIO');
@@ -251,6 +230,32 @@ function onReady() {
 function draw () {
     var thisFrameTime = (thisLoop=new Date) - lastLoop;
     seconds = new Date().getTime() / 1000;
+
+    // setting player position onload
+    if(!started){
+        if(level==1){
+            if(sideNum==1){
+                spawnpoint=0; // 0
+            }else if(sideNum==2){
+                spawnpoint=1; // 1
+            }else if(sideNum==3){
+                spawnpoint=4; // 4
+            }else if(sideNum==4){
+                spawnpoint=6; // 6
+            }
+        }else if(level==2){
+            if(sideNum==1){
+                spawnpoint=0; // 0
+            }else if(sideNum==2){
+                spawnpoint=1; // 1
+            }else if(sideNum==3){
+                spawnpoint=4; // 4
+            }else if(sideNum==4){
+                spawnpoint=6; // 6
+            }
+        }
+    }
+
     if(gamemode=="menu"){
         if(menuopacity<=0.3){
             menutextgrowing=true;
@@ -313,58 +318,115 @@ function draw () {
 
         // change side if player reached right plattform
         if(videoPlayed == true){
-            if(sideNum==1){
-                if(playerX>=1121 && playerX<=1127 && playerY<=703 && playerY>=700){
-                    sideNum++;
-                    countFrame = seconds+2;
-                    actFrame = countFrame;
-                    videoPlayed = false;
-                    whichVideo = "onetotwolow";
-                    spawnpoint = 1;
-                    resetUsedVariables();
-                }else if(playerX>=1121 && playerX<=1127 && playerY<=467 && playerY>=465){
-                    sideNum++;
-                    countFrame = seconds+2;
-                    videoPlayed = false;
-                    whichVideo = "onetotwohigh";
-                    spawnpoint = 3;
-                    resetUsedVariables();
+            if(level==1){
+                if(sideNum==1){ // on easy level 
+                    if(playerX>=1121 && playerX<=1127 && playerY<=703 && playerY>=700){
+                        sideNum++;
+                        countFrame = seconds+2;
+                        actFrame = countFrame;
+                        videoPlayed = false;
+                        whichVideo = "onetotwolow";
+                        spawnpoint = 1;
+                        resetUsedVariables();
+                    }else if(playerX>=1121 && playerX<=1127 && playerY<=467 && playerY>=465){
+                        sideNum++;
+                        countFrame = seconds+2;
+                        videoPlayed = false;
+                        whichVideo = "onetotwohigh";
+                        spawnpoint = 3;
+                        resetUsedVariables();
+                    }
+                }else if(sideNum==2){
+                    if(playerX>=698 && playerX<=700 && playerY<=586 && playerY>=582){
+                        sideNum--;
+                        countFrame = seconds+2;
+                        videoPlayed = false;
+                        whichVideo = "twotoone";
+                        spawnpoint = 2;
+                        resetUsedVariables();
+                    }else if(playerX>=1122 && playerX<=1130 && playerY<=413 && playerY>=410){
+                        sideNum++;
+                        countFrame = seconds+2;
+                        videoPlayed = false;
+                        whichVideo = "twotothree";
+                        spawnpoint = 4;
+                        resetUsedVariables();
+                    }
+                }else if(sideNum==3){
+                    if(playerX>=1123 && playerX<=1135 && playerY<=563 && playerY>=560){
+                        sideNum++;
+                        countFrame = seconds+2;
+                        videoPlayed = false;
+                        whichVideo = "threetofourlow";
+                        spawnpoint = 5;
+                        resetUsedVariables();
+                    }else if(playerX>=1123 && playerX<=1128 && playerY<=433 && playerY>=430){
+                        sideNum++;
+                        countFrame = seconds+2;
+                        videoPlayed = false;
+                        whichVideo = "threetofourhigh";
+                        spawnpoint = 6;
+                        resetUsedVariables();
+                    }
+                }else if(sideNum==4){
+                    if(playerX>=1086 && playerX<=1090 && playerY<=166 && playerY>=157){
+                        gamemode="end";
+                    }
                 }
-            }else if(sideNum==2){
-                if(playerX>=698 && playerX<=700 && playerY<=586 && playerY>=582){
-                    sideNum--;
-                    countFrame = seconds+2;
-                    videoPlayed = false;
-                    whichVideo = "twotoone";
-                    spawnpoint = 2;
-                    resetUsedVariables();
-                }else if(playerX>=1122 && playerX<=1130 && playerY<=413 && playerY>=410){
-                    sideNum++;
-                    countFrame = seconds+2;
-                    videoPlayed = false;
-                    whichVideo = "twotothree";
-                    spawnpoint = 4;
-                    resetUsedVariables();
-                }
-            }else if(sideNum==3){
-                if(playerX>=1123 && playerX<=1135 && playerY<=563 && playerY>=560){
-                    sideNum++;
-                    countFrame = seconds+2;
-                    videoPlayed = false;
-                    whichVideo = "threetofourlow";
-                    spawnpoint = 5;
-                    resetUsedVariables();
-                }else if(playerX>=1123 && playerX<=1128 && playerY<=433 && playerY>=430){
-                    sideNum++;
-                    countFrame = seconds+2;
-                    videoPlayed = false;
-                    whichVideo = "threetofourhigh";
-                    spawnpoint = 6;
-                    resetUsedVariables();
-                }
-            }else if(sideNum==4){
-                if(playerX>=1086 && playerX<=1090 && playerY<=166 && playerY>=157){
-                    gamemode="end";
+            }else if(level==2){ // on hard level
+                if(sideNum==1){
+                    if(playerX>=1121 && playerX<=1127 && playerY<=703 && playerY>=700){
+                        sideNum++;
+                        countFrame = seconds+2;
+                        actFrame = countFrame;
+                        videoPlayed = false;
+                        whichVideo = "onetotwolow";
+                        spawnpoint = 1;
+                        resetUsedVariables();
+                    }else if(playerX>=1121 && playerX<=1127 && playerY<=467 && playerY>=465){
+                        sideNum++;
+                        countFrame = seconds+2;
+                        videoPlayed = false;
+                        whichVideo = "onetotwohigh";
+                        spawnpoint = 3;
+                        resetUsedVariables();
+                    }
+                }else if(sideNum==2){
+                    if(playerX>=698 && playerX<=700 && playerY<=586 && playerY>=582){
+                        sideNum--;
+                        countFrame = seconds+2;
+                        videoPlayed = false;
+                        whichVideo = "twotoone";
+                        spawnpoint = 2;
+                        resetUsedVariables();
+                    }else if(playerX>=1122 && playerX<=1130 && playerY<=413 && playerY>=410){
+                        sideNum++;
+                        countFrame = seconds+2;
+                        videoPlayed = false;
+                        whichVideo = "twotothree";
+                        spawnpoint = 4;
+                        resetUsedVariables();
+                    }
+                }else if(sideNum==3){
+                    if(playerX>=1123 && playerX<=1135 && playerY<=563 && playerY>=560){
+                        sideNum++;
+                        countFrame = seconds+2;
+                        videoPlayed = false;
+                        whichVideo = "threetofourlow";
+                        spawnpoint = 5;
+                        resetUsedVariables();
+                    }else if(playerX>=1123 && playerX<=1128 && playerY<=433 && playerY>=430){
+                        sideNum++;
+                        countFrame = seconds+2;
+                        videoPlayed = false;
+                        whichVideo = "threetofourhigh";
+                        spawnpoint = 6;
+                        resetUsedVariables();
+                    }
+                }else if(sideNum==4){
+                    if(playerX>=1086 && playerX<=1090 && playerY<=166 && playerY>=157){
+                        gamemode="end";
+                    }
                 }
             }
         }

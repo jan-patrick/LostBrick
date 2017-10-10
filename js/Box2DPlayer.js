@@ -22,7 +22,6 @@ this.videoPlayed;
 this.playerMoved;
 this.spawnpoint;
 
-if(this.level==1){
     if(prevSquNum != sideNum || prevSquNum != sideNum && this.playerMoved==true || this.playerMoved==true){
         if(sideNum==1 && this.spawnpoint == 0){ // gravity down
             moveSquX = 754;
@@ -99,89 +98,10 @@ if(this.level==1){
         }
         this.playerMoved = true;
     }
-}else if(this.level==2){
-    if(prevSquNum != sideNum || prevSquNum != sideNum && this.playerMoved==true || this.playerMoved==true){
-        if(sideNum==1 && this.spawnpoint == 0){ // gravity down
-            moveSquX = 754;
-            moveSquY = 822;
-            gravityDirection = 90;
-        }else if(sideNum==1 && this.spawnpoint == 2){ // gravity to the right
-            moveSquX = 1125;
-            moveSquY = 590;
-            gravityDirection = 90;
-        }else if(sideNum==2 && this.spawnpoint == 1){ // gravity to the right
-            moveSquX = 700;
-            moveSquY = 700;
-            gravityDirection = 0;
-        }else if(sideNum==2 && this.spawnpoint == 3){ // gravity to the right
-            moveSquX = 700;
-            moveSquY = 464;
-            gravityDirection = 0;
-        }else if(sideNum==3 && this.spawnpoint == 4){ // gravity up
-            moveSquX = 700;
-            moveSquY = 412;
-            gravityDirection = 270;
-        }else if(sideNum==4 && this.spawnpoint == 5){ // gravity to the left
-            moveSquX = 700;
-            moveSquY = 562;
-            gravityDirection = 180;
-        }else if(sideNum==4 && this.spawnpoint == 6){ // gravity to the left
-            moveSquX = 700;
-            moveSquY = 432;
-            gravityDirection = 180;
-        }
-        this.playerMoved = false;
-        prevSquNum = sideNum;
-    }
-
-    if(this.videoPlayed){
-        if(this.playerX >= 1200 || this.playerY >= 950 || this.playerX <= 600 || this.playerY <= 100){
-            if(sideNum==4 && this.spawnpoint==5){
-                this.sideNum--;
-                this.countFrame = seconds+2;
-                this.videoPlayed = false;
-                this.whichVideo = "fourtothree";
-                this.spawnpoint = 4;
-        }
-        resetUsedVariables();
-        if(!this.deadCounted){
-            this.playerCounter++;
-            this.deadCounted = true;
-        }
-        for(var z = 0;z < this.myPlayers.length; z++){
-            this.myPlayers[z].removeBody();
-            this.myPlayers.splice(z,1);
-        }
-    }
-    this.deadCounted = false;
-
-    if(this.myPlayers.length<=0){
-        var myplayer = new Box2DBox(moveSquX, moveSquY, w, h);
-        myPlayers.push(myplayer);
-    }
-
-    // draw the playable square
-    for (var i = 0; i < myPlayers.length; i++) {
-        if(gravityDirection==undefined || !this.videoPlayed)gravityDirection=0;
-        if(gravitypower==undefined || !this.videoPlayed)gravitypower=0;
-            this.myPlayers[i].applyImpulse(gravityDirection, gravitypower);
-            this.myPlayers[i].draw(ctx);
-            this.playerX = myPlayers[i].miX;
-            this.playerY = myPlayers[i].miY;
-    }
-    }else{
-        for(var z = 0;z < this.myPlayers.length; z++){
-            this.myPlayers[z].removeBody();
-            this.myPlayers.splice(z,1);
-        }
-        this.playerMoved = true;
-    }
-}
 } // end Box2DPlayer
 
 function PlayerMovement (playDirr, sideNum) {
 
-if(level==1){
     var up = 270;
     var down = 90;
     var left = 180;
@@ -282,7 +202,6 @@ if(level==1){
     this.prevDir = playDirr;
     this.playDir = "no";
     }
-}
 }
 
 function jumpingAllowed() {

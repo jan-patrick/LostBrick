@@ -88,7 +88,7 @@ if(this.level==1){
         }
         if(this.videoPlayed){
             if(sideNum==1){ // Creating Side One
-                this.mySquaresForJumping.push(new Box2DBondary(762, 836, 40, 5, 0));
+                this.mySquaresForJumping.push(new Box2DBondary(762, 826, 40, 5, 0));
                 this.mySquaresForJumping.push(new Box2DBondary(872, 795, 40, 5, 0));
                 this.mySquaresForJumping.push(new Box2DBondary(990, 756, 40, 5, 0));
                 this.mySquaresForJumping.push(new Box2DBondary(1095, 715, 40, 5, 0));
@@ -143,9 +143,9 @@ if(this.level==1){
             }
 
             // drawing the square borders (just needed while creating and coding)
-            //for (var i = 0; i < this.mySquaresForJumping.length; i++) {
-            //    this.mySquaresForJumping[i].draw(ctx);
-            //}
+            for (var i = 0; i < this.mySquaresForJumping.length; i++) {
+                this.mySquaresForJumping[i].draw(ctx);
+            }
             //make sure that we just redraw when we change the side (to the dark)
             prevSideNum = sideNum;
         }
