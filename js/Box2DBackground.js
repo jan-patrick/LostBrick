@@ -74,5 +74,7 @@ if(this.level==1){
               }else if(sideNum==4){ // creating background four
                   this.img.src = "level2/images/side4.jpg";
               }
+          }
+      }        
 }
 } // end Box2DBackground

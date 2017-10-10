@@ -230,7 +230,7 @@ function onReady() {
     world = new b2World(
         new b2Vec2(0, 0)    //gravity
         ,  true              //alloww sleep
-    );
+    );    
 
     if(godmode==false){    // collision listener
     var listener = new Box2D.Dynamics.b2ContactListener;
