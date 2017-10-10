@@ -99,7 +99,8 @@ var prevImg = 0;
 var whichVideo = "no";
 
 // for menu text
-var menuopacity = 0.3;
+var menuopacityleft = 0.6;
+var menuopacityright = 0.6;
 var menutextgrowing = true;
 
 // for end (result)
@@ -232,7 +233,7 @@ function draw () {
     var thisFrameTime = (thisLoop=new Date) - lastLoop;
     seconds = new Date().getTime() / 1000;
 
-    // setting player position onload
+    // setting player position for onload
     if(!started){
         if(level==1){
             if(sideNum==1){
@@ -259,21 +260,25 @@ function draw () {
     }
 
     if(gamemode=="menu"){
-        if(menuopacity<=0.3){
+        if(menuopacityleft<=0.3){
             menutextgrowing=true;
-        }else if(menuopacity>=1){
+        }else if(menuopacityleft>=0.9){
             menutextgrowing=false;
         }
         if(menutextgrowing){
-            menuopacity+=0.005;
-        }else{menuopacity-=0.005;
+            menuopacityleft+=0.005;
+            menuopacityright-=0.005;
+        }else{
+            menuopacityleft-=0.005;
+            menuopacityright+=0.005;
         }
         img = new Image();
         img.src = "mainimages/menu.jpg";
         ctx.drawImage(img, 0, 0);
-        ctx.fillStyle = "rgba(255, 255, 255, " + menuopacity + ")";
         ctx.font = "normal 41px DINPro";
+        ctx.fillStyle = "rgba(255, 255, 255, " + menuopacityleft + ")";
         ctx.fillText("press left for easy mode", 400, 800);
+        ctx.fillStyle = "rgba(255, 255, 255, " + menuopacityright + ")";
         ctx.fillText("press right for hard mode", 900, 800);
     }else if(gamemode=="intro"){
         if(!introStarted){
