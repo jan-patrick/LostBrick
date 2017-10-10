@@ -7,7 +7,7 @@ window.onload = onReady; // first function call
 // the most important variables
 var level = 2; // 1 = easy; 2 = hard
 var gamemode = "play";
-var sideNum = 2;
+var sideNum = 4;
 
 // if muted (true) music does not play
 var mute = false;
@@ -394,25 +394,34 @@ function draw () {
                         whichVideo = "onetotwo";
                         spawnpoint = 1;
                         resetUsedVariables();
-                    }
-                }else if(sideNum==2){
-                  if(playerX>=724 && playerX<=726 && playerY<=458 && playerY>=454){
+                    }else if(playerX>=723 && playerX<=729 && playerY<=725 && playerY>=722){
                         sideNum--;
                         countFrame = seconds+2;
+                        actFrame = countFrame;
                         videoPlayed = false;
-                        whichVideo = "twotoone";
-                        spawnpoint = 4;
+                        whichVideo = "onetofour";
+                        spawnpoint = 5;
                         resetUsedVariables();
-                  }else if(playerX>=1097 && playerX<=1100 && playerY<=690 && playerY>=685){
+                    }
+                }else if(sideNum==2){
+                    if(playerX>=1097 && playerX<=1102 && playerY<=690 && playerY>=685){
                         sideNum++;
                         countFrame = seconds+2;
                         videoPlayed = false;
                         whichVideo = "twotothree";
+                        spawnpoint = 2;
+                        resetUsedVariables();
+                    }else if(playerX>=723 && playerX<=729 && playerY<=460 && playerY>=455){
+                        sideNum--;
+                        countFrame = seconds+2;
+                        actFrame = countFrame;
+                        videoPlayed = false;
+                        whichVideo = "twotoone";
                         spawnpoint = 4;
                         resetUsedVariables();
                     }
                 }else if(sideNum==3){
-                    if(playerX>=1123 && playerX<=1135 && playerY<=563 && playerY>=560){
+                    if(playerX>=1095 && playerX<=1102 && playerY<=425 && playerY>=423){
                         sideNum++;
                         countFrame = seconds+2;
                         videoPlayed = false;
@@ -421,8 +430,16 @@ function draw () {
                         resetUsedVariables();
                     }
                 }else if(sideNum==4){
-                    if(playerX>=1086 && playerX<=1090 && playerY<=166 && playerY>=157){
+                    if(playerX>=1078 && playerX<=1082 && playerY<=211 && playerY>=200){
                         gamemode="end";
+                    }else if(playerX>=723 && playerX<=729 && playerY<=460 && playerY>=455){
+                        sideNum--;
+                        countFrame = seconds+2;
+                        actFrame = countFrame;
+                        videoPlayed = false;
+                        whichVideo = "twotoone";
+                        spawnpoint = 6;
+                        resetUsedVariables();
                     }
                 }
             }
@@ -457,6 +474,8 @@ function draw () {
             img.src = "level2/images/end.jpg";
             ctx.drawImage(img, 0, 0);
         }
+
+        Box2DRain();
 
         ctx.fillStyle = "#ffffff";
         ctx.font = "normal 41px DINPro";

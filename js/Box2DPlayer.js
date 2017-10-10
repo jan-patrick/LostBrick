@@ -5,8 +5,13 @@
 
 function Box2DPlayer (sideNum) {
 
-var w = 9;
-var h = 9;
+if(this.level==1){
+    var w = 9;
+    var h = 9;
+}else if(this.level==2){
+    var w = 8;
+    var h = 8;
+}
 var prevSquNum;
 var gravityDirection;
 var gravitypower = 0.1;
@@ -117,9 +122,17 @@ if(this.level==1){
             moveSquX = 770;
             moveSquY = 688;
             gravityDirection = 270;
+        }else if(sideNum==3 && this.spawnpoint == 6){ // gravity to the right
+            moveSquX = 770;
+            moveSquY = 688;
+            gravityDirection = 270;
         }else if(sideNum==4 && this.spawnpoint == 3){ // gravity to the right
-            moveSquX = 700;
-            moveSquY = 464;
+            moveSquX = 730;
+            moveSquY = 430;
+            gravityDirection = 180;
+        }else if(sideNum==4 && this.spawnpoint == 5){ // gravity to the right
+            moveSquX = 1000;
+            moveSquY = 530;
             gravityDirection = 180;
         }
         this.playerMoved = false;
