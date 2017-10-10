@@ -127,8 +127,8 @@ if(this.level==1){
             moveSquY = 685;
             gravityDirection = 270;
         }else if(sideNum==4 && this.spawnpoint == 3){ // gravity to the right
-            moveSquX = 730;
-            moveSquY = 430;
+            moveSquX = 725;
+            moveSquY = 415;
             gravityDirection = 180;
         }else if(sideNum==4 && this.spawnpoint == 5){ // gravity to the right
             moveSquX = 1080;
@@ -141,13 +141,6 @@ if(this.level==1){
 
     if(this.videoPlayed){
         if(this.playerX >= 1200 || this.playerY >= 950 || this.playerX <= 600 || this.playerY <= 100){
-            if(sideNum==4 && this.spawnpoint==5){
-                this.sideNum--;
-                this.countFrame = seconds+2;
-                this.videoPlayed = false;
-                this.whichVideo = "fourtothree";
-                this.spawnpoint = 4;
-        }
         resetUsedVariables();
         if(!this.deadCounted){
             this.playerCounter++;
