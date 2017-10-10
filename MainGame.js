@@ -5,8 +5,8 @@ document.onkeydown=function(){keyInput()};
 window.onload = onReady; // first function call
 
 // the most important variables
-var level = 0; // 1 = easy; 2 = hard
-var gamemode = "menu";
+var level = 2; // 1 = easy; 2 = hard
+var gamemode = "play";
 var sideNum = 1;
 
 // if muted (true) music does not play
@@ -277,9 +277,9 @@ function draw () {
         ctx.drawImage(img, 0, 0);
         ctx.font = "normal 41px DINPro";
         ctx.fillStyle = "rgba(255, 255, 255, " + menuopacityleft + ")";
-        ctx.fillText("press left for easy mode", 400, 800);
+        ctx.fillText("press left to play with your heart", 400, 800);
         ctx.fillStyle = "rgba(255, 255, 255, " + menuopacityright + ")";
-        ctx.fillText("press right for hard mode", 900, 800);
+        ctx.fillText("press right to play with your mind", 1000, 800);
     }else if(gamemode=="intro"){
         if(!introStarted){
             countFrame = seconds+8;
@@ -443,17 +443,15 @@ function draw () {
         ctx.fillStyle = "#bbbbbb";
         ctx.font = "normal 11px DINPro";
 
-        ctx.fillText("Raindrops: "+ myRain.length, 10, canvas.height-165);
-        ctx.fillText("countFrame: "+ countFrame, 10, canvas.height-145);
-        ctx.fillText("time playing: "+ resultTime, 10, canvas.height-125);
-        ctx.fillText("X-Position: "+ playerX, 10, canvas.height-105);
-        ctx.fillText("Y-Position: "+ playerY, 10, canvas.height-85);
-        ctx.fillText("Side number: "+ sideNum, 10, canvas.height-65);
-        ctx.fillText("Square number: "+ playerCounter, 10, canvas.height-45);
-        ctx.fillText("current frame: "+ frameCounter, 10, canvas.height-25);
-        ctx.fillText("frame rate: " +(1000/frameTime)+ " fps", 10, canvas.height-5);
-
-        console.log(spawnpoint);
+        //ctx.fillText("Raindrops: "+ myRain.length, 10, canvas.height-165);
+        //ctx.fillText("countFrame: "+ countFrame, 10, canvas.height-145);
+        //ctx.fillText("time playing: "+ resultTime, 10, canvas.height-125);
+        //ctx.fillText("X-Position: "+ playerX, 10, canvas.height-105);
+        //ctx.fillText("Y-Position: "+ playerY, 10, canvas.height-85);
+        //ctx.fillText("Side number: "+ sideNum, 10, canvas.height-65);
+        //ctx.fillText("Square number: "+ playerCounter, 10, canvas.height-45);
+        //ctx.fillText("current frame: "+ frameCounter, 10, canvas.height-25);
+        //ctx.fillText("frame rate: " +(1000/frameTime)+ " fps", 10, canvas.height-5);
 
     }else if(gamemode=="end"){
         if(ended){
