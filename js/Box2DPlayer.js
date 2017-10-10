@@ -123,16 +123,16 @@ if(this.level==1){
             moveSquY = 688;
             gravityDirection = 270;
         }else if(sideNum==3 && this.spawnpoint == 6){ // gravity to the right
-            moveSquX = 770;
-            moveSquY = 688;
+            moveSquX = 974;
+            moveSquY = 685;
             gravityDirection = 270;
         }else if(sideNum==4 && this.spawnpoint == 3){ // gravity to the right
             moveSquX = 730;
             moveSquY = 430;
             gravityDirection = 180;
         }else if(sideNum==4 && this.spawnpoint == 5){ // gravity to the right
-            moveSquX = 1000;
-            moveSquY = 530;
+            moveSquX = 1080;
+            moveSquY = 720;
             gravityDirection = 180;
         }
         this.playerMoved = false;

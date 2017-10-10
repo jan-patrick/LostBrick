@@ -7,7 +7,7 @@ window.onload = onReady; // first function call
 // the most important variables
 var level = 2; // 1 = easy; 2 = hard
 var gamemode = "play";
-var sideNum = 4;
+var sideNum = 1;
 
 // if muted (true) music does not play
 var mute = false;
@@ -395,7 +395,7 @@ function draw () {
                         spawnpoint = 1;
                         resetUsedVariables();
                     }else if(playerX>=723 && playerX<=729 && playerY<=725 && playerY>=722){
-                        sideNum--;
+                        sideNum=4;
                         countFrame = seconds+2;
                         actFrame = countFrame;
                         videoPlayed = false;
@@ -432,12 +432,12 @@ function draw () {
                 }else if(sideNum==4){
                     if(playerX>=1078 && playerX<=1082 && playerY<=211 && playerY>=200){
                         gamemode="end";
-                    }else if(playerX>=723 && playerX<=729 && playerY<=460 && playerY>=455){
+                    }else if(playerX>=722 && playerX<=726 && playerY<=687 && playerY>=684){
                         sideNum--;
                         countFrame = seconds+2;
                         actFrame = countFrame;
                         videoPlayed = false;
-                        whichVideo = "twotoone";
+                        whichVideo = "fourtothree";
                         spawnpoint = 6;
                         resetUsedVariables();
                     }
