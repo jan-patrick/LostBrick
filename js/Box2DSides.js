@@ -115,7 +115,24 @@ if(this.level==1){
                 this.mySquaresForJumping.push(new Box2DBondary(725, 737, 8, 4, 0));
                 this.mySquaresForJumping.push(new Box2DBondary(725, 714, 8, 4, 0));
                 this.mySquaresForJumping.push(new Box2DBondary(725, 679, 8, 4, 0));
-                this.mySquaresForJumping.push(new Box2DBondary(1086, 490, 4, 70, 0));
+                this.mySquaresForJumping.push(new Box2DBondary(1086, 490, 4, 74, 0));
+                this.mySquaresForJumping.push(new Box2DBondary(1104, 568, 4, 4, 0));
+                this.mySquaresForJumping.push(new Box2DBondary(1099, 518, 8, 4, 0));
+                this.mySquaresForJumping.push(new Box2DBondary(1099, 465, 8, 4, 0));
+                this.mySquaresForJumping.push(new Box2DBondary(1099, 412, 8, 4, 0));
+                this.mySquaresForJumping.push(new Box2DBondary(1112, 425, 4, 17, 0));
+                this.mySquaresForJumping.push(new Box2DBondary(1063, 500, 4, 17, 0));
+                this.mySquaresForJumping.push(new Box2DBondary(1028, 464, 4, 17, 0));
+                this.mySquaresForJumping.push(new Box2DBondary(993, 430, 4, 17, 0));
+                this.mySquaresForJumping.push(new Box2DBondary(966, 500, 4, 17, 0));
+                this.mySquaresForJumping.push(new Box2DBondary(930, 535, 4, 17, 0));
+                this.mySquaresForJumping.push(new Box2DBondary(904, 456, 4, 34, 0));
+                this.mySquaresForJumping.push(new Box2DBondary(868, 430, 4, 17, 0));
+                this.mySquaresForJumping.push(new Box2DBondary(841, 491, 4, 17, 0));
+                this.mySquaresForJumping.push(new Box2DBondary(805, 527, 4, 17, 0));
+                this.mySquaresForJumping.push(new Box2DBondary(779, 438, 4, 44, 0));
+                this.mySquaresForJumping.push(new Box2DBondary(739, 452, 4, 22, 0));
+                this.mySquaresForJumping.push(new Box2DBondary(726, 470, 9, 4, 0));
             }else if(sideNum==3){ // Creating Side Three
                 this.mySquaresForJumping.push(new Box2DBondary(713, 398, 25, 5, 0));
             }else if(sideNum==4){ // Creating Side Four

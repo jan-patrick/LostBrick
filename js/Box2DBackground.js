@@ -85,15 +85,21 @@ if(this.level==1){
             }else if(this.whichVideo == "twotothree"){
                 this.video23.play();
                 this.ctx.drawImage(video23, 0, 0);
-            }else if(this.whichVideo == "threetofourlow"){
-                this.video34.play();
-                this.ctx.drawImage(video34, 0, 0);
-            }else if(this.whichVideo == "threetofourhigh"){
+            }else if(this.whichVideo == "threetofour"){
                 this.video34.play();
                 this.ctx.drawImage(video34, 0, 0);
             }else if(this.whichVideo == "fourtothree"){
                 this.video43.play();
                 this.ctx.drawImage(video43, 0, 0);
+            }else if(this.whichVideo == "threetotwo"){
+                this.video32.play();
+                this.ctx.drawImage(video32, 0, 0);
+            }else if(this.whichVideo == "twotoone"){
+                this.video21.play();
+                this.ctx.drawImage(video21, 0, 0);
+            }else if(this.whichVideo == "onetofour"){
+                this.video14.play();
+                this.ctx.drawImage(video14, 0, 0);
             }
             if(this.countFrame<= this.seconds)this.videoPlayed = true;
         }

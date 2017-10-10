@@ -251,9 +251,9 @@ function draw () {
             }else if(sideNum==2){
                 spawnpoint=1; // 1
             }else if(sideNum==3){
-                spawnpoint=4; // 4
+                spawnpoint=2; // 2
             }else if(sideNum==4){
-                spawnpoint=6; // 6
+                spawnpoint=3; // 3
             }
         }
         started=true;
@@ -396,12 +396,19 @@ function draw () {
                         resetUsedVariables();
                     }
                 }else if(sideNum==2){
-                    if(playerX>=1097 && playerX<=1100 && playerY<=690 && playerY>=685){
+                  if(playerX>=724 && playerX<=726 && playerY<=458 && playerY>=454){
+                        sideNum--;
+                        countFrame = seconds+2;
+                        videoPlayed = false;
+                        whichVideo = "twotoone";
+                        spawnpoint = 4;
+                        resetUsedVariables();
+                  }else if(playerX>=1097 && playerX<=1100 && playerY<=690 && playerY>=685){
                         sideNum++;
                         countFrame = seconds+2;
                         videoPlayed = false;
                         whichVideo = "twotothree";
-                        spawnpoint = 2;
+                        spawnpoint = 4;
                         resetUsedVariables();
                     }
                 }else if(sideNum==3){
@@ -409,7 +416,7 @@ function draw () {
                         sideNum++;
                         countFrame = seconds+2;
                         videoPlayed = false;
-                        whichVideo = "threetofourlow";
+                        whichVideo = "threetofour";
                         spawnpoint = 3;
                         resetUsedVariables();
                     }
