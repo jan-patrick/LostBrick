@@ -5,8 +5,8 @@ document.onkeydown=function(){keyInput()};
 window.onload = onReady; // first function call
 
 // the most important variables
-var level = 2; // 1 = easy; 2 = hard
-var gamemode = "play";
+var level = 0; // 1 = easy; 2 = hard
+var gamemode = "menu";
 var sideNum = 1;
 
 // if muted (true) music does not play
@@ -53,6 +53,7 @@ var playerX;
 var playerY;
 var playerMoved = false;
 var spawnpoint = 0;
+var spawnpointSet = true;
 
 // player direction
 var playDir = "no";
@@ -254,6 +255,7 @@ function draw () {
                 spawnpoint=6; // 6
             }
         }
+        started=true;
     }
 
     if(gamemode=="menu"){
@@ -267,7 +269,7 @@ function draw () {
         }else{menuopacity-=0.005;
         }
         img = new Image();
-        img.src = "level1/images/menu.jpg";
+        img.src = "mainimages/menu.jpg";
         ctx.drawImage(img, 0, 0);
         ctx.fillStyle = "rgba(255, 255, 255, " + menuopacity + ")";
         ctx.font = "normal 41px DINPro";
@@ -319,7 +321,7 @@ function draw () {
         // change side if player reached right plattform
         if(videoPlayed == true){
             if(level==1){
-                if(sideNum==1){ // on easy level 
+                if(sideNum==1){ // on easy level
                     if(playerX>=1121 && playerX<=1127 && playerY<=703 && playerY>=700){
                         sideNum++;
                         countFrame = seconds+2;
@@ -381,14 +383,14 @@ function draw () {
                         actFrame = countFrame;
                         videoPlayed = false;
                         whichVideo = "onetotwolow";
-                        spawnpoint = 1;
+                        spawnpoint = 11;
                         resetUsedVariables();
                     }else if(playerX>=1121 && playerX<=1127 && playerY<=467 && playerY>=465){
                         sideNum++;
                         countFrame = seconds+2;
                         videoPlayed = false;
                         whichVideo = "onetotwohigh";
-                        spawnpoint = 3;
+                        spawnpoint = 13;
                         resetUsedVariables();
                     }
                 }else if(sideNum==2){
@@ -397,14 +399,14 @@ function draw () {
                         countFrame = seconds+2;
                         videoPlayed = false;
                         whichVideo = "twotoone";
-                        spawnpoint = 2;
+                        spawnpoint = 12;
                         resetUsedVariables();
                     }else if(playerX>=1122 && playerX<=1130 && playerY<=413 && playerY>=410){
                         sideNum++;
                         countFrame = seconds+2;
                         videoPlayed = false;
                         whichVideo = "twotothree";
-                        spawnpoint = 4;
+                        spawnpoint = 14;
                         resetUsedVariables();
                     }
                 }else if(sideNum==3){
@@ -413,14 +415,14 @@ function draw () {
                         countFrame = seconds+2;
                         videoPlayed = false;
                         whichVideo = "threetofourlow";
-                        spawnpoint = 5;
+                        spawnpoint = 15;
                         resetUsedVariables();
                     }else if(playerX>=1123 && playerX<=1128 && playerY<=433 && playerY>=430){
                         sideNum++;
                         countFrame = seconds+2;
                         videoPlayed = false;
                         whichVideo = "threetofourhigh";
-                        spawnpoint = 6;
+                        spawnpoint = 16;
                         resetUsedVariables();
                     }
                 }else if(sideNum==4){
@@ -445,6 +447,8 @@ function draw () {
         ctx.fillText("Square number: "+ playerCounter, 10, canvas.height-45);
         ctx.fillText("current frame: "+ frameCounter, 10, canvas.height-25);
         ctx.fillText("frame rate: " +(1000/frameTime)+ " fps", 10, canvas.height-5);
+
+        console.log(spawnpoint);
 
     }else if(gamemode=="end"){
         if(ended){
