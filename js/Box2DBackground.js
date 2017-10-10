@@ -61,5 +61,18 @@ if(this.level==1){
         }
         prevImg = sideNum;
     }
+}else if(this.level==2){
+      if(prevImg != sideNum){
+          if(this.videoPlayed){ // show background image
+              this.img = new Image();
+              if(sideNum==1){ // creating background one
+                  this.img.src = "level2/images/side1.jpg";
+              }else if(sideNum==2){ // creating background two
+                  this.img.src = "level2/images/side2.jpg";
+              }else if(sideNum==3){ // creating background three
+                  this.img.src = "level2/images/side3.jpg";
+              }else if(sideNum==4){ // creating background four
+                  this.img.src = "level2/images/side4.jpg";
+              }
 }
 } // end Box2DBackground
