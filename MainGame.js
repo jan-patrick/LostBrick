@@ -5,9 +5,9 @@ document.onkeydown=function(){keyInput()};
 window.onload = onReady; // first function call
 
 // the most important variables
-var level = 0; // 1 = heart; 2 = mind
-var gamemode = "menu";
-var sideNum = 1;
+var level = 2; // 1 = heart; 2 = mind
+var gamemode = "play";
+var sideNum = 4;
 
 // if muted (true) music does not play
 var mute = false;
@@ -277,7 +277,7 @@ function draw () {
         ctx.drawImage(img, 0, 0);
         ctx.font = "normal 41px DINPro";
         ctx.fillStyle = "rgba(255, 255, 255, " + menuopacityleft + ")";
-        ctx.fillText("press left to play with your heart", 205, 850);
+        ctx.fillText("press left to play with your will", 205, 850);
         ctx.fillStyle = "rgba(255, 255, 255, " + menuopacityright + ")";
         ctx.fillText("press right to play with your mind", 1055, 850);
     }else if(gamemode=="intro"){
@@ -482,11 +482,6 @@ function draw () {
         ctx.fillText("time: "+ Math.round(resultTime)+" seconds", 200, canvas.height/2);
         ctx.fillText("lifes: "+ playerCounter, 200, canvas.height/2+60);
 
-        //Credits
-        ctx.fillText("You played with", 1360, canvas.height/2);
-        if(level==1)ctx.fillText("your heart.", 1360, canvas.height/2+60);
-        else if(level==2)ctx.fillText("your mind.", 1360, canvas.height/2+60);
-
         if(endTime+27<=seconds)gamemode="menu";
     }
 
@@ -517,18 +512,6 @@ function pick(event) {
 // changeing the Sides
 function keyInput(e) {
     e = e || window.event;
-    if(godmode){
-        switch (e.keyCode) {
-            case 65: // a
-                sideNum--;
-                break;
-            case 68: // d
-                sideNum++;
-                countFrame = seconds+2;
-                videoPlayed = false;
-                break;
-        }
-    }
     if(gamemode=="menu"){
         switch (e.keyCode) {
             case 37: // left arrow

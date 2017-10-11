@@ -151,7 +151,7 @@ if(this.level==1){
             }else if(sideNum==4){ // Creating Side Four
                 this.mySquaresForJumping.push(new Box2DBondary(712, 425, 4, 17, 0));
                 this.mySquaresForJumping.push(new Box2DBondary(723, 411, 9, 4, 0));
-                this.mySquaresForJumping.push(new Box2DBondary(748, 398, 4, 17, 0));
+                this.mySquaresForJumping.push(new Box2DBondary(748, 397, 4, 17, 0));
                 this.mySquaresForJumping.push(new Box2DBondary(783, 371, 4, 17, 0));
                 this.mySquaresForJumping.push(new Box2DBondary(819, 345, 4, 17, 0));
                 this.mySquaresForJumping.push(new Box2DBondary(855, 318, 4, 17, 0));
@@ -188,9 +188,9 @@ if(this.level==1){
             }
 
             // drawing the square borders (just needed while creating and coding)
-            //for (var i = 0; i < this.mySquaresForJumping.length; i++) {
-            //    this.mySquaresForJumping[i].draw(ctx);
-            //}
+            for (var i = 0; i < this.mySquaresForJumping.length; i++) {
+                this.mySquaresForJumping[i].draw(ctx);
+            }
             //make sure that we just redraw when we change the side (to the dark)
             prevSideNum = sideNum;
         }
