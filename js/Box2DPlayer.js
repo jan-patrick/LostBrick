@@ -199,7 +199,13 @@ function PlayerMovement (playDirr, sideNum) {
     this.lastusedfour;
     this.lastusedfive;
 
-    if(this.lastusedfive==playDirr && this.lastusedfour==playDirr && this.lastusedthree==playDirr && this.lastusedtwo==playDirr && this.lastusedone==playDirr){
+    this.timelastusedone;
+    this.timelastusedtwo;
+    this.timelastusedthree;
+    this.timelastusedfour;
+    this.timelastusedfive;
+
+    if(this.lastusedfive==playDirr && this.lastusedfour==playDirr && this.lastusedthree==playDirr && this.lastusedtwo==playDirr && this.lastusedone==playDirr && this.timelastusedthree+0.6>=this.seconds ||  this.timelastusedthree+0.6>=this.seconds){
       doIt=false;
     }else{
       doIt=true;
@@ -274,6 +280,13 @@ function PlayerMovement (playDirr, sideNum) {
     this.lastusedthree = this.lastusedtwo;
     this.lastusedtwo = this.lastusedone;
     this.lastusedone = playDirr;
+
+    this.timelastusedfive = this.timelastusedfour;
+    this.timelastusedfour = this.timelastusedthree;
+    this.timelastusedthree = this.timelastusedtwo;
+    this.timelastusedtwo = this.timelastusedone;
+    this.timelastusedone = this.seconds;
+
     this.buttonPressed = false;
 
     this.prevDir = playDirr;
@@ -301,4 +314,10 @@ function resetUsedVariables() {
   this.lastusedthree = "be";
   this.lastusedfour = "your";
   this.lastusedfive = "advertising";
+
+  this.timelastusedfive = 0;
+  this.timelastusedtwo = 20;
+  this.timelastusedthree = 59;
+  this.timelastusedfour = 69;
+  this.timelastusedfive = 72;
 }

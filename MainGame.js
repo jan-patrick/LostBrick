@@ -69,6 +69,12 @@ var lastusedfour = "your";
 var lastusedfive = "advertising";
 var buttonPressed = false;
 
+var timelastusedone = 0;
+var timelastusedtwo = 333;
+var timelastusedthree = 2020;
+var timelastusedfour = 73525;
+var timelastusedfive = 5948373;
+
 // the Boundaries to jump on
 var mySquaresForJumping = [];
 
@@ -125,7 +131,6 @@ function onReady() {
         // backgroundmusic easy
         backgroundmusicone = document.createElement('AUDIO');
         backgroundmusicone.src="level1/music/backgroundone.mp3";
-        if(!mute)backgroundmusicone.play();
 
         // import of all needed videos easy
         videointroeasy = document.createElement('video');
@@ -161,9 +166,8 @@ function onReady() {
         videofourtothree.load();
 
         // backgroundmusic hard
-        backgroundmusicone = document.createElement('AUDIO');
-        backgroundmusicone.src="level2/music/backgroundone.mp3";
-        if(!mute)backgroundmusicone.play();
+        backgroundmusictwo = document.createElement('AUDIO');
+        backgroundmusictwo.src="level2/music/backgroundone.mp3";
 
         // import of all needed videos hard
         videointrohard = document.createElement('video');
@@ -230,12 +234,15 @@ function onReady() {
 
 // your drawing code here ---------------------------------------------------
 function draw () {
+  console.log(timelastusedone);
+  console.log(seconds);
     var thisFrameTime = (thisLoop=new Date) - lastLoop;
     seconds = new Date().getTime() / 1000;
 
     // setting player position for onload
     if(!started){
         if(level==1){
+            if(!mute)backgroundmusicone.play();
             if(sideNum==1){
                 spawnpoint=0; // 0
             }else if(sideNum==2){
@@ -246,6 +253,7 @@ function draw () {
                 spawnpoint=6; // 6
             }
         }else if(level==2){
+            if(!mute)backgroundmusictwo.play();
             if(sideNum==1){
                 spawnpoint=0; // 0
             }else if(sideNum==2){
