@@ -5,8 +5,8 @@ document.onkeydown=function(){keyInput()};
 window.onload = onReady; // first function call
 
 // the most important variables
-var level = 2; // 1 = heart; 2 = mind
-var gamemode = "end";
+var level = 1; // 1 = will; 2 = mind
+var gamemode = "menu";
 var sideNum = 1;
 
 // if muted (true) music does not play
