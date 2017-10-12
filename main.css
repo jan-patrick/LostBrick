@@ -39,10 +39,5 @@ canvas {
     display: block;
 }
 @font-face {
-    font-family: 'DINPro';
-    src: url("DINPro.otf");
-}
-@font-face {
-	font-family: 'DINProMedium';
-    src: url("DINPro-Medium.otf");
+    font-family: 'Roboto', sans-serif;
 }

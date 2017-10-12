@@ -5,8 +5,8 @@ document.onkeydown=function(){keyInput()};
 window.onload = onReady; // first function call
 
 // the most important variables
-var level = 1; // 1 = heart; 2 = mind
-var gamemode = "menu";
+var level = 2; // 1 = heart; 2 = mind
+var gamemode = "end";
 var sideNum = 1;
 
 // if muted (true) music does not play
@@ -295,7 +295,7 @@ function draw () {
         img = new Image();
         img.src = "mainimages/menu.jpg";
         ctx.drawImage(img, 0, 0);
-        ctx.font = "normal 41px DINPro";
+        ctx.font = "normal 41px Roboto";
         ctx.fillStyle = "rgba(255, 255, 255, " + menuopacityleft + ")";
         ctx.fillText("press left to play with your will", 205, 850);
         ctx.fillStyle = "rgba(255, 255, 255, " + menuopacityright + ")";
@@ -468,7 +468,7 @@ function draw () {
 
         // printing text in canvas
         ctx.fillStyle = "#bbbbbb";
-        ctx.font = "normal 11px DINPro";
+        ctx.font = "normal 11px Roboto";
 
         //ctx.fillText("Raindrops: "+ myRain.length, 10, canvas.height-165);
         //ctx.fillText("countFrame: "+ countFrame, 10, canvas.height-145);
@@ -492,7 +492,7 @@ function draw () {
             ctx.drawImage(img, 0, 0);
 
             ctx.fillStyle = "#ffffff";
-            ctx.font = "normal 41px DINPro";
+            ctx.font = "normal 41px Roboto";
             ctx.fillText("time: "+ Math.round(resultTime)+" seconds", 200, canvas.height/2);
             ctx.fillText("lifes: "+ playerCounter, 200, canvas.height/2+60);
 
@@ -507,9 +507,9 @@ function draw () {
                 ctx.drawImage(img, 0, 0);
 
                 ctx.fillStyle = "#444444";
-                ctx.font = "normal 41px DINProMedium";
-                ctx.fillText("time: "+ Math.round(resultTime)+" seconds", 1190, 375);
-                ctx.fillText("lifes: "+ playerCounter, 1190, 440);
+                ctx.font = "normal 41px Roboto";
+                ctx.fillText("time: "+ Math.round(resultTime)+" seconds", 1185, 370);
+                ctx.fillText("lifes: "+ playerCounter, 1185, 435);
             }else{
                 if(endtomenu){
                     endtomenutime=seconds;
