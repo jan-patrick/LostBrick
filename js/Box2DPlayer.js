@@ -285,7 +285,6 @@ function PlayerMovement (playDirr, sideNum) {
     }
 
     if(sideNum==1 && doIt){
-
         if(playDirr == "a"){
             this.myPlayers[0].applyImpulse(left, walk);
             this.myPlayers[0].draw(ctx);
