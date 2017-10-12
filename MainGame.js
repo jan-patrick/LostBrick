@@ -225,7 +225,7 @@ function onReady() {
     // setup world
     world = new b2World(
         new b2Vec2(0, 0)    //gravity
-        ,  true              //alloww sleep
+        ,  true              //allow sleep
     );
 
     if(godmode==false){    // collision listener
@@ -507,7 +507,7 @@ function draw () {
                 ctx.drawImage(img, 0, 0);
 
                 ctx.fillStyle = "#444444";
-                ctx.font = "normal 41px DINPro";
+                ctx.font = "normal 41px DINProMedium";
                 ctx.fillText("time: "+ Math.round(resultTime)+" seconds", 1190, 375);
                 ctx.fillText("lifes: "+ playerCounter, 1190, 440);
             }else{

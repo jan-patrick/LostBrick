@@ -42,3 +42,7 @@ canvas {
     font-family: 'DINPro';
     src: url("DINPro.otf");
 }
+@font-face {
+	font-family: 'DINProMedium';
+    src: url("DINPro-Medium.otf");
+}
