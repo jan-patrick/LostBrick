@@ -5,7 +5,7 @@ document.onkeydown=function(){keyInput()};
 window.onload = onReady; // first function call
 
 // the most important variables
-var level = 1; // 1 = will; 2 = mind
+var level = 1; // 1 = first test; 2 = first good level; 3 = second good level
 var gamemode = "menu";
 var sideNum = 1;
 
@@ -99,6 +99,18 @@ var video32;
 var video21;
 var videohardend;
 var videohardendtomenu;
+
+var ltwovideointrohard;
+var ltwovideo12;
+var ltwovideo23;
+var ltwovideo34
+var ltwovideo14;
+var ltwovideo41;
+var ltwovideo43;
+var ltwovideo32;
+var ltwovideo21;
+var ltwovideohardend;
+var ltwovideohardendtomenu;
 
 var videoPlayed = true;
 var countFrame = 0;
@@ -220,6 +232,55 @@ function onReady() {
     videohardendtomenu.src =  "level2/videos/endtomenu.mp4";
     videohardendtomenu.load();
 
+    // backgroundmusic level 3
+    ltwobackgroundmusicthree = document.createElement('AUDIO');
+    ltwobackgroundmusicthree.src="level3/music/backgroundone.mp3";
+
+    // import of all needed videos hard
+    ltwovideointrohard = document.createElement('video');
+    ltwovideointrohard.src =  "level3/videos/intro.mp4";
+    ltwovideointrohard.load();
+
+    ltwovideo12 = document.createElement('video');
+    video12.src =  "level3/videos/side1-2.mp4";
+    video12.load();
+
+    ltwovideo23 = document.createElement('video');
+    ltwovideo23.src =  "level3/videos/side2-3.mp4";
+    ltwovideo23.load();
+
+    ltwovideo34 = document.createElement('video');
+    ltwovideo34.src =  "level3/videos/side3-4.mp4";
+    ltwovideo34.load();
+
+    ltwovideo41 = document.createElement('video');
+    ltwovideo41.src =  "level3/videos/side4-1.mp4";
+    ltwovideo41.load();
+
+    ltwovideo14 = document.createElement('video');
+    ltwovideo14.src =  "level3/videos/side1-4.mp4";
+    ltwovideo14.load();
+
+    ltwovideo43 = document.createElement('video');
+    ltwovideo43.src =  "level3/videos/side4-3.mp4";
+    ltwovideo43.load();
+
+    ltwovideo32 = document.createElement('video');
+    ltwovideo32.src =  "level3/videos/side3-2.mp4";
+    ltwovideo32.load();
+
+    ltwovideo21 = document.createElement('video');
+    ltwovideo21.src =  "level3/videos/side2-1.mp4";
+    ltwovideo21.load();
+
+    ltwovideohardend = document.createElement('video');
+    ltwovideohardend.src =  "level3/videos/end.mp4";
+    ltwovideohardend.load();
+
+    ltwovideohardendtomenu = document.createElement('video');
+    ltwovideohardendtomenu.src =  "level3/videos/endtomenu.mp4";
+    ltwovideohardendtomenu.load();
+
     playerX = 500;
     playerY = 500;
     // setup world
@@ -275,6 +336,17 @@ function draw () {
             }else if(sideNum==4){
                 spawnpoint=3; // 3
             }
+        }else if(level==3){
+            if(!mute)backgroundmusicthree.play();
+            if(sideNum==1){
+                spawnpoint=0; // 0
+            }else if(sideNum==2){
+                spawnpoint=1; // 1
+            }else if(sideNum==3){
+                spawnpoint=2; // 2
+            }else if(sideNum==4){
+                spawnpoint=3; // 3
+            }
         }
         started=true;
     }
@@ -300,11 +372,14 @@ function draw () {
         ctx.fillText("press left to play with your will", 205, 850);
         ctx.fillStyle = "rgba(255, 255, 255, " + menuopacityright + ")";
         ctx.fillText("press right to play with your mind", 1055, 850);
+
     }else if(gamemode=="intro"){
         if(!introStarted){
             if(level==1){
                 countFrame = seconds+8;
             }else if(level==2){
+                countFrame = seconds+9;
+            }else if(level==3){
                 countFrame = seconds+9;
             }
             introStarted = true;
@@ -315,6 +390,9 @@ function draw () {
         }else if(level==2){
         videointrohard.play();
         ctx.drawImage(videointrohard, 0, 0);
+        }else if(level==3){
+        ltwovideointrohard.play();
+        ctx.drawImage(ltwovideointrohard, 0, 0);
         }
         if(countFrame-5<= seconds)itisraining = true;
         if(countFrame<= seconds)gamemode = "play";
@@ -462,6 +540,64 @@ function draw () {
                         resetUsedVariables();
                     }
                 }
+            }else if(level==3){ // on hard level
+                if(sideNum==1){
+                    if(playerX>=1098 && playerX<=1105 && playerY<=667 && playerY>=664){
+                        sideNum++;
+                        countFrame = seconds+2;
+                        actFrame = countFrame;
+                        videoPlayed = false;
+                        whichVideo = "onetotwo";
+                        spawnpoint = 1;
+                        resetUsedVariables();
+                    }else if(playerX>=723 && playerX<=729 && playerY<=725 && playerY>=722){
+                        sideNum=4;
+                        countFrame = seconds+2;
+                        actFrame = countFrame;
+                        videoPlayed = false;
+                        whichVideo = "onetofour";
+                        spawnpoint = 5;
+                        resetUsedVariables();
+                    }
+                }else if(sideNum==2){
+                    if(playerX>=1097 && playerX<=1102 && playerY<=690 && playerY>=685){
+                        sideNum++;
+                        countFrame = seconds+2;
+                        videoPlayed = false;
+                        whichVideo = "twotothree";
+                        spawnpoint = 2;
+                        resetUsedVariables();
+                    }else if(playerX>=723 && playerX<=729 && playerY<=460 && playerY>=455){
+                        sideNum--;
+                        countFrame = seconds+2;
+                        actFrame = countFrame;
+                        videoPlayed = false;
+                        whichVideo = "twotoone";
+                        spawnpoint = 4;
+                        resetUsedVariables();
+                    }
+                }else if(sideNum==3){
+                    if(playerX>=1095 && playerX<=1102 && playerY<=425 && playerY>=423){
+                        sideNum++;
+                        countFrame = seconds+2;
+                        videoPlayed = false;
+                        whichVideo = "threetofour";
+                        spawnpoint = 3;
+                        resetUsedVariables();
+                    }
+                }else if(sideNum==4){
+                    if(playerX>=1078 && playerX<=1082 && playerY<=211 && playerY>=200){
+                        gamemode="end";
+                    }else if(playerX>=722 && playerX<=726 && playerY<=687 && playerY>=684){
+                        sideNum--;
+                        countFrame = seconds+2;
+                        actFrame = countFrame;
+                        videoPlayed = false;
+                        whichVideo = "fourtothree";
+                        spawnpoint = 6;
+                        resetUsedVariables();
+                    }
+                }
             }
         }
         resultTime = seconds-playedSeconds;
@@ -490,7 +626,7 @@ function draw () {
             img = new Image();
             img.src = "level1/images/end.jpg";
             ctx.drawImage(img, 0, 0);
-            
+
             Box2DPlayer(sideNum);
 
             ctx.fillStyle = "#ffffff";
@@ -520,6 +656,34 @@ function draw () {
                 if(endtomenutime+1>=seconds){
                     videohardendtomenu.play();
                     ctx.drawImage(videohardendtomenu, 0, 0);
+                }else{
+                    img = new Image();
+                    img.src = "mainimages/menu.jpg";
+                    ctx.drawImage(img, 0, 0);
+                    window.location.reload();
+                }
+            }
+        }else if(level==3){
+            if(endvideoplayed+5>=seconds){
+              ltwovideohardend.play();
+              ctx.drawImage(ltwovideohardend, 0, 0);
+            }else if(endTime+30>=seconds){
+                img = new Image();
+                img.src = "level3/images/end.jpg";
+                ctx.drawImage(img, 0, 0);
+
+                ctx.fillStyle = "#444444";
+                ctx.font = "normal 41px Roboto";
+                ctx.fillText("time: "+ Math.round(resultTime)+" seconds", 1185, 370);
+                ctx.fillText("lifes: "+ playerCounter, 1185, 435);
+            }else{
+                if(endtomenu){
+                    endtomenutime=seconds;
+                    endtomenu=false;
+                }
+                if(endtomenutime+1>=seconds){
+                    ltwovideohardendtomenu.play();
+                    ctx.drawImage(ltwovideohardendtomenu, 0, 0);
                 }else{
                     img = new Image();
                     img.src = "mainimages/menu.jpg";
@@ -563,6 +727,10 @@ function keyInput(e) {
                 level = 1;
                 gamemode="intro";
                 break;
+            case 38: // arrow up
+                level = 3;
+                gamemode="intro";
+                break;
             case 39: // right arrow
                 level = 2;
                 gamemode="intro";
@@ -601,6 +769,8 @@ function keyInput(e) {
                 if(level==1){
                 window.location.reload();
                 }else if(level==2){
+                  endTime = 10;
+                }else if(level==3){
                   endTime = 10;
                 }
                 break;

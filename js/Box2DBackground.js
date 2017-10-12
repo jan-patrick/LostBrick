@@ -105,5 +105,49 @@ if(this.level==1){
         }
         prevImg = sideNum;
     }
+}else if(this.level==3){
+    if(prevImg != sideNum){
+        if(this.videoPlayed){ // show background image
+            this.img = new Image();
+            if(sideNum==1){ // creating background one
+                this.img.src = "level3/images/side1.jpg";
+            }else if(sideNum==2){ // creating background two
+                this.img.src = "level3/images/side2.jpg";
+            }else if(sideNum==3){ // creating background three
+                this.img.src = "level3/images/side3.jpg";
+            }else if(sideNum==4){ // creating background four
+                this.img.src = "level3/images/side4.jpg";
+            }
+        this.ctx.drawImage(img, 0, 0);
+        }else{ // show video transition
+            if(this.whichVideo == "onetotwo"){
+                this.ltwovideo12.play();
+                this.ctx.drawImage(ltwovideo12, 0, 0);
+            }else if(this.whichVideo == "twotoone"){
+                this.ltwovideo21.play();
+                this.ctx.drawImage(ltwovideo21, 0, 0);
+            }else if(this.whichVideo == "twotothree"){
+                this.ltwovideo23.play();
+                this.ctx.drawImage(ltwovideo23, 0, 0);
+            }else if(this.whichVideo == "threetofour"){
+                this.ltwovideo34.play();
+                this.ctx.drawImage(ltwovideo34, 0, 0);
+            }else if(this.whichVideo == "fourtothree"){
+                this.ltwovideo43.play();
+                this.ctx.drawImage(ltwovideo43, 0, 0);
+            }else if(this.whichVideo == "threetotwo"){
+                this.ltwovideo32.play();
+                this.ctx.drawImage(ltwovideo32, 0, 0);
+            }else if(this.whichVideo == "twotoone"){
+                this.ltwovideo21.play();
+                this.ctx.drawImage(ltwovideo21, 0, 0);
+            }else if(this.whichVideo == "onetofour"){
+                this.ltwovideo14.play();
+                this.ctx.drawImage(ltwovideo14, 0, 0);
+            }
+            if(this.countFrame<= this.seconds)this.videoPlayed = true;
+        }
+        prevImg = sideNum;
+    }
 }
 } // end Box2DBackground

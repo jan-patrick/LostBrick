@@ -11,6 +11,9 @@ if(this.level==1){
 }else if(this.level==2){
     var w = 8;
     var h = 8;
+}else if(this.level==3){
+    var w = 8;
+    var h = 8;
 }
 var prevSquNum;
 var gravityDirection;
@@ -105,6 +108,76 @@ if(this.level==1){
         this.playerMoved = true;
     }
 }else if(this.level==2){
+    if(prevSquNum != sideNum || prevSquNum != sideNum && this.playerMoved==true || this.playerMoved==true){
+        if(sideNum==1 && this.spawnpoint == 0){ // gravity down
+            moveSquX = 774;
+            moveSquY = 784;
+            gravityDirection = 90;
+        }else if(sideNum==1 && this.spawnpoint == 4){ // gravity down
+            moveSquX = 921;
+            moveSquY = 455;
+            gravityDirection = 90;
+        }else if(sideNum==2 && this.spawnpoint == 1){ // gravity to the right
+            moveSquX = 722;
+            moveSquY = 665;
+            gravityDirection = 0;
+        }else if(sideNum==3 && this.spawnpoint == 2){ // gravity to the right
+            moveSquX = 770;
+            moveSquY = 688;
+            gravityDirection = 270;
+        }else if(sideNum==3 && this.spawnpoint == 6){ // gravity to the right
+            moveSquX = 974;
+            moveSquY = 685;
+            gravityDirection = 270;
+        }else if(sideNum==4 && this.spawnpoint == 3){ // gravity to the right
+            moveSquX = 725;
+            moveSquY = 415;
+            gravityDirection = 180;
+        }else if(sideNum==4 && this.spawnpoint == 5){ // gravity to the right
+            moveSquX = 1080;
+            moveSquY = 720;
+            gravityDirection = 180;
+        }
+        this.playerMoved = false;
+        prevSquNum = sideNum;
+    }
+
+    if(this.videoPlayed){
+        if(this.playerX >= 1200 || this.playerY >= 950 || this.playerX <= 600 || this.playerY <= 100){
+        resetUsedVariables();
+        if(!this.deadCounted){
+            this.playerCounter++;
+            this.deadCounted = true;
+        }
+        for(var z = 0;z < this.myPlayers.length; z++){
+            this.myPlayers[z].removeBody();
+            this.myPlayers.splice(z,1);
+        }
+    }
+    this.deadCounted = false;
+
+    if(this.myPlayers.length<=0){
+        var myplayer = new Box2DBox(moveSquX, moveSquY, w, h);
+        myPlayers.push(myplayer);
+    }
+
+    // draw the playable square
+    for (var i = 0; i < myPlayers.length; i++) {
+        if(gravityDirection==undefined || !this.videoPlayed)gravityDirection=0;
+        if(gravitypower==undefined || !this.videoPlayed)gravitypower=0;
+            this.myPlayers[i].applyImpulse(gravityDirection, gravitypower);
+            this.myPlayers[i].draw(ctx);
+            this.playerX = myPlayers[i].miX;
+            this.playerY = myPlayers[i].miY;
+    }
+    }else{
+        for(var z = 0;z < this.myPlayers.length; z++){
+            this.myPlayers[z].removeBody();
+            this.myPlayers.splice(z,1);
+        }
+        this.playerMoved = true;
+    }
+}else if(this.level==3){
     if(prevSquNum != sideNum || prevSquNum != sideNum && this.playerMoved==true || this.playerMoved==true){
         if(sideNum==1 && this.spawnpoint == 0){ // gravity down
             moveSquX = 774;
