@@ -490,6 +490,8 @@ function draw () {
             img = new Image();
             img.src = "level1/images/end.jpg";
             ctx.drawImage(img, 0, 0);
+            
+            Box2DPlayer(sideNum);
 
             ctx.fillStyle = "#ffffff";
             ctx.font = "normal 41px Roboto";
