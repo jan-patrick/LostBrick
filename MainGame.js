@@ -5,7 +5,7 @@ document.onkeydown=function(){keyInput()};
 window.onload = onReady; // first function call
 
 // the most important variables
-var level = 1; // 1 = first test; 2 = first good level; 3 = second good level
+var level = 0; // 1 = first test; 2 = first good level; 3 = second good level
 var gamemode = "menu";
 var sideNum = 1;
 
@@ -54,6 +54,7 @@ var playerY;
 var playerMoved = false;
 var spawnpoint = 0;
 var spawnpointSet = true;
+var playtime = 0;
 
 // player direction
 var playDir = "no";
@@ -185,7 +186,7 @@ function onReady() {
 
     // backgroundmusic hard
     backgroundmusictwo = document.createElement('AUDIO');
-    backgroundmusictwo.src="level2/music/backgroundone.mp3";
+    backgroundmusictwo.src="level2/music/backgroundtwo.wav";
 
     // import of all needed videos hard
     videointrohard = document.createElement('video');
@@ -325,6 +326,7 @@ function draw () {
             }else if(sideNum==4){
                 spawnpoint=6; // 6
             }
+            started=true;
         }else if(level==2){
             if(!mute)backgroundmusictwo.play();
             if(sideNum==1){
@@ -336,6 +338,7 @@ function draw () {
             }else if(sideNum==4){
                 spawnpoint=3; // 3
             }
+            started=true;
         }else if(level==3){
             if(!mute)backgroundmusicthree.play();
             if(sideNum==1){
@@ -347,8 +350,8 @@ function draw () {
             }else if(sideNum==4){
                 spawnpoint=3; // 3
             }
+            started=true;
         }
-        started=true;
     }
 
     if(gamemode=="menu"){
@@ -404,6 +407,9 @@ function draw () {
         // for background
         //ctx.fillStyle="#444444"; // dark gray
         //ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+        // if there is no input it goes to menu
+        if(seconds>=playtime && playtime >= 1)window.location.reload();
 
         // if square is turned around fully go to start / last page
         if(sideNum>=5){
@@ -740,22 +746,19 @@ function keyInput(e) {
                 break;
         }
     }else if(gamemode=="play" && videoPlayed==true){
+        buttonPressed=true;
         switch (e.keyCode) {
             case 37: // left arrow
                 playDir = "a";
-                buttonPressed=true;
                 break;
             case 38: // arrow up
                 playDir = "w";
-                buttonPressed=true;
                 break;
             case 39: // right arrow
                 playDir = "d";
-                buttonPressed=true;
                 break;
             case 40: // arrow down
                 playDir = "s";
-                buttonPressed=true;
                 break;
             default:
                 sideNum = sideNum;
