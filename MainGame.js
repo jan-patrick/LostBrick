@@ -186,7 +186,7 @@ function onReady() {
 
     // backgroundmusic hard
     backgroundmusictwo = document.createElement('AUDIO');
-    backgroundmusictwo.src="level2/music/backgroundtwo.wav";
+    backgroundmusictwo.src="level2/music/backgroundtwo.mp3";
 
     // import of all needed videos hard
     videointrohard = document.createElement('video');
