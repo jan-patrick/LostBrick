@@ -107,8 +107,8 @@ if(this.level==1){
 }else if(this.level==2){
     if(prevSquNum != sideNum || prevSquNum != sideNum && this.playerMoved==true || this.playerMoved==true){
         if(sideNum==1 && this.spawnpoint == 0){ // gravity down
-            moveSquX = 764;
-            moveSquY = 780;
+            moveSquX = 774;
+            moveSquY = 784;
             gravityDirection = 90;
         }else if(sideNum==1 && this.spawnpoint == 4){ // gravity down
             moveSquX = 921;
