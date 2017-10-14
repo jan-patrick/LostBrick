@@ -552,7 +552,7 @@ function draw () {
                 }
             }else if(level==3){ // on hard level
                 if(sideNum==1){
-                    if(playerX>=1098 && playerX<=1105 && playerY<=667 && playerY>=664){
+                    if(playerX>=1157 && playerX<=1181 && playerY<=690 && playerY>=687){
                         sideNum++;
                         countFrame = seconds+2;
                         actFrame = countFrame;
@@ -619,8 +619,8 @@ function draw () {
         //ctx.fillText("Raindrops: "+ myRain.length, 10, canvas.height-165);
         //ctx.fillText("countFrame: "+ countFrame, 10, canvas.height-145);
         //ctx.fillText("time playing: "+ resultTime, 10, canvas.height-125);
-        //ctx.fillText("X-Position: "+ playerX, 10, canvas.height-105);
-        //ctx.fillText("Y-Position: "+ playerY, 10, canvas.height-85);
+        ctx.fillText("X-Position: "+ playerX, 10, canvas.height-105);
+        ctx.fillText("Y-Position: "+ playerY, 10, canvas.height-85);
         //ctx.fillText("Side number: "+ sideNum, 10, canvas.height-65);
         //ctx.fillText("Square number: "+ playerCounter, 10, canvas.height-45);
         //ctx.fillText("current frame: "+ frameCounter, 10, canvas.height-25);

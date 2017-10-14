@@ -203,10 +203,24 @@ if(this.level==1){
         }
         if(this.videoPlayed){
             if(sideNum==1){ // Creating Side One
-                this.mySquaresForJumping.push(new Box2DBondary(780, 795, 70, 4, 0));
+                this.mySquaresForJumping.push(new Box2DBondary(770, 795, 75, 4, 0));
                 this.mySquaresForJumping.push(new Box2DBondary(944, 750, 52, 4, 0));
                 this.mySquaresForJumping.push(new Box2DBondary(1108, 701, 78, 4, 0));
                 this.mySquaresForJumping.push(new Box2DBondary(1169, 735, 17, 30, 0));
+                this.mySquaresForJumping.push(new Box2DBondary(1149, 617, 39, 17, 0));
+                this.mySquaresForJumping.push(new Box2DBondary(1198, 555, 8, 51, 0));
+                this.mySquaresForJumping.push(new Box2DBondary(1170, 467, 17, 35, 0));
+                this.mySquaresForJumping.push(new Box2DBondary(1108, 439, 17, 4, 0));
+                this.mySquaresForJumping.push(new Box2DBondary(1024, 587, 53, 4, 0));
+                this.mySquaresForJumping.push(new Box2DBondary(917, 551, 35, 4, 0));
+                this.mySquaresForJumping.push(new Box2DBondary(847, 515, 35, 4, 0));
+                this.mySquaresForJumping.push(new Box2DBondary(717, 656, 17, 44, 0));
+                this.mySquaresForJumping.push(new Box2DBondary(727, 560, 6, 51, 0));
+                this.mySquaresForJumping.push(new Box2DBondary(743, 513, 8, 4, 0));
+                this.mySquaresForJumping.push(new Box2DBondary(721, 504, 13, 4, 0));
+                this.mySquaresForJumping.push(new Box2DBondary(656, 481, 17, 17, 0));
+                this.mySquaresForJumping.push(new Box2DBondary(728, 358, 6, 70, 0));
+                this.mySquaresForJumping.push(new Box2DBondary(728, 237, 6, 39, 0));
             }else if(sideNum==2){ // Creating Side Two
                 this.mySquaresForJumping.push(new Box2DBondary(1095, 622, 4, 56, 0));
             }else if(sideNum==3){ // Creating Side Three
