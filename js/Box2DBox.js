@@ -18,8 +18,8 @@ function Box2DBox ( x,  y,  w, h) {
 
     this.fixDef = new b2FixtureDef;
     this.fixDef.density = 1.0;
-    this.fixDef.friction = 0.7;
-    this.fixDef.restitution = 0.2;
+    this.fixDef.friction = 1.5;
+    this.fixDef.restitution = 0.1;
 
     this.bodyDef = new b2BodyDef;
     this.bodyDef.type = b2Body.b2_dynamicBody;
