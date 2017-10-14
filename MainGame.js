@@ -120,9 +120,9 @@ var prevImg = 0;
 var whichVideo = "no";
 
 // for menu text
-var menuopacityleft = 0.6;
-var menuopacityright = 0.6;
-var menutextgrowing = true;
+var menuopacityleft = 0;
+var menuopacityright = 0;
+var menutextchange = 0;
 
 // for end (result)
 var resultTime = 0;
@@ -355,26 +355,30 @@ function draw () {
     }
 
     if(gamemode=="menu"){
-        if(menuopacityleft<=0.3){
-            menutextgrowing=true;
-        }else if(menuopacityleft>=0.9){
-            menutextgrowing=false;
-        }
-        if(menutextgrowing){
+        if(menutextchange==0){
             menuopacityleft+=0.005;
-            menuopacityright-=0.005;
-        }else{
+            if(menuopacityleft>=0.9)menutextchange=1;
+        }else if(menutextchange==1){
             menuopacityleft-=0.005;
+            if(menuopacityleft<=0.005)menutextchange=2;
+        }else if(menutextchange==2){
             menuopacityright+=0.005;
+            if(menuopacityright>=0.9)menutextchange=3;
+        }else if(menutextchange==3){
+            menuopacityright-=0.005;
+            if(menuopacityright<=0.005)menutextchange=0;
         }
         img = new Image();
         img.src = "mainimages/menu.jpg";
         ctx.drawImage(img, 0, 0);
         ctx.font = "normal 41px Roboto";
+        if(menutextchange<=1){
         ctx.fillStyle = "rgba(255, 255, 255, " + menuopacityleft + ")";
-        ctx.fillText("press left to play with your will", 205, 850);
+        ctx.fillText("press left for level one", 205, 800);
+        }else{
         ctx.fillStyle = "rgba(255, 255, 255, " + menuopacityright + ")";
-        ctx.fillText("press right to play with your mind", 1055, 850);
+        ctx.fillText("press right for level two", 205, 800);
+        }
 
     }else if(gamemode=="intro"){
         if(!introStarted){
