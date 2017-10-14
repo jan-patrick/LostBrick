@@ -5,12 +5,12 @@ document.onkeydown=function(){keyInput()};
 window.onload = onReady; // first function call
 
 // the most important variables
-var level = 0; // 1 = first test; 2 = first good level; 3 = second good level
-var gamemode = "menu";
+var level = 3; // 1 = first test; 2 = first good level; 3 = second good level
+var gamemode = "play";
 var sideNum = 1;
 
 // if muted (true) music does not play
-var mute = false;
+var mute = true;
 
 // test mode
 var godmode = false;

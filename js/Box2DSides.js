@@ -203,109 +203,22 @@ if(this.level==1){
         }
         if(this.videoPlayed){
             if(sideNum==1){ // Creating Side One
-                this.mySquaresForJumping.push(new Box2DBondary(783, 795, 35, 4, 0));
-                this.mySquaresForJumping.push(new Box2DBondary(726, 782, 8, 39, 0));
-                this.mySquaresForJumping.push(new Box2DBondary(734, 737, 17, 4, 0));
-                this.mySquaresForJumping.push(new Box2DBondary(847, 777, 17, 4, 0));
-                this.mySquaresForJumping.push(new Box2DBondary(828, 714, 17, 4, 0));
-                this.mySquaresForJumping.push(new Box2DBondary(907, 759, 35, 4, 0));
-                this.mySquaresForJumping.push(new Box2DBondary(997, 714, 35, 4, 0));
-                this.mySquaresForJumping.push(new Box2DBondary(1073, 679, 35, 4, 0));
-                this.mySquaresForJumping.push(new Box2DBondary(1099, 687, 8, 4, 0));
-                this.mySquaresForJumping.push(new Box2DBondary(1099, 817, 8, 4, 0));
-                this.mySquaresForJumping.push(new Box2DBondary(1099, 478, 8, 85, 0));
-                this.mySquaresForJumping.push(new Box2DBondary(921, 469, 17, 4, 0));
-                this.mySquaresForJumping.push(new Box2DBondary(726, 617, 8, 43, 0));
-                this.mySquaresForJumping.push(new Box2DBondary(725, 307, 8, 108, 0));
+                this.mySquaresForJumping.push(new Box2DBondary(780, 795, 70, 4, 0));
+                this.mySquaresForJumping.push(new Box2DBondary(944, 750, 52, 4, 0));
+                this.mySquaresForJumping.push(new Box2DBondary(1108, 701, 78, 4, 0));
+                this.mySquaresForJumping.push(new Box2DBondary(1169, 735, 17, 30, 0));
             }else if(sideNum==2){ // Creating Side Two
                 this.mySquaresForJumping.push(new Box2DBondary(1095, 622, 4, 56, 0));
-                this.mySquaresForJumping.push(new Box2DBondary(1028, 688, 61, 4, 0));
-                this.mySquaresForJumping.push(new Box2DBondary(1113, 701, 4, 39, 0));
-                this.mySquaresForJumping.push(new Box2DBondary(1104, 670, 4, 8, 0));
-                this.mySquaresForJumping.push(new Box2DBondary(1095, 777, 4, 45, 0));
-                this.mySquaresForJumping.push(new Box2DBondary(912, 817, 160, 4, 0));
-                this.mySquaresForJumping.push(new Box2DBondary(725, 795, 8, 4, 0));
-                this.mySquaresForJumping.push(new Box2DBondary(725, 777, 8, 4, 0));
-                this.mySquaresForJumping.push(new Box2DBondary(725, 759, 8, 4, 0));
-                this.mySquaresForJumping.push(new Box2DBondary(725, 737, 8, 4, 0));
-                this.mySquaresForJumping.push(new Box2DBondary(725, 714, 8, 4, 0));
-                this.mySquaresForJumping.push(new Box2DBondary(725, 679, 8, 4, 0));
-                this.mySquaresForJumping.push(new Box2DBondary(1086, 490, 4, 74, 0));
-                this.mySquaresForJumping.push(new Box2DBondary(1104, 568, 4, 4, 0));
-                this.mySquaresForJumping.push(new Box2DBondary(1099, 518, 8, 4, 0));
-                this.mySquaresForJumping.push(new Box2DBondary(1099, 465, 8, 4, 0));
-                this.mySquaresForJumping.push(new Box2DBondary(1099, 412, 8, 4, 0));
-                this.mySquaresForJumping.push(new Box2DBondary(1112, 425, 4, 17, 0));
-                this.mySquaresForJumping.push(new Box2DBondary(1063, 500, 4, 17, 0));
-                this.mySquaresForJumping.push(new Box2DBondary(1028, 464, 4, 17, 0));
-                this.mySquaresForJumping.push(new Box2DBondary(993, 430, 4, 17, 0));
-                this.mySquaresForJumping.push(new Box2DBondary(966, 500, 4, 17, 0));
-                this.mySquaresForJumping.push(new Box2DBondary(930, 535, 4, 17, 0));
-                this.mySquaresForJumping.push(new Box2DBondary(904, 456, 4, 34, 0));
-                this.mySquaresForJumping.push(new Box2DBondary(868, 430, 4, 17, 0));
-                this.mySquaresForJumping.push(new Box2DBondary(841, 491, 4, 17, 0));
-                this.mySquaresForJumping.push(new Box2DBondary(805, 527, 4, 17, 0));
-                this.mySquaresForJumping.push(new Box2DBondary(779, 438, 4, 44, 0));
-                this.mySquaresForJumping.push(new Box2DBondary(739, 452, 4, 22, 0));
-                this.mySquaresForJumping.push(new Box2DBondary(726, 470, 9, 4, 0));
             }else if(sideNum==3){ // Creating Side Three
                 this.mySquaresForJumping.push(new Box2DBondary(725, 478, 8, 84, 0));
-                this.mySquaresForJumping.push(new Box2DBondary(770, 674, 35, 4, 0));
-                this.mySquaresForJumping.push(new Box2DBondary(725, 683, 9, 8, 0));
-                this.mySquaresForJumping.push(new Box2DBondary(1099, 305, 8, 108, 0));
-                this.mySquaresForJumping.push(new Box2DBondary(1099, 616, 8, 43, 0));
-                this.mySquaresForJumping.push(new Box2DBondary(1099, 776, 8, 43, 0));
-                this.mySquaresForJumping.push(new Box2DBondary(810, 567, 35, 4, 0));
-                this.mySquaresForJumping.push(new Box2DBondary(1009, 465, 35, 4, 0));
-                this.mySquaresForJumping.push(new Box2DBondary(912, 518, 35, 4, 0));
-                this.mySquaresForJumping.push(new Box2DBondary(1072, 411, 35, 4, 0));
-                this.mySquaresForJumping.push(new Box2DBondary(725, 816, 9, 4, 0));
-                this.mySquaresForJumping.push(new Box2DBondary(863, 701, 12, 39, 0));
-                this.mySquaresForJumping.push(new Box2DBondary(864, 424, 12, 17, 0));
-                this.mySquaresForJumping.push(new Box2DBondary(974, 669, 35, 8, 0));
             }else if(sideNum==4){ // Creating Side Four
                 this.mySquaresForJumping.push(new Box2DBondary(712, 425, 4, 17, 0));
-                this.mySquaresForJumping.push(new Box2DBondary(723, 411, 9, 4, 0));
-                this.mySquaresForJumping.push(new Box2DBondary(748, 397, 4, 17, 0));
-                this.mySquaresForJumping.push(new Box2DBondary(783, 371, 4, 17, 0));
-                this.mySquaresForJumping.push(new Box2DBondary(819, 345, 4, 17, 0));
-                this.mySquaresForJumping.push(new Box2DBondary(855, 318, 4, 17, 0));
-                this.mySquaresForJumping.push(new Box2DBondary(891, 290, 4, 17, 0));
-                this.mySquaresForJumping.push(new Box2DBondary(926, 246, 4, 34, 0));
-                this.mySquaresForJumping.push(new Box2DBondary(961, 264, 4, 17, 0));
-                this.mySquaresForJumping.push(new Box2DBondary(997, 290, 4, 17, 0));
-                this.mySquaresForJumping.push(new Box2DBondary(1032, 318, 4, 17, 0));
-                this.mySquaresForJumping.push(new Box2DBondary(1068, 247, 4, 48, 0));
-                this.mySquaresForJumping.push(new Box2DBondary(730, 612, 4, 48, 0));
-                this.mySquaresForJumping.push(new Box2DBondary(725, 518, 8, 4, 0));
-                this.mySquaresForJumping.push(new Box2DBondary(725, 567, 8, 4, 0));
-                this.mySquaresForJumping.push(new Box2DBondary(725, 465, 8, 4, 0));
-                this.mySquaresForJumping.push(new Box2DBondary(774, 656, 48, 4, 0));
-                this.mySquaresForJumping.push(new Box2DBondary(721, 669, 13, 8, 0));
-                this.mySquaresForJumping.push(new Box2DBondary(1100, 469, 8, 4, 0));
-                this.mySquaresForJumping.push(new Box2DBondary(1100, 678, 8, 4, 0));
-                this.mySquaresForJumping.push(new Box2DBondary(1100, 714, 8, 4, 0));
-                this.mySquaresForJumping.push(new Box2DBondary(1100, 736, 8, 4, 0));
-                this.mySquaresForJumping.push(new Box2DBondary(1100, 759, 8, 4, 0));
-                this.mySquaresForJumping.push(new Box2DBondary(1100, 776, 8, 4, 0));
-                this.mySquaresForJumping.push(new Box2DBondary(1100, 794, 8, 4, 0));
-                this.mySquaresForJumping.push(new Box2DBondary(712, 704, 4, 35, 0));
-                this.mySquaresForJumping.push(new Box2DBondary(730, 776, 4, 44, 0));
-                this.mySquaresForJumping.push(new Box2DBondary(766, 750, 4, 17, 0));
-                this.mySquaresForJumping.push(new Box2DBondary(837, 750, 4, 17, 0));
-                this.mySquaresForJumping.push(new Box2DBondary(908, 750, 4, 17, 0));
-                this.mySquaresForJumping.push(new Box2DBondary(980, 750, 4, 17, 0));
-                this.mySquaresForJumping.push(new Box2DBondary(1051, 750, 4, 17, 0));
-                this.mySquaresForJumping.push(new Box2DBondary(802, 803, 4, 17, 0));
-                this.mySquaresForJumping.push(new Box2DBondary(873, 803, 4, 17, 0));
-                this.mySquaresForJumping.push(new Box2DBondary(944, 803, 4, 17, 0));
-                this.mySquaresForJumping.push(new Box2DBondary(1015, 803, 4, 17, 0));
             }
 
             // drawing the square borders (just needed while creating and coding)
-            //for (var i = 0; i < this.mySquaresForJumping.length; i++) {
-            //    this.mySquaresForJumping[i].draw(ctx);
-            //}
+            for (var i = 0; i < this.mySquaresForJumping.length; i++) {
+                this.mySquaresForJumping[i].draw(ctx);
+            }
             //make sure that we just redraw when we change the side (to the dark)
             prevSideNum = sideNum;
         }
