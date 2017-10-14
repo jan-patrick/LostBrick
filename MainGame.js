@@ -340,7 +340,7 @@ function draw () {
             }
             started=true;
         }else if(level==3){
-            if(!mute)backgroundmusicthree.play();
+            if(!mute)ltwobackgroundmusicthree.play();
             if(sideNum==1){
                 spawnpoint=0; // 0
             }else if(sideNum==2){
