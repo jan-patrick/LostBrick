@@ -189,7 +189,7 @@ if(this.level==1){
             gravityDirection = 0;
         }else if(sideNum==3 && this.spawnpoint == 2){ // gravity to the right
             moveSquX = 770;
-            moveSquY = 688;
+            moveSquY = 648;
             gravityDirection = 270;
         }else if(sideNum==4 && this.spawnpoint == 3){ // gravity to the right
             moveSquX = 725;

@@ -238,18 +238,31 @@ if(this.level==1){
                 this.mySquaresForJumping.push(new Box2DBondary(725, 550, 8, 4, 0));
                 this.mySquaresForJumping.push(new Box2DBondary(725, 514, 8, 5, 0));
                 this.mySquaresForJumping.push(new Box2DBondary(725, 439, 8, 4, 0));
-                this.mySquaresForJumping.push(new Box2DBondary(752, 604, 8, 4, 0)); // has to be checked after background image change
+                this.mySquaresForJumping.push(new Box2DBondary(753, 604, 8, 4, 0));
                 this.mySquaresForJumping.push(new Box2DBondary(767, 520, 4, 87, 0));
                 this.mySquaresForJumping.push(new Box2DBondary(785, 468, 12, 35, 0));
             }else if(sideNum==3){ // Creating Side Three
-                this.mySquaresForJumping.push(new Box2DBondary(725, 478, 8, 84, 0));
+                this.mySquaresForJumping.push(new Box2DBondary(784, 630, 35, 4, 0));
+                this.mySquaresForJumping.push(new Box2DBondary(685, 701, 46, 3, 0));
+                this.mySquaresForJumping.push(new Box2DBondary(656, 737, 17, 31, 0));
+                this.mySquaresForJumping.push(new Box2DBondary(676, 617, 39, 17, 0));
+                this.mySquaresForJumping.push(new Box2DBondary(627, 554, 8, 52, 0));
+                this.mySquaresForJumping.push(new Box2DBondary(654, 468, 17, 35, 0));
+                this.mySquaresForJumping.push(new Box2DBondary(734, 439, 35, 4, 0));
+                this.mySquaresForJumping.push(new Box2DBondary(799, 474, 35, 4, 0));
+                this.mySquaresForJumping.push(new Box2DBondary(912, 510, 35, 4, 0));
+                this.mySquaresForJumping.push(new Box2DBondary(957, 567, 35, 4, 0));
+                this.mySquaresForJumping.push(new Box2DBondary(864, 599, 17, 35, 0));
+                this.mySquaresForJumping.push(new Box2DBondary(1106, 793, 14, 3, 0));
+                this.mySquaresForJumping.push(new Box2DBondary(1108, 656, 17, 44, 0));
+                               
             }else if(sideNum==4){ // Creating Side Four
                 this.mySquaresForJumping.push(new Box2DBondary(712, 425, 4, 17, 0));
             }
 
             // drawing the square borders (just needed while creating and coding)
             for (var i = 0; i < this.mySquaresForJumping.length; i++) {
-                this.mySquaresForJumping[i].draw(ctx);
+               this.mySquaresForJumping[i].draw(ctx);
             }
             //make sure that we just redraw when we change the side (to the dark)
             prevSideNum = sideNum;
