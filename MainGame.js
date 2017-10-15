@@ -9,8 +9,15 @@ var level = 0; // 1 = first test; 2 = first good level; 3 = second good level
 var gamemode = "menu";
 var sideNum = 1;
 
+// presentation mode (different input from makey makey and muted)
+var presentationmode = false;
+
 // if muted (true) music does not play
-var mute = true;
+if(presentationmode){
+    var mute = true;
+}else{
+    var mute = false;
+}    
 
 // test mode
 var godmode = true;
@@ -761,43 +768,85 @@ function pick(event) {
 function keyInput(e) {
     e = e || window.event;
     if(gamemode=="menu"){
-        switch (e.keyCode) {
-            case 37: // left arrow
-                level = 2;
-                gamemode="intro";
-                break;
-            case 38: // arrow up
-                level = 1;
-                gamemode="intro";
-                break;
-            case 39: // right arrow
-                level = 3;
-                gamemode="intro";
-                break;
-            default: // if any key pressed start intro video
-                //console.log(e);
-                break;
+        if(presentationmode){ // if makey makey is used
+            switch (e.keyCode) {
+                case 40: // left arrow
+                    level = 2;
+                    gamemode="intro";
+                    break;
+                //case 37: // arrow up
+                //    level = 1;
+                //    gamemode="intro";
+                //    break;
+                case 38: // right arrow
+                    level = 3;
+                    gamemode="intro";
+                    break;
+                default:
+                    //console.log(e);
+                    break;
+            }
+        }else{
+            switch (e.keyCode) {
+                case 37: // left arrow
+                    level = 2;
+                    gamemode="intro";
+                    break;
+                case 38: // arrow up
+                    level = 1;
+                    gamemode="intro";
+                    break;
+                case 39: // right arrow
+                    level = 3;
+                    gamemode="intro";
+                    break;
+                default: // if any key pressed start intro video
+                    //console.log(e);
+                    break;
+            }
         }
     }else if(gamemode=="play" && videoPlayed==true){
         buttonPressed=true;
-        switch (e.keyCode) {
-            case 37: // left arrow
-                playDir = "a";
-                break;
-            case 38: // arrow up
-                playDir = "w";
-                break;
-            case 39: // right arrow
-                playDir = "d";
-                break;
-            case 40: // arrow down
-                playDir = "s";
-                break;
-            default:
-                sideNum = sideNum;
-                buttonPressed=true;
-                //console.log(e);
-                break;
+        if(presentationmode){
+            switch (e.keyCode) {
+                case 37: // left arrow
+                    playDir = "w";
+                    break;
+                case 38: // arrow up
+                    playDir = "d";
+                    break;
+                case 39: // right arrow
+                    playDir = "s";
+                    break;
+                case 40: // arrow down
+                    playDir = "a";
+                    break;
+                default:
+                    sideNum = sideNum;
+                    buttonPressed=true;
+                    //console.log(e);
+                    break;
+            }
+        }else{
+            switch (e.keyCode) {
+                case 37: // left arrow
+                    playDir = "a";
+                    break;
+                case 38: // arrow up
+                    playDir = "w";
+                    break;
+                case 39: // right arrow
+                    playDir = "d";
+                    break;
+                case 40: // arrow down
+                    playDir = "s";
+                    break;
+                default:
+                    sideNum = sideNum;
+                    buttonPressed=true;
+                    //console.log(e);
+                    break;
+            }
         }
     }else if(gamemode=="end" && endTime<=seconds){
         switch (e.keyCode) {
