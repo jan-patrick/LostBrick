@@ -5,15 +5,15 @@ document.onkeydown=function(){keyInput()};
 window.onload = onReady; // first function call
 
 // the most important variables
-var level = 3; // 1 = first test; 2 = first good level; 3 = second good level
-var gamemode = "play";
-var sideNum = 2;
+var level = 0; // 1 = first test; 2 = first good level; 3 = second good level
+var gamemode = "menu";
+var sideNum = 1;
 
 // if muted (true) music does not play
 var mute = true;
 
 // test mode
-var godmode = false;
+var godmode = true;
 
 // mouse position any time
 var mouseX, mouseY;
@@ -108,6 +108,7 @@ var ltwovideo24;
 var ltwovideo34
 var ltwovideo14;
 var ltwovideo41;
+var ltwovideo42;
 var ltwovideo43;
 var ltwovideo32;
 var ltwovideo21;
@@ -270,6 +271,10 @@ function onReady() {
     ltwovideo43 = document.createElement('video');
     ltwovideo43.src =  "level3/videos/side4-3.mp4";
     ltwovideo43.load();
+
+    ltwovideo42 = document.createElement('video');
+    ltwovideo42.src =  "level3/videos/side4-2.mp4";
+    ltwovideo42.load();
 
     ltwovideo32 = document.createElement('video');
     ltwovideo32.src =  "level3/videos/side3-2.mp4";
@@ -565,6 +570,21 @@ function draw () {
                         whichVideo = "onetotwolow";
                         spawnpoint = 1;
                         resetUsedVariables();
+                    } else if(playerX>=718 && playerX<=720 && playerY<=493 && playerY>=490){
+                        sideNum=4;
+                        countFrame = seconds+2;
+                        videoPlayed = false;
+                        whichVideo = "onetofour";
+                        spawnpoint = 6;
+                        resetUsedVariables();
+                    } else if(playerX>=1170 && playerX<=1172 && playerY<=593 && playerY>=590){
+                        sideNum++;
+                        countFrame = seconds+2;
+                        actFrame = countFrame;
+                        videoPlayed = false;
+                        whichVideo = "onetotwo";
+                        spawnpoint = 5;
+                        resetUsedVariables();
                     }
                 }else if(sideNum==2){
                     if(playerX>=1153 && playerX<=1155 && playerY<=716 && playerY>=712){
@@ -574,19 +594,47 @@ function draw () {
                         whichVideo = "twotofour";
                         spawnpoint = 3;
                         resetUsedVariables();
-                    }
-                }else if(sideNum==3){
-                    if(playerX>=1095 && playerX<=1102 && playerY<=425 && playerY>=423){
-                        sideNum++;
+                    } else if(playerX>=753 && playerX<=756 && playerY<=592 && playerY>=590){
+                        sideNum--;
                         countFrame = seconds+2;
                         videoPlayed = false;
-                        whichVideo = "threetofour";
-                        spawnpoint = 3;
+                        whichVideo = "twotoone";
+                        spawnpoint = 4;
+                        resetUsedVariables();
+                    }
+                }else if(sideNum==3){
+                    if(playerX>=712 && playerX<=714 && playerY<=452 && playerY>=450){
+                        sideNum--;
+                        countFrame = seconds+2;
+                        videoPlayed = false;
+                        whichVideo = "threetotwo";
+                        spawnpoint = 7;
                         resetUsedVariables();
                     }
                 }else if(sideNum==4){
                     if(playerX>=1078 && playerX<=1082 && playerY<=211 && playerY>=200){
                         gamemode="end";
+                    } else if(playerX>=1114 && playerX<=1116 && playerY<=592 && playerY>=590){
+                        sideNum=1;
+                        countFrame = seconds+2;
+                        videoPlayed = false;
+                        whichVideo = "fourtoone";
+                        spawnpoint = 4;
+                        resetUsedVariables();
+                    } else if(playerX>=633 && playerX<=635 && playerY<=689 && playerY>=686){
+                        sideNum--;
+                        countFrame = seconds+2;
+                        videoPlayed = false;
+                        whichVideo = "fourtothree";
+                        spawnpoint = 2;
+                        resetUsedVariables();
+                    } else if(playerX>=633 && playerX<=635 && playerY<=632 && playerY>=629){
+                        sideNum=2;
+                        countFrame = seconds+2;
+                        videoPlayed = false;
+                        whichVideo = "fourtotwo";
+                        spawnpoint = 8;
+                        resetUsedVariables();
                     }
                 }
             }
@@ -715,15 +763,15 @@ function keyInput(e) {
     if(gamemode=="menu"){
         switch (e.keyCode) {
             case 37: // left arrow
-                level = 1;
+                level = 2;
                 gamemode="intro";
                 break;
             case 38: // arrow up
-                level = 3;
+                level = 1;
                 gamemode="intro";
                 break;
             case 39: // right arrow
-                level = 2;
+                level = 3;
                 gamemode="intro";
                 break;
             default: // if any key pressed start intro video
