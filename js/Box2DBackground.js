@@ -123,12 +123,15 @@ if(this.level==1){
             if(this.whichVideo == "onetotwo"){
                 this.ltwovideo12.play();
                 this.ctx.drawImage(ltwovideo12, 0, 0);
+            }else if(this.whichVideo == "onetotwolow"){
+                this.ltwovideo12low.play();
+                this.ctx.drawImage(ltwovideo12low, 0, 0);
             }else if(this.whichVideo == "twotoone"){
                 this.ltwovideo21.play();
                 this.ctx.drawImage(ltwovideo21, 0, 0);
-            }else if(this.whichVideo == "twotothree"){
-                this.ltwovideo23.play();
-                this.ctx.drawImage(ltwovideo23, 0, 0);
+            }else if(this.whichVideo == "twotofour"){
+                this.ltwovideo24.play();
+                this.ctx.drawImage(ltwovideo24, 0, 0);
             }else if(this.whichVideo == "threetofour"){
                 this.ltwovideo34.play();
                 this.ctx.drawImage(ltwovideo34, 0, 0);

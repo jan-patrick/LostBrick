@@ -5,9 +5,9 @@ document.onkeydown=function(){keyInput()};
 window.onload = onReady; // first function call
 
 // the most important variables
-var level = 0; // 1 = first test; 2 = first good level; 3 = second good level
-var gamemode = "menu";
-var sideNum = 1;
+var level = 3; // 1 = first test; 2 = first good level; 3 = second good level
+var gamemode = "play";
+var sideNum = 2;
 
 // if muted (true) music does not play
 var mute = true;
@@ -103,7 +103,8 @@ var videohardendtomenu;
 
 var ltwovideointrohard;
 var ltwovideo12;
-var ltwovideo23;
+var ltwovideo12low;
+var ltwovideo24;
 var ltwovideo34
 var ltwovideo14;
 var ltwovideo41;
@@ -246,9 +247,13 @@ function onReady() {
     ltwovideo12.src =  "level3/videos/side1-2.mp4";
     ltwovideo12.load();
 
-    ltwovideo23 = document.createElement('video');
-    ltwovideo23.src =  "level3/videos/side2-3.mp4";
-    ltwovideo23.load();
+    ltwovideo12low = document.createElement('video');
+    ltwovideo12low.src =  "level3/videos/side1-2low.mp4";
+    ltwovideo12low.load();
+
+    ltwovideo24 = document.createElement('video');
+    ltwovideo24.src =  "level3/videos/side2-4.mp4";
+    ltwovideo24.load();
 
     ltwovideo34 = document.createElement('video');
     ltwovideo34.src =  "level3/videos/side3-4.mp4";
@@ -552,22 +557,22 @@ function draw () {
                 }
             }else if(level==3){ // on hard level
                 if(sideNum==1){
-                    if(playerX>=1157 && playerX<=1181 && playerY<=690 && playerY>=687){
+                    if(playerX>=1160 && playerX<=1181 && playerY<=690 && playerY>=687){
                         sideNum++;
                         countFrame = seconds+2;
                         actFrame = countFrame;
                         videoPlayed = false;
-                        whichVideo = "onetotwo";
+                        whichVideo = "onetotwolow";
                         spawnpoint = 1;
                         resetUsedVariables();
                     }
                 }else if(sideNum==2){
-                    if(playerX>=1097 && playerX<=1102 && playerY<=690 && playerY>=685){
-                        sideNum++;
+                    if(playerX>=1153 && playerX<=1155 && playerY<=716 && playerY>=712){
+                        sideNum=4;
                         countFrame = seconds+2;
                         videoPlayed = false;
-                        whichVideo = "twotothree";
-                        spawnpoint = 2;
+                        whichVideo = "twotofour";
+                        spawnpoint = 3;
                         resetUsedVariables();
                     }
                 }else if(sideNum==3){
@@ -595,8 +600,8 @@ function draw () {
         //ctx.fillText("Raindrops: "+ myRain.length, 10, canvas.height-165);
         //ctx.fillText("countFrame: "+ countFrame, 10, canvas.height-145);
         //ctx.fillText("time playing: "+ resultTime, 10, canvas.height-125);
-        //ctx.fillText("X-Position: "+ playerX, 10, canvas.height-105);
-        //ctx.fillText("Y-Position: "+ playerY, 10, canvas.height-85);
+        ctx.fillText("X-Position: "+ playerX, 10, canvas.height-105);
+        ctx.fillText("Y-Position: "+ playerY, 10, canvas.height-85);
         //ctx.fillText("Side number: "+ sideNum, 10, canvas.height-65);
         //ctx.fillText("Square number: "+ playerCounter, 10, canvas.height-45);
         //ctx.fillText("current frame: "+ frameCounter, 10, canvas.height-25);

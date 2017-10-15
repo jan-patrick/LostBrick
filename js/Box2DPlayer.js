@@ -184,8 +184,8 @@ if(this.level==1){
             moveSquY = 784;
             gravityDirection = 90;
         }else if(sideNum==2 && this.spawnpoint == 1){ // gravity to the right
-            moveSquX = 1100;
-            moveSquY = 625;
+            moveSquX = 1175;
+            moveSquY = 690;
             gravityDirection = 0;
         }else if(sideNum==3 && this.spawnpoint == 2){ // gravity to the right
             moveSquX = 770;
