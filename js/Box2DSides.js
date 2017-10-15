@@ -255,7 +255,11 @@ if(this.level==1){
                 this.mySquaresForJumping.push(new Box2DBondary(864, 599, 17, 35, 0));
                 this.mySquaresForJumping.push(new Box2DBondary(1106, 793, 14, 3, 0));
                 this.mySquaresForJumping.push(new Box2DBondary(1108, 656, 17, 44, 0));
-                               
+                this.mySquaresForJumping.push(new Box2DBondary(1097, 556, 6, 56, 0));
+                this.mySquaresForJumping.push(new Box2DBondary(1110, 503, 6, 3, 0));
+                this.mySquaresForJumping.push(new Box2DBondary(1169, 481, 17, 17, 0));
+                this.mySquaresForJumping.push(new Box2DBondary(1097, 358, 6, 70, 0));
+                this.mySquaresForJumping.push(new Box2DBondary(1097, 238, 6, 39, 0));               
             }else if(sideNum==4){ // Creating Side Four
                 this.mySquaresForJumping.push(new Box2DBondary(712, 425, 4, 17, 0));
             }
