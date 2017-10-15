@@ -261,7 +261,38 @@ if(this.level==1){
                 this.mySquaresForJumping.push(new Box2DBondary(1097, 358, 6, 70, 0));
                 this.mySquaresForJumping.push(new Box2DBondary(1097, 238, 6, 39, 0));               
             }else if(sideNum==4){ // Creating Side Four
-                this.mySquaresForJumping.push(new Box2DBondary(712, 425, 4, 17, 0));
+                this.mySquaresForJumping.push(new Box2DBondary(739, 536, 4, 35, 0));
+                this.mySquaresForJumping.push(new Box2DBondary(725, 567, 8, 4, 0));
+                this.mySquaresForJumping.push(new Box2DBondary(725, 510, 8, 4, 0));
+                this.mySquaresForJumping.push(new Box2DBondary(725, 474, 8, 4, 0));
+                this.mySquaresForJumping.push(new Box2DBondary(725, 439, 8, 4, 0));
+                this.mySquaresForJumping.push(new Box2DBondary(686, 599, 17, 34, 0));
+                this.mySquaresForJumping.push(new Box2DBondary(645, 732, 17, 36, 0));
+                this.mySquaresForJumping.push(new Box2DBondary(609, 656, 17, 44, 0));
+                this.mySquaresForJumping.push(new Box2DBondary(788, 554, 4, 17, 0));
+                this.mySquaresForJumping.push(new Box2DBondary(832, 590, 4, 17, 0));
+                this.mySquaresForJumping.push(new Box2DBondary(876, 626, 4, 17, 0));
+                this.mySquaresForJumping.push(new Box2DBondary(921, 590, 4, 17, 0));
+                this.mySquaresForJumping.push(new Box2DBondary(966, 554, 4, 17, 0));
+                this.mySquaresForJumping.push(new Box2DBondary(1010, 522, 4, 13, 0));
+                this.mySquaresForJumping.push(new Box2DBondary(1055, 563, 4, 26, 0));
+                this.mySquaresForJumping.push(new Box2DBondary(1000, 504, 88, 4, 0));
+                this.mySquaresForJumping.push(new Box2DBondary(876, 481, 17, 17, 0));
+                this.mySquaresForJumping.push(new Box2DBondary(930, 411, 4, 17, 0));
+                this.mySquaresForJumping.push(new Box2DBondary(966, 376, 4, 17, 0));
+                this.mySquaresForJumping.push(new Box2DBondary(1001, 340, 4, 17, 0));
+                this.mySquaresForJumping.push(new Box2DBondary(1037, 304, 4, 17, 0));
+                this.mySquaresForJumping.push(new Box2DBondary(1068, 238, 4, 40, 0));
+                this.mySquaresForJumping.push(new Box2DBondary(1099, 439, 8, 4, 0));
+                this.mySquaresForJumping.push(new Box2DBondary(1099, 515, 8, 4, 0));
+                this.mySquaresForJumping.push(new Box2DBondary(1099, 551, 8, 3, 0));
+                this.mySquaresForJumping.push(new Box2DBondary(1099, 700, 8, 3, 0));
+                this.mySquaresForJumping.push(new Box2DBondary(1099, 750, 8, 3, 0));
+                this.mySquaresForJumping.push(new Box2DBondary(1099, 794, 8, 3, 0));
+                this.mySquaresForJumping.push(new Box2DBondary(1126, 617, 17, 17, 0));
+                this.mySquaresForJumping.push(new Box2DBondary(1099, 551, 8, 3, 0));
+                this.mySquaresForJumping.push(new Box2DBondary(1103, 599, 4, 17, 0));
+                this.mySquaresForJumping.push(new Box2DBondary(1096, 586, 4, 4, 0));
             }
 
             // drawing the square borders (just needed while creating and coding)

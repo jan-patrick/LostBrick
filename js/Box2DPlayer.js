@@ -192,8 +192,8 @@ if(this.level==1){
             moveSquY = 648;
             gravityDirection = 270;
         }else if(sideNum==4 && this.spawnpoint == 3){ // gravity to the right
-            moveSquX = 725;
-            moveSquY = 415;
+            moveSquX = 755;
+            moveSquY = 545;
             gravityDirection = 180;
         }
         this.playerMoved = false;

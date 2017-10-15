@@ -5,9 +5,9 @@ document.onkeydown=function(){keyInput()};
 window.onload = onReady; // first function call
 
 // the most important variables
-var level = 3; // 1 = first test; 2 = first good level; 3 = second good level
-var gamemode = "play";
-var sideNum = 3;
+var level = 0; // 1 = first test; 2 = first good level; 3 = second good level
+var gamemode = "menu";
+var sideNum = 1;
 
 // if muted (true) music does not play
 var mute = true;
@@ -595,8 +595,8 @@ function draw () {
         //ctx.fillText("Raindrops: "+ myRain.length, 10, canvas.height-165);
         //ctx.fillText("countFrame: "+ countFrame, 10, canvas.height-145);
         //ctx.fillText("time playing: "+ resultTime, 10, canvas.height-125);
-        ctx.fillText("X-Position: "+ playerX, 10, canvas.height-105);
-        ctx.fillText("Y-Position: "+ playerY, 10, canvas.height-85);
+        //ctx.fillText("X-Position: "+ playerX, 10, canvas.height-105);
+        //ctx.fillText("Y-Position: "+ playerY, 10, canvas.height-85);
         //ctx.fillText("Side number: "+ sideNum, 10, canvas.height-65);
         //ctx.fillText("Square number: "+ playerCounter, 10, canvas.height-45);
         //ctx.fillText("current frame: "+ frameCounter, 10, canvas.height-25);
