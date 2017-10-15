@@ -222,7 +222,25 @@ if(this.level==1){
                 this.mySquaresForJumping.push(new Box2DBondary(728, 358, 6, 70, 0));
                 this.mySquaresForJumping.push(new Box2DBondary(728, 237, 6, 39, 0));
             }else if(sideNum==2){ // Creating Side Two
-                this.mySquaresForJumping.push(new Box2DBondary(1095, 622, 4, 56, 0));
+                this.mySquaresForJumping.push(new Box2DBondary(1139, 599, 17, 35, 0));
+                this.mySquaresForJumping.push(new Box2DBondary(1215, 656, 17, 43, 0));
+                this.mySquaresForJumping.push(new Box2DBondary(1179, 732, 17, 35, 0));
+                this.mySquaresForJumping.push(new Box2DBondary(1099, 567, 8, 4, 0));
+                this.mySquaresForJumping.push(new Box2DBondary(1099, 510, 8, 4, 0));
+                this.mySquaresForJumping.push(new Box2DBondary(1099, 475, 8, 4, 0));
+                this.mySquaresForJumping.push(new Box2DBondary(1099, 439, 8, 4, 0));
+                this.mySquaresForJumping.push(new Box2DBondary(725, 795, 8, 4, 0));
+                this.mySquaresForJumping.push(new Box2DBondary(725, 750, 8, 4, 0));
+                this.mySquaresForJumping.push(new Box2DBondary(725, 701, 8, 4, 0));
+                this.mySquaresForJumping.push(new Box2DBondary(698, 617, 17, 17, 0));
+                this.mySquaresForJumping.push(new Box2DBondary(721, 600, 4, 17, 0));
+                this.mySquaresForJumping.push(new Box2DBondary(729, 587, 4, 3, 0));
+                this.mySquaresForJumping.push(new Box2DBondary(725, 550, 8, 4, 0));
+                this.mySquaresForJumping.push(new Box2DBondary(725, 514, 8, 5, 0));
+                this.mySquaresForJumping.push(new Box2DBondary(725, 439, 8, 4, 0));
+                this.mySquaresForJumping.push(new Box2DBondary(752, 604, 8, 4, 0)); // has to be checked after background image change
+                this.mySquaresForJumping.push(new Box2DBondary(767, 520, 4, 87, 0));
+                this.mySquaresForJumping.push(new Box2DBondary(785, 468, 12, 35, 0));
             }else if(sideNum==3){ // Creating Side Three
                 this.mySquaresForJumping.push(new Box2DBondary(725, 478, 8, 84, 0));
             }else if(sideNum==4){ // Creating Side Four

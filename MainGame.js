@@ -7,7 +7,7 @@ window.onload = onReady; // first function call
 // the most important variables
 var level = 3; // 1 = first test; 2 = first good level; 3 = second good level
 var gamemode = "play";
-var sideNum = 1;
+var sideNum = 2;
 
 // if muted (true) music does not play
 var mute = true;
@@ -243,8 +243,8 @@ function onReady() {
     ltwovideointrohard.load();
 
     ltwovideo12 = document.createElement('video');
-    video12.src =  "level3/videos/side1-2.mp4";
-    video12.load();
+    ltwovideo12.src =  "level3/videos/side1-2.mp4";
+    ltwovideo12.load();
 
     ltwovideo23 = document.createElement('video');
     ltwovideo23.src =  "level3/videos/side2-3.mp4";
@@ -560,14 +560,6 @@ function draw () {
                         whichVideo = "onetotwo";
                         spawnpoint = 1;
                         resetUsedVariables();
-                    }else if(playerX>=723 && playerX<=729 && playerY<=725 && playerY>=722){
-                        sideNum=4;
-                        countFrame = seconds+2;
-                        actFrame = countFrame;
-                        videoPlayed = false;
-                        whichVideo = "onetofour";
-                        spawnpoint = 5;
-                        resetUsedVariables();
                     }
                 }else if(sideNum==2){
                     if(playerX>=1097 && playerX<=1102 && playerY<=690 && playerY>=685){
@@ -576,14 +568,6 @@ function draw () {
                         videoPlayed = false;
                         whichVideo = "twotothree";
                         spawnpoint = 2;
-                        resetUsedVariables();
-                    }else if(playerX>=723 && playerX<=729 && playerY<=460 && playerY>=455){
-                        sideNum--;
-                        countFrame = seconds+2;
-                        actFrame = countFrame;
-                        videoPlayed = false;
-                        whichVideo = "twotoone";
-                        spawnpoint = 4;
                         resetUsedVariables();
                     }
                 }else if(sideNum==3){
@@ -598,14 +582,6 @@ function draw () {
                 }else if(sideNum==4){
                     if(playerX>=1078 && playerX<=1082 && playerY<=211 && playerY>=200){
                         gamemode="end";
-                    }else if(playerX>=722 && playerX<=726 && playerY<=687 && playerY>=684){
-                        sideNum--;
-                        countFrame = seconds+2;
-                        actFrame = countFrame;
-                        videoPlayed = false;
-                        whichVideo = "fourtothree";
-                        spawnpoint = 6;
-                        resetUsedVariables();
                     }
                 }
             }
