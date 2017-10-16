@@ -5,9 +5,9 @@ document.onkeydown=function(){keyInput()};
 window.onload = onReady; // first function call
 
 // the most important variables
-var level = 0; // 1 = first test; 2 = first good level; 3 = second good level
-var gamemode = "menu";
-var sideNum = 1;
+var level = 2; // 1 = first test; 2 = first good level; 3 = second good level
+var gamemode = "play";
+var sideNum = 4;
 
 // presentation mode (different input from makey makey and muted)
 var presentationmode = false;
@@ -141,6 +141,11 @@ var endvideoplayed = 0;
 var endtomenu = true;
 var endtomenushown = true;
 var endtomenutime = 0
+
+// for end text
+var endopacityleft = 0;
+var endopacityright = 0;
+var endtextchange = 0;
 
 // for intro
 var introStarted = false;
@@ -655,8 +660,8 @@ function draw () {
         //ctx.fillText("Raindrops: "+ myRain.length, 10, canvas.height-165);
         //ctx.fillText("countFrame: "+ countFrame, 10, canvas.height-145);
         //ctx.fillText("time playing: "+ resultTime, 10, canvas.height-125);
-        ctx.fillText("X-Position: "+ playerX, 10, canvas.height-105);
-        ctx.fillText("Y-Position: "+ playerY, 10, canvas.height-85);
+        //ctx.fillText("X-Position: "+ playerX, 10, canvas.height-105);
+        //ctx.fillText("Y-Position: "+ playerY, 10, canvas.height-85);
         //ctx.fillText("Side number: "+ sideNum, 10, canvas.height-65);
         //ctx.fillText("Square number: "+ playerCounter, 10, canvas.height-45);
         //ctx.fillText("current frame: "+ frameCounter, 10, canvas.height-25);
@@ -690,10 +695,40 @@ function draw () {
                 img.src = "level2/images/end.jpg";
                 ctx.drawImage(img, 0, 0);
 
-                ctx.fillStyle = "#444444";
+                if(endtextchange==0){
+                    endopacityleft+=0.005;
+                    if(endopacityleft>=0.7)endtextchange=1;
+                }else if(endtextchange==1){
+                    endopacityleft-=0.005;
+                    if(endopacityleft<=0.005)endtextchange=2;
+                }else if(endtextchange==2){
+                    endopacityright+=0.005;
+                    if(endopacityright>=0.7)endtextchange=3;
+                }else if(endtextchange==3){
+                    endopacityright-=0.005;
+                    if(endopacityright<=0.005)endtextchange=0;
+                }
+
                 ctx.font = "normal 41px Roboto";
-                ctx.fillText("time: "+ Math.round(resultTime)+" seconds", 1185, 370);
-                ctx.fillText("lifes: "+ playerCounter, 1185, 435);
+                if(endtextchange<=1){
+                ctx.fillStyle = "rgba(0, 0, 0, " + endopacityleft + ")";
+                ctx.fillText("you needed", 1295, 420);
+                if(resultTime<=99){
+                    ctx.fillText(Math.round(resultTime)+" seconds", 1295, 472);
+                }else{
+                    ctx.fillText(Math.round(resultTime)+" seconds", 1303, 472);
+                }
+                }else{
+                ctx.fillStyle = "rgba(0, 0, 0, " + endopacityright + ")";
+                ctx.fillText("you needed", 1295, 420);
+                if(playerCounter==1){
+                    ctx.fillText(playerCounter+" life", 1350, 472);
+                }else if(playerCounter<=9){
+                    ctx.fillText(playerCounter+" lifes", 1345, 472);
+                }else{
+                    ctx.fillText(playerCounter+" lifes", 1355, 472);
+                }    
+                }
             }else{
                 if(endtomenu){
                     endtomenutime=seconds;
@@ -718,10 +753,30 @@ function draw () {
                 img.src = "level3/images/end.jpg";
                 ctx.drawImage(img, 0, 0);
 
-                ctx.fillStyle = "#444444";
+                if(endtextchange==0){
+                    endopacityleft+=0.005;
+                    if(endopacityleft>=0.9)endtextchange=1;
+                }else if(endtextchange==1){
+                    endopacityleft-=0.005;
+                    if(endopacityleft<=0.005)endtextchange=2;
+                }else if(endtextchange==2){
+                    endopacityright+=0.005;
+                    if(endopacityright>=0.9)endtextchange=3;
+                }else if(endtextchange==3){
+                    endopacityright-=0.005;
+                    if(endopacityright<=0.005)endtextchange=0;
+                }
+
                 ctx.font = "normal 41px Roboto";
-                ctx.fillText("time: "+ Math.round(resultTime)+" seconds", 1185, 370);
-                ctx.fillText("lifes: "+ playerCounter, 1185, 435);
+                ctx.fillText("You needed", 1185, 340);
+                if(endtextchange<=1){
+                ctx.fillStyle = "rgba(255, 255, 255, " + endopacityleft + ")";
+                ctx.fillText(Math.round(resultTime)+" seconds", 1185, 390);
+                }else{
+                ctx.fillStyle = "rgba(255, 255, 255, " + endopacityright + ")";
+                ctx.fillText(playerCounter+" lifes", 1185, 455);
+                }
+
             }else{
                 if(endtomenu){
                     endtomenutime=seconds;
