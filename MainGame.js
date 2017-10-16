@@ -5,9 +5,9 @@ document.onkeydown=function(){keyInput()};
 window.onload = onReady; // first function call
 
 // the most important variables
-var level = 2; // 1 = first test; 2 = first good level; 3 = second good level
-var gamemode = "play";
-var sideNum = 4;
+var level = 0; // 1 = first test; 2 = first good level; 3 = second good level
+var gamemode = "menu";
+var sideNum = 1;
 
 // presentation mode (different input from makey makey and muted)
 var presentationmode = false;
@@ -755,27 +755,38 @@ function draw () {
 
                 if(endtextchange==0){
                     endopacityleft+=0.005;
-                    if(endopacityleft>=0.9)endtextchange=1;
+                    if(endopacityleft>=0.7)endtextchange=1;
                 }else if(endtextchange==1){
                     endopacityleft-=0.005;
                     if(endopacityleft<=0.005)endtextchange=2;
                 }else if(endtextchange==2){
                     endopacityright+=0.005;
-                    if(endopacityright>=0.9)endtextchange=3;
+                    if(endopacityright>=0.7)endtextchange=3;
                 }else if(endtextchange==3){
                     endopacityright-=0.005;
                     if(endopacityright<=0.005)endtextchange=0;
                 }
 
                 ctx.font = "normal 41px Roboto";
-                ctx.fillText("You needed", 1185, 340);
                 if(endtextchange<=1){
-                ctx.fillStyle = "rgba(255, 255, 255, " + endopacityleft + ")";
-                ctx.fillText(Math.round(resultTime)+" seconds", 1185, 390);
+                ctx.fillStyle = "rgba(0, 0, 0, " + endopacityleft + ")";
+                ctx.fillText("you needed", 1295, 420);
+                if(resultTime<=99){
+                    ctx.fillText(Math.round(resultTime)+" seconds", 1295, 472);
                 }else{
-                ctx.fillStyle = "rgba(255, 255, 255, " + endopacityright + ")";
-                ctx.fillText(playerCounter+" lifes", 1185, 455);
+                    ctx.fillText(Math.round(resultTime)+" seconds", 1303, 472);
                 }
+                }else{
+                ctx.fillStyle = "rgba(0, 0, 0, " + endopacityright + ")";
+                ctx.fillText("you needed", 1295, 420);
+                if(playerCounter==1){
+                    ctx.fillText(playerCounter+" life", 1350, 472);
+                }else if(playerCounter<=9){
+                    ctx.fillText(playerCounter+" lifes", 1345, 472);
+                }else{
+                    ctx.fillText(playerCounter+" lifes", 1355, 472);
+                }  
+            }
 
             }else{
                 if(endtomenu){
