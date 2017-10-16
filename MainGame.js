@@ -9,7 +9,11 @@ var level = 0; // 1 = first test; 2 = first good level; 3 = second good level
 var gamemode = "menu";
 var sideNum = 1;
 
-// presentation mode (different input from makey makey and muted)
+/** 
+ * presentation mode 
+ * (for different input from makey makey than from keyboard
+ * and game is also muted)
+ */ 
 var presentationmode = false;
 
 // if muted (true) music does not play
@@ -712,21 +716,19 @@ function draw () {
                 ctx.font = "normal 41px Roboto";
                 if(endtextchange<=1){
                 ctx.fillStyle = "rgba(0, 0, 0, " + endopacityleft + ")";
-                ctx.fillText("you needed", 1295, 420);
                 if(resultTime<=99){
-                    ctx.fillText(Math.round(resultTime)+" seconds", 1295, 472);
+                    ctx.fillText(Math.round(resultTime)+" seconds", 1295, 412);
                 }else{
-                    ctx.fillText(Math.round(resultTime)+" seconds", 1303, 472);
+                    ctx.fillText(Math.round(resultTime)+" seconds", 1303, 412);
                 }
                 }else{
                 ctx.fillStyle = "rgba(0, 0, 0, " + endopacityright + ")";
-                ctx.fillText("you needed", 1295, 420);
                 if(playerCounter==1){
-                    ctx.fillText(playerCounter+" life", 1350, 472);
+                    ctx.fillText(playerCounter+" life", 1355, 412);
                 }else if(playerCounter<=9){
-                    ctx.fillText(playerCounter+" lifes", 1345, 472);
+                    ctx.fillText(playerCounter+" lifes", 1345, 412);
                 }else{
-                    ctx.fillText(playerCounter+" lifes", 1355, 472);
+                    ctx.fillText(playerCounter+" lifes", 1340, 412);
                 }    
                 }
             }else{
@@ -770,21 +772,19 @@ function draw () {
                 ctx.font = "normal 41px Roboto";
                 if(endtextchange<=1){
                 ctx.fillStyle = "rgba(0, 0, 0, " + endopacityleft + ")";
-                ctx.fillText("you needed", 1295, 420);
                 if(resultTime<=99){
-                    ctx.fillText(Math.round(resultTime)+" seconds", 1295, 472);
+                    ctx.fillText(Math.round(resultTime)+" seconds", 1295, 412);
                 }else{
-                    ctx.fillText(Math.round(resultTime)+" seconds", 1303, 472);
+                    ctx.fillText(Math.round(resultTime)+" seconds", 1303, 412);
                 }
                 }else{
                 ctx.fillStyle = "rgba(0, 0, 0, " + endopacityright + ")";
-                ctx.fillText("you needed", 1295, 420);
                 if(playerCounter==1){
-                    ctx.fillText(playerCounter+" life", 1350, 472);
+                    ctx.fillText(playerCounter+" life", 1355, 412);
                 }else if(playerCounter<=9){
-                    ctx.fillText(playerCounter+" lifes", 1345, 472);
+                    ctx.fillText(playerCounter+" lifes", 1345, 412);
                 }else{
-                    ctx.fillText(playerCounter+" lifes", 1355, 472);
+                    ctx.fillText(playerCounter+" lifes", 1340, 412);
                 }  
             }
 
