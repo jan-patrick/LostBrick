@@ -24,7 +24,7 @@ if(presentationmode){
 }    
 
 // test mode
-var godmode = true;
+var godmode = false;
 
 // mouse position any time
 var mouseX, mouseY;
@@ -837,7 +837,7 @@ function keyInput(e) {
         if(presentationmode){ // if makey makey is used
             switch (e.keyCode) {
                 case 40: // left arrow
-                    level = 2;
+                    level = 3;
                     gamemode="intro";
                     break;
                 //case 37: // arrow up
@@ -845,7 +845,7 @@ function keyInput(e) {
                 //    gamemode="intro";
                 //    break;
                 case 38: // right arrow
-                    level = 3;
+                    level = 2;
                     gamemode="intro";
                     break;
                 default:
