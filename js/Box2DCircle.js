@@ -1,5 +1,5 @@
 /**
- * Created by franklinhc on 9/5/15.
+ * Created by Roman Kuhn, Marcus Schoch, Jan Schneider on 3/10/17.
  */
 
 function Box2DCircle ( x,  y,  r) {

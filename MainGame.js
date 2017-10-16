@@ -310,13 +310,14 @@ function onReady() {
 
     playerX = 500;
     playerY = 500;
+
     // setup world
     world = new b2World(
         new b2Vec2(0, 0)    //gravity
-        ,  true              //allow sleep
+        ,  true             //allow sleep
     );
 
-    if(godmode==false){    // collision listener
+    if(godmode==false){     // collision listener
     var listener = new Box2D.Dynamics.b2ContactListener;
     listener.BeginContact = function (contact) {
         var a = contact.GetFixtureA().GetBody().GetUserData();
@@ -339,7 +340,7 @@ function draw () {
     var thisFrameTime = (thisLoop=new Date) - lastLoop;
     seconds = new Date().getTime() / 1000;
 
-    // setting player position for onload
+    // setting player position on first start
     if(!started){
         if(level==1){
             if(!mute)backgroundmusicone.play();
