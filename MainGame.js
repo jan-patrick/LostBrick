@@ -789,7 +789,7 @@ function keyInput(e) {
         }else{
             switch (e.keyCode) {
                 case 37: // left arrow
-                    level = 2;
+                    level = 3;
                     gamemode="intro";
                     break;
                 case 38: // arrow up
@@ -797,7 +797,7 @@ function keyInput(e) {
                     gamemode="intro";
                     break;
                 case 39: // right arrow
-                    level = 3;
+                    level = 2;
                     gamemode="intro";
                     break;
                 default: // if any key pressed start intro video
