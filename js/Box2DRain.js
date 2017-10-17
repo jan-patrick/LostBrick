@@ -29,7 +29,7 @@ var startPointY;
             this.myRain.push(myCurrentObj);
         }
         // deleting all rain out of canvas
-        if(this.myRain.length>=400){
+        if(this.myRain.length>=600){
             for (var r = 0; r < this.myRain.length-200; r++) {
                     this.myRain[r].removeBody();
                     this.myRain.splice(r, 1);
