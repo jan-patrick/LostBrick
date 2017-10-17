@@ -17,11 +17,7 @@ var sideNum = 1;
 var presentationmode = false;
 
 // if muted (true) music does not play
-if(presentationmode){
-    var mute = true;
-}else{
-    var mute = false;
-}    
+var mute = false;   
 
 // test mode
 var godmode = false;
