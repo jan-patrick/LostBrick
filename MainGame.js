@@ -163,7 +163,7 @@ function onReady() {
 
     // backgroundmusic easy
     backgroundmusicone = document.createElement('AUDIO');
-    backgroundmusicone.src="level1/music/backgroundone.mp3";
+    backgroundmusicone.src="level1/music/backgroundtwo.mp3";
 
     // import of all needed videos easy
     videointroeasy = document.createElement('video');
@@ -249,7 +249,7 @@ function onReady() {
 
     // backgroundmusic level 3
     ltwobackgroundmusicthree = document.createElement('AUDIO');
-    ltwobackgroundmusicthree.src="level3/music/backgroundone.mp3";
+    ltwobackgroundmusicthree.src="level3/music/backgroundtwo.mp3";
 
     // import of all needed videos hard
     ltwovideointrohard = document.createElement('video');
@@ -602,7 +602,7 @@ function draw () {
                 }else if(sideNum==2){
                     if(playerX>=1153 && playerX<=1155 && playerY<=716 && playerY>=712){
                         sideNum=4;
-                        countFrame = seconds+2;
+                        countFrame = seconds+3;
                         videoPlayed = false;
                         whichVideo = "twotofour";
                         spawnpoint = 3;
@@ -643,7 +643,7 @@ function draw () {
                         resetUsedVariables();
                     } else if(playerX>=633 && playerX<=635 && playerY<=632 && playerY>=629){
                         sideNum=2;
-                        countFrame = seconds+2;
+                        countFrame = seconds+3;
                         videoPlayed = false;
                         whichVideo = "fourtotwo";
                         spawnpoint = 8;
