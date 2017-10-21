@@ -11,8 +11,12 @@ professor: [Prof. Dr. Franklin Hernández-Castro](http://skizata.com)
 
 ![LostBrick-Logo](https://github.com/JanPSchneider/LostBrick/blob/master/mainimages/fulllogo.jpg)
 
-The game is only playable with screensize 1824x1018 and higher and by using the arrow keys on your keyboard.
+## how to play
+
+The game is only playable with screensize 1824x1018 and higher (or by zooming in or out in your browser) and by using the arrow keys on your keyboard.
 
 You can download and play this game by clicking on the green button "Clone or download", then on "Download ZIP". After the ZIP-file is downloaded you have to unzip it. Then you can start the game by clicking on the "LostBrick" file in the folder. We recommend to use Google Chrome, because of its power reason.
+
+## more info
 
 For more (german) information about the game itself, the design, creation and controller please visit the HfG IoT-Portfolio: [more information](https://iot.hfg-gmuend.de/Members/jan_schneider/meine-projekte/lostbrick)
