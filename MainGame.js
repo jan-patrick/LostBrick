@@ -12,7 +12,7 @@ var sideNum = 1;
 /** 
  * presentation mode 
  * (for different input from makey makey than from keyboard
- * and game is also muted)
+ * and alpha level, in code level 1, is not playable, else by pressing arrow up)
  */ 
 var presentationmode = false;
 

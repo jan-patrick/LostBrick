@@ -307,7 +307,7 @@ function PlayerMovement (playDirr, sideNum) {
             this.myPlayers[0].applyImpulse(down, walk);
             this.myPlayers[0].draw(ctx);
         }
-    }else if(sideNum==2){
+    }else if(sideNum==2 && doIt){
         if(playDirr == "a" && playerOnGround){
             this.myPlayers[0].applyImpulse(left, jump);
             this.myPlayers[0].draw(ctx);
@@ -322,7 +322,7 @@ function PlayerMovement (playDirr, sideNum) {
             this.myPlayers[0].applyImpulse(down, walk);
             this.myPlayers[0].draw(ctx);
         }
-    }else if(sideNum==3){
+    }else if(sideNum==3 && doIt){
         if(playDirr == "a"){
             this.myPlayers[0].applyImpulse(left, walk);
             this.myPlayers[0].draw(ctx);
@@ -337,7 +337,7 @@ function PlayerMovement (playDirr, sideNum) {
             this.myPlayers[0].draw(ctx);
             if(this.godmode==false)this.playerOnGround=false;
         }
-    }else if(sideNum==4){
+    }else if(sideNum==4 && doIt){
         if(playDirr == "a"){
             this.myPlayers[0].applyImpulse(left, walk);
             this.myPlayers[0].draw(ctx);
