@@ -5,7 +5,7 @@ document.onkeydown=function(){keyInput()};
 window.onload = onReady; // first function call
 
 // the most important variables
-var level = 0; // 1 = first test; 2 = first good level; 3 = second good level
+var level = 0; // 1 = first test (alpha); 2 = first good level; 3 = second good level
 var gamemode = "menu";
 var sideNum = 1;
 
@@ -86,6 +86,11 @@ var timelastusedfive = 5948373;
 // the Boundaries to jump on
 var mySquaresForJumping = [];
 
+// backgroundmusic variables
+var musictimeone = 0;
+var musictimeteo = 0;
+var musicplaytime = 20;
+
 // for background
 var img;
 var started = false;
@@ -161,9 +166,12 @@ function onReady() {
     frameCounter = 0;
     canvas.addEventListener('mousedown', pick);
 
-    // backgroundmusic easy
+    // backgroundmusic
     backgroundmusicone = document.createElement('AUDIO');
-    backgroundmusicone.src="level1/music/backgroundtwo.mp3";
+    backgroundmusicone.src="music/backgroundtwo.mp3";
+
+    backgroundmusictwo = document.createElement('AUDIO');
+    backgroundmusictwo.src="music/backgroundtwo.mp3";
 
     // import of all needed videos easy
     videointroeasy = document.createElement('video');
@@ -197,10 +205,6 @@ function onReady() {
     videofourtothree = document.createElement('video');
     videofourtothree.src =  "level1/videos/sidefourtothree.mp4";
     videofourtothree.load();
-
-    // backgroundmusic hard
-    backgroundmusictwo = document.createElement('AUDIO');
-    backgroundmusictwo.src="level2/music/backgroundtwo.mp3";
 
     // import of all needed videos hard
     videointrohard = document.createElement('video');
@@ -246,10 +250,6 @@ function onReady() {
     videohardendtomenu = document.createElement('video');
     videohardendtomenu.src =  "level2/videos/endtomenu.mp4";
     videohardendtomenu.load();
-
-    // backgroundmusic level 3
-    ltwobackgroundmusicthree = document.createElement('AUDIO');
-    ltwobackgroundmusicthree.src="level3/music/backgroundtwo.mp3";
 
     // import of all needed videos hard
     ltwovideointrohard = document.createElement('video');
@@ -339,7 +339,6 @@ function draw () {
     // setting player position on first start
     if(!started){
         if(level==1){
-            if(!mute)backgroundmusicone.play();
             if(sideNum==1){
                 spawnpoint=0; // 0
             }else if(sideNum==2){
@@ -351,7 +350,6 @@ function draw () {
             }
             started=true;
         }else if(level==2){
-            if(!mute)backgroundmusictwo.play();
             if(sideNum==1){
                 spawnpoint=0; // 0
             }else if(sideNum==2){
@@ -363,7 +361,6 @@ function draw () {
             }
             started=true;
         }else if(level==3){
-            if(!mute)ltwobackgroundmusicthree.play();
             if(sideNum==1){
                 spawnpoint=0; // 0
             }else if(sideNum==2){
@@ -374,6 +371,14 @@ function draw () {
                 spawnpoint=3; // 3
             }
             started=true;
+        }
+    }if(!mute){
+        if(musictimeone<=musicplaytime){
+            backgroundmusicone.play();
+        }else if(musictimetwo<=musicplaytime){
+            backgroundmusictwo.play();
+        }else{
+            musicplaytime = seconds;
         }
     }
 
@@ -417,6 +422,9 @@ function draw () {
         if(level==1){
         videointroeasy.play();
         ctx.drawImage(videointroeasy, 0, 0);
+        ctx.font = "normal 11px Roboto";
+        ctx.fillStyle = "rgba(255, 255, 255, 0.15)";
+        ctx.fillText("alpha level", 10, canvas.height-10);
         }else if(level==2){
         videointrohard.play();
         ctx.drawImage(videointrohard, 0, 0);
@@ -457,6 +465,11 @@ function draw () {
             playerY = myPlayers[0].getYpos();
         }
         Box2DRain();
+        if(level==1){
+            ctx.font = "normal 11px Roboto";
+            ctx.fillStyle = "rgba(255, 255, 255, 0.15)";
+            ctx.fillText("alpha level", 10, canvas.height-10);
+        }    
 
         // change side if player reached right plattform
         if(videoPlayed == true){
@@ -678,6 +691,10 @@ function draw () {
             img = new Image();
             img.src = "level1/images/end.jpg";
             ctx.drawImage(img, 0, 0);
+
+            ctx.font = "normal 11px Roboto";
+            ctx.fillStyle = "rgba(255, 255, 255, 0.15)";
+            ctx.fillText("alpha level", 10, canvas.height-10);
 
             Box2DPlayer(sideNum);
 
