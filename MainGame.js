@@ -87,9 +87,7 @@ var timelastusedfive = 5948373;
 var mySquaresForJumping = [];
 
 // backgroundmusic variables
-var musictimeone = 0;
-var musictimeteo = 0;
-var musicplaytime = 20;
+var musicplaying = 0;
 
 // for background
 var img;
@@ -168,7 +166,7 @@ function onReady() {
 
     // backgroundmusic
     backgroundmusicone = document.createElement('AUDIO');
-    backgroundmusicone.src="music/backgroundtwo.mp3";
+    backgroundmusicone.src="music/backgroundone.mp3";
 
     backgroundmusictwo = document.createElement('AUDIO');
     backgroundmusictwo.src="music/backgroundtwo.mp3";
@@ -373,12 +371,16 @@ function draw () {
             started=true;
         }
     }if(!mute){
-        if(musictimeone<=musicplaytime){
+        if(musicplaying==0){
+            if(Math.random()<=0.5){
+                musicplaying=1;
+            }else{
+                musicplaying=2;
+            }
+        }else if(musicplaying==1){
             backgroundmusicone.play();
-        }else if(musictimetwo<=musicplaytime){
-            backgroundmusictwo.play();
         }else{
-            musicplaytime = seconds;
+            backgroundmusictwo.play();
         }
     }
 
