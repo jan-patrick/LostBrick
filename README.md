@@ -1,6 +1,47 @@
 # LostBrick
 
-Project of the lecture "3-dim. Grundlagen im medialen Raum" at [HfG Schwäbisch Gmünd](http://www.hfg-gmuend.de) in wintersemester 17
+[Deutsch](#deutsch) | [English](#english)
+
+<a name="deutsch"></a>
+
+## Allgemeines
+
+LostBrick ist ein Projekt der Vorlesung "3-dimensionale Grundlagen im medialen Raum" an der [HfG Schwäbisch Gmünd](http://www.hfg-gmuend.de) im Wintersemester 2017.
+
+Studenten:
+[Roman Kuhn](https://ig.hfg-gmuend.de/author/roman_kuhn) (IG2),
+[Marcus Schoch](https://iot.hfg-gmuend.de/author/marcus_schoch) (IoT2),
+[Jan Schneider](http://jan-patrick.de) (IoT2)
+
+Professor: [Prof. Dr. Franklin Hernández-Castro](http://skizata.com)
+
+![LostBrick-Logo](https://github.com/JanPSchneider/LostBrick/blob/master/mainimages/fulllogo.jpg)
+
+## allgemeine Spielinfos
+
+Das Spiel ist auf eine Auflösung von 1824x1018 (Vollbildmodus) konzipiert. Bei abweichender Darstellung kann durch Zoomen im Browser das Spiel komplett dargestellt werden. Die Steuuerung funktioniert über die Pfeiltasten.
+
+## Downloadanleitung
+
+Über diesen Link ist die aktuellste Version downloadbar:
+[Download](https://github.com/JanPSchneider/LostBrick/archive/master.zip)
+
+Alternativ funktioniert der Download über den grünen Button "Clone or download", dann "Download ZIP".
+Nach dem Download muss das Spiel erst entpackt werden. Anschließend startet es durch Doppelklick der LostBrick-Datei.
+
+## mehr Info
+
+Für mehr Informationen über das Spiel, die Entstehung, das Design und Controller besuchen Sie bitte das HfG IoT-Portfolio: [mehr Information](https://iot.hfg-gmuend.de/Members/jan_schneider/meine-projekte/lostbrick)
+
+
+---
+
+
+<a name="english"></a>
+
+## general information 
+
+Project of the lecture "3-dimensionale Grundlagen im medialen Raum" at [HfG Schwäbisch Gmünd](http://www.hfg-gmuend.de) in wintersemester 2017
 
 students:
 [Roman Kuhn](https://ig.hfg-gmuend.de/author/roman_kuhn) (IG2),
