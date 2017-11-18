@@ -2,6 +2,7 @@
 
 [Deutsch](#deutsch) | [English](#english)
 
+[Video](https://vimeo.com/243429103)
 ![LostBrick-Logo](https://github.com/JanPSchneider/LostBrick/blob/master/mainimages/fulllogo.jpg)
 
 <a name="deutsch"></a>
@@ -32,6 +33,8 @@ Nach dem Download muss das Spiel erst entpackt werden. Anschließend startet es 
 ## mehr Info
 
 Für mehr Informationen über das Spiel, die Entstehung, das Design und Controller besuchen Sie bitte das HfG IoT-Portfolio: [mehr Information](https://iot.hfg-gmuend.de/Members/jan_schneider/meine-projekte/lostbrick)
+
+Die Videodokumentation finden Sie auf Vimeo: [Video](https://vimeo.com/243429103)
 
 
 ---
@@ -67,3 +70,5 @@ Alternatively you can download and play this game by clicking on the green butto
 ## more info
 
 For more (german) information about the game itself, the design, creation and controller please visit the HfG IoT-Portfolio: [more information](https://iot.hfg-gmuend.de/Members/jan_schneider/meine-projekte/lostbrick)
+
+You can find our documentation here: [Video](https://vimeo.com/243429103)
