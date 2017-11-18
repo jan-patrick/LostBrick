@@ -19,7 +19,7 @@ Professor: [Prof. Dr. Franklin Hernández-Castro](http://skizata.com)
 
 ## allgemeine Spielinfos
 
-Das Spiel ist auf eine Auflösung von 1824x1018 (Vollbildmodus) konzipiert. Bei abweichender Darstellung kann durch Zoomen im Browser das Spiel komplett dargestellt werden. Die Steuuerung funktioniert über die Pfeiltasten.
+Das Spiel ist auf eine Auflösung von 1824x1018 (16:9 Vollbildmodus) konzipiert. Bei abweichender Darstellung kann durch Zoomen im Browser das Spiel komplett dargestellt werden. Die Steuerung funktioniert über die Pfeiltasten.
 
 ## Downloadanleitung
 
