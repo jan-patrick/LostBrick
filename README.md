@@ -2,6 +2,8 @@
 
 [Deutsch](#deutsch) | [English](#english)
 
+![LostBrick-Logo](https://github.com/JanPSchneider/LostBrick/blob/master/mainimages/fulllogo.jpg)
+
 <a name="deutsch"></a>
 
 ## Allgemeines
@@ -14,8 +16,6 @@ Studenten:
 [Jan Schneider](http://jan-patrick.de) (IoT2)
 
 Professor: [Prof. Dr. Franklin Hernández-Castro](http://skizata.com)
-
-![LostBrick-Logo](https://github.com/JanPSchneider/LostBrick/blob/master/mainimages/fulllogo.jpg)
 
 ## allgemeine Spielinfos
 
@@ -36,6 +36,9 @@ Für mehr Informationen über das Spiel, die Entstehung, das Design und Controll
 
 ---
 
+![LostBrick-Menu](https://github.com/JanPSchneider/LostBrick/blob/master/mainimages/menu.jpg)
+
+---
 
 <a name="english"></a>
 
@@ -49,8 +52,6 @@ students:
 [Jan Schneider](http://jan-patrick.de) (IoT2)
 
 professor: [Prof. Dr. Franklin Hernández-Castro](http://skizata.com)
-
-![LostBrick-Logo](https://github.com/JanPSchneider/LostBrick/blob/master/mainimages/fulllogo.jpg)
 
 ## how to play
 
