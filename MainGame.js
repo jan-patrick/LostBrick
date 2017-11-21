@@ -735,7 +735,7 @@ function draw () {
                 if(resultTime<=99){
                     ctx.fillText(Math.round(resultTime)+" seconds", 1295, 412);
                 }else{
-                    ctx.fillText(Math.round(resultTime)+" seconds", 1303, 412);
+                    ctx.fillText(Math.round(resultTime)+" seconds", 1280, 412);
                 }
                 }else{
                 ctx.fillStyle = "rgba(0, 0, 0, " + endopacityright + ")";
@@ -744,7 +744,7 @@ function draw () {
                 }else if(playerCounter<=9){
                     ctx.fillText(playerCounter+" lifes", 1345, 412);
                 }else{
-                    ctx.fillText(playerCounter+" lifes", 1340, 412);
+                    ctx.fillText(playerCounter+" lifes", 1335, 412);
                 }    
                 }
             }else{
@@ -791,7 +791,7 @@ function draw () {
                 if(resultTime<=99){
                     ctx.fillText(Math.round(resultTime)+" seconds", 1295, 412);
                 }else{
-                    ctx.fillText(Math.round(resultTime)+" seconds", 1303, 412);
+                    ctx.fillText(Math.round(resultTime)+" seconds", 1280, 412);
                 }
                 }else{
                 ctx.fillStyle = "rgba(0, 0, 0, " + endopacityright + ")";
@@ -800,7 +800,7 @@ function draw () {
                 }else if(playerCounter<=9){
                     ctx.fillText(playerCounter+" lifes", 1345, 412);
                 }else{
-                    ctx.fillText(playerCounter+" lifes", 1340, 412);
+                    ctx.fillText(playerCounter+" lifes", 1335, 412);
                 }  
             }
 
