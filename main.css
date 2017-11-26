@@ -39,5 +39,6 @@ canvas {
     	display: block;
 }
 @font-face {
-    	font-family: 'Roboto', sans-serif;
+		font-family: 'Roboto', sans-serif;
+		src: url('font/Roboto-Medium.ttf') format('truetype');
 }
