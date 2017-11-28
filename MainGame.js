@@ -17,6 +17,8 @@ var sideNum = 1;
 var presentationmode = false;
 
 // if muted (true) music does not play
+// it also saves some power not playing music 
+// but for better experience we recommend to play with music
 var mute = false;   
 
 // test mode
@@ -88,6 +90,10 @@ var mySquaresForJumping = [];
 
 // backgroundmusic variables
 var musicplaying = 0;
+var musictimeset = false;
+var musicplaytime = 0;
+var musiconetime = 303;
+var musictwotime = 255;
 
 // for background
 var img;
@@ -370,17 +376,40 @@ function draw () {
             }
             started=true;
         }
+    // if not muted music is playing while the game is open    
     }if(!mute){
+        // music control center
+        // choose randomly the first playing title (number one or two)
         if(musicplaying==0){
             if(Math.random()<=0.5){
                 musicplaying=1;
             }else{
                 musicplaying=2;
             }
+        // making sure the titles are changeing after each other
+        }else if(!musictimeset){
+            musicplaytime = seconds;
+            musictimeset = true;
+         
         }else if(musicplaying==1){
             backgroundmusicone.play();
+            // if its time is over it got reloaded and the other title starts playing 
+            if(musicplaytime + musiconetime <= seconds){
+                musictimeset = false;
+                musicplaying=2;
+                backgroundmusicone.pause();
+                backgroundmusicone.load();
+            }
+        // let title two play
         }else{
             backgroundmusictwo.play();
+            // if its time is over it got reloaded and the other title starts playing
+            if(musicplaytime + musictwotime <= seconds){
+                musictimeset = false;
+                musicplaying=1;
+                backgroundmusictwo.pause();
+                backgroundmusictwo.load();
+            }
         }
     }
 
