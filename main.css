@@ -31,14 +31,14 @@ table {
 }
 canvas {
 	padding-left: 0;
-    	padding-right: 0;
-    	margin-left: auto;
-    	margin-right: auto;
-    	margin-top: 6.5px;
-    	margin-bottom: auto;
-    	display: block;
+    padding-right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 6.5px;
+    margin-bottom: auto;
+    display: block;
 }
 @font-face {
-		font-family: 'Roboto', sans-serif;
-		src: url('font/Roboto-Medium.ttf') format('truetype');
+	font-family: 'Roboto';
+	src: url('font/Roboto-Regular.ttf') format('truetype');
 }
