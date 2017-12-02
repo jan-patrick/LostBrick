@@ -94,6 +94,7 @@ var musictimeset = false;
 var musicplaytime = 0;
 var musiconetime = 303;
 var musictwotime = 255;
+var musicvolume = 1;
 
 // for background
 var img;
@@ -393,6 +394,7 @@ function draw () {
          
         }else if(musicplaying==1){
             backgroundmusicone.play();
+            backgroundmusicone.volume = musicvolume; 
             // if its time is over it got reloaded and the other title starts playing 
             if(musicplaytime + musiconetime <= seconds){
                 musictimeset = false;
@@ -403,6 +405,7 @@ function draw () {
         // let title two play
         }else{
             backgroundmusictwo.play();
+            backgroundmusictwo.volume = musicvolume;
             // if its time is over it got reloaded and the other title starts playing
             if(musicplaytime + musictwotime <= seconds){
                 musictimeset = false;
@@ -784,6 +787,7 @@ function draw () {
                 if(endtomenutime+1>=seconds){
                     videohardendtomenu.play();
                     ctx.drawImage(videohardendtomenu, 0, 0);
+                    if(0.003<=musicvolume)musicvolume-=0.003;
                 }else{
                     img = new Image();
                     img.src = "mainimages/menu.jpg";
@@ -841,6 +845,7 @@ function draw () {
                 if(endtomenutime+1>=seconds){
                     ltwovideohardendtomenu.play();
                     ctx.drawImage(ltwovideohardendtomenu, 0, 0);
+                    if(0.003<=musicvolume)musicvolume-=0.003;
                 }else{
                     img = new Image();
                     img.src = "mainimages/menu.jpg";
