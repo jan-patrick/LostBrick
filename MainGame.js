@@ -937,6 +937,9 @@ function keyInput(e) {
                 case 40: // arrow down
                     playDir = "a";
                     break;
+                case 27: // esc
+                    window.location.reload();
+                    break;    
                 default:
                     sideNum = sideNum;
                     buttonPressed=true;
@@ -957,6 +960,9 @@ function keyInput(e) {
                 case 40: // arrow down
                     playDir = "s";
                     break;
+                case 27: // esc
+                    window.location.reload();
+                    break;    
                 default:
                     sideNum = sideNum;
                     buttonPressed=true;
