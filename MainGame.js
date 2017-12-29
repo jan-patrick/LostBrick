@@ -164,6 +164,9 @@ var introStarted = false;
 var myRain = [];
 var itisraining = false;
 
+// for zoom
+var zoom = 100;
+
 function onReady() {
     // your inicialization code here  ----------------------------------------------
     canvas = document.getElementById('canvas');
@@ -893,7 +896,7 @@ function keyInput(e) {
                 //case 37: // arrow up
                 //    level = 1;
                 //    gamemode="intro";
-                //    break;
+                //    break;   
                 case 38: // right arrow
                     level = 2;
                     gamemode="intro";
@@ -916,6 +919,22 @@ function keyInput(e) {
                     level = 2;
                     gamemode="intro";
                     break;
+                case 73: // i
+                    //console.log(parseInt(document.body.style.zoom));
+                    zoom += 10;
+                    if(zoom<=20)zoom=20;
+                    var n = ""+zoom;
+                    document.body.style.zoom = n += "%"; 
+                    //console.log("Zoomed out");
+                    break;
+                case 79: // o
+                    //console.log(parseInt(document.body.style.zoom));
+                    zoom -= 10;
+                    if(zoom>=200)zoom=200;
+                    var n = ""+zoom;
+                    document.body.style.zoom = n += "%"; 
+                    //console.log("Zoomed in");
+                    break;     
                 default: // if any key pressed start intro video
                     //console.log(e);
                     break;
@@ -939,7 +958,23 @@ function keyInput(e) {
                     break;
                 case 27: // esc
                     window.location.reload();
-                    break;    
+                    break;
+                case 73: // i
+                    //console.log(parseInt(document.body.style.zoom));
+                    zoom += 10;
+                    if(zoom<=20)zoom=20;
+                    var n = ""+zoom;
+                    document.body.style.zoom = n += "%"; 
+                    //console.log("Zoomed out");
+                    break;
+                case 79: // o
+                    //console.log(parseInt(document.body.style.zoom));
+                    zoom -= 10;
+                    if(zoom>=200)zoom=200;
+                    var n = ""+zoom;
+                    document.body.style.zoom = n += "%"; 
+                    //console.log("Zoomed in");
+                    break;        
                 default:
                     sideNum = sideNum;
                     buttonPressed=true;
@@ -962,6 +997,22 @@ function keyInput(e) {
                     break;
                 case 27: // esc
                     window.location.reload();
+                    break;
+                case 73: // i
+                    //console.log(parseInt(document.body.style.zoom));
+                    zoom += 10;
+                    if(zoom<=20)zoom=20;
+                    var n = ""+zoom;
+                    document.body.style.zoom = n += "%"; 
+                    //console.log("Zoomed out");
+                    break;
+                case 79: // o
+                    //console.log(parseInt(document.body.style.zoom));
+                    zoom -= 10;
+                    if(zoom>=200)zoom=200;
+                    var n = ""+zoom;
+                    document.body.style.zoom = n += "%"; 
+                    //console.log("Zoomed in");
                     break;    
                 default:
                     sideNum = sideNum;

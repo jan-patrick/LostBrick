@@ -18,6 +18,7 @@ body {
 	-moz-hyphens: auto;
 	-ms-hyphens: auto;
 	hyphens: auto;
+	zoom: 100%;
 }
 ol, ul {
 	list-style: none;
