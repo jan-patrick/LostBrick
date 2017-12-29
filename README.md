@@ -1,8 +1,3 @@
-<p align="center">
-  <a href="http://unigram.me">
-    <img src="https://raw.githubusercontent.com/UnigramDev/Unigram/develop/Unigram/Assets/StoreLogo/Release/StoreLogo.scale-200.png" width=80 height=80>
-  </a></p>
-
 <h1 align="center">LostBrick</h1>
 <p align="center">
   <a href="#deutsch">Deutsch</a> | <a href="#english">Englisch</a><br><br>
