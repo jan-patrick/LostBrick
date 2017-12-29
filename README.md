@@ -41,6 +41,8 @@ Zusätzlich ist LostBrick für Windows 10 Geräte im Microsoft Store verfügbar:
 
 <a href="https://www.microsoft.com/store/apps/9PP0X5KTJXBC?ocid=badge"><img src="https://assets.windowsphone.com/85864462-9c82-451e-9355-a3d5f874397a/English_get-it-from-MS_InvariantCulture_Default.png" width=100 alt="Get it from Microsoft Store for Windows 10 Desktop" /></a>
 
+Der Code zur Win 10 App findet sich <a href="https://github.com/jan-patrick/LostBrick_UWP">hier</a>. 
+
 ## mehr Info
 
 Für mehr Informationen über das Spiel, die Entstehung, das Design und Controller besuchen Sie bitte das HfG IoT-Portfolio: [mehr Information](https://iot.hfg-gmuend.de/Members/jan_schneider/meine-projekte/lostbrick)
@@ -83,6 +85,8 @@ Alternatively you can download and play this game by clicking on the green butto
 On your Windows 10 device you can download it at the Microsoft Store:
 
 <a href="https://www.microsoft.com/store/apps/9PP0X5KTJXBC?ocid=badge"><img src="https://assets.windowsphone.com/85864462-9c82-451e-9355-a3d5f874397a/English_get-it-from-MS_InvariantCulture_Default.png" width=100 alt="Get it from Microsoft Store for Windows 10 Desktop" /></a>
+
+The source code of the Win 10 app you can find <a href="https://github.com/jan-patrick/LostBrick_UWP">here</a>. 
 
 ## more info
 
