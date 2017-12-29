@@ -26,7 +26,12 @@ Professor: [Prof. Dr. Franklin Hernández-Castro](http://skizata.com)
 
 ## allgemeine Spielinfos
 
-Das Spiel ist auf eine Auflösung von 1824x1018 (16:9 Vollbildmodus) konzipiert. Bei abweichender Darstellung kann durch Zoomen im Browser das Spiel komplett dargestellt werden. Die Steuerung funktioniert über die Pfeiltasten.
+Das Spiel ist auf eine Auflösung von 1824x1018 (16:9 Vollbildmodus) konzipiert. Bei abweichender Darstellung kann durch Zoomen im Browser das Spiel komplett dargestellt werden. Steuerung:
+
+Pfeiltasten:  Brick (Spielfigur)
+esc:          neu laden
+i:            Spiel vergrößern
+o:            Spiel verkleinern 
 
 ## Downloadanleitung
 
@@ -72,7 +77,12 @@ professor: [Prof. Dr. Franklin Hernández-Castro](http://skizata.com)
 
 ## how to play
 
-The game is only playable with screensize 1824x1018 and higher by using full screen mode (or by zooming in or out in your browser) and by using the arrow keys on your keyboard.
+control:
+
+arrows:       Brick (character)
+esc:          reload
+i:            zoom in
+o:            zoom out 
 
 ## download instruction
 
