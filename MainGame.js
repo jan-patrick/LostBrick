@@ -343,6 +343,7 @@ function onReady() {
 function draw () {
     var thisFrameTime = (thisLoop=new Date) - lastLoop;
     seconds = new Date().getTime() / 1000;
+    resizeScreen();
 
     // setting player position on first start
     if(!started){
@@ -874,7 +875,17 @@ function draw () {
         requestAnimFrame(draw);
 }
 
-
+function resizeScreen() {
+    var c = window.innerWidth / 1824;
+    zoom = c * 100;
+    if (zoom <= 20) {
+        zoom = 20;
+    } else if (zoom >= 200) {
+        zoom = 200;
+    }
+    var n = "" + zoom;
+    document.body.style.zoom = n += "%";
+}
 
 // for events  ---------------------------------------------------
 function pick(event) {
@@ -918,22 +929,6 @@ function keyInput(e) {
                 case 39: // right arrow
                     level = 2;
                     gamemode="intro";
-                    break;
-                case 73: // i
-                    //console.log(parseInt(document.body.style.zoom));
-                    zoom += 10;
-                    if(zoom<=20)zoom=20;
-                    var n = ""+zoom;
-                    document.body.style.zoom = n += "%"; 
-                    //console.log("Zoomed out");
-                    break;
-                case 79: // o
-                    //console.log(parseInt(document.body.style.zoom));
-                    zoom -= 10;
-                    if(zoom>=200)zoom=200;
-                    var n = ""+zoom;
-                    document.body.style.zoom = n += "%"; 
-                    //console.log("Zoomed in");
                     break;     
                 default: // if any key pressed start intro video
                     //console.log(e);
@@ -958,23 +953,7 @@ function keyInput(e) {
                     break;
                 case 27: // esc
                     window.location.reload();
-                    break;
-                case 73: // i
-                    //console.log(parseInt(document.body.style.zoom));
-                    zoom += 10;
-                    if(zoom<=20)zoom=20;
-                    var n = ""+zoom;
-                    document.body.style.zoom = n += "%"; 
-                    //console.log("Zoomed out");
-                    break;
-                case 79: // o
-                    //console.log(parseInt(document.body.style.zoom));
-                    zoom -= 10;
-                    if(zoom>=200)zoom=200;
-                    var n = ""+zoom;
-                    document.body.style.zoom = n += "%"; 
-                    //console.log("Zoomed in");
-                    break;        
+                    break;       
                 default:
                     sideNum = sideNum;
                     buttonPressed=true;
@@ -997,22 +976,6 @@ function keyInput(e) {
                     break;
                 case 27: // esc
                     window.location.reload();
-                    break;
-                case 73: // i
-                    //console.log(parseInt(document.body.style.zoom));
-                    zoom += 10;
-                    if(zoom<=20)zoom=20;
-                    var n = ""+zoom;
-                    document.body.style.zoom = n += "%"; 
-                    //console.log("Zoomed out");
-                    break;
-                case 79: // o
-                    //console.log(parseInt(document.body.style.zoom));
-                    zoom -= 10;
-                    if(zoom>=200)zoom=200;
-                    var n = ""+zoom;
-                    document.body.style.zoom = n += "%"; 
-                    //console.log("Zoomed in");
                     break;    
                 default:
                     sideNum = sideNum;
