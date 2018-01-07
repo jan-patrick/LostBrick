@@ -1,6 +1,6 @@
 <h1 align="center">LostBrick</h1>
 <p align="center">
-  <a href="#deutsch">Deutsch</a> | <a href="#english">Englisch</a><br><br>
+  <a href="#deutsch">Deutsch</a> | <a href="#english">English</a><br><br>
   <a href="https://github.com/JanPSchneider/LostBrick/archive/master.zip">Download for Browser (every OS)</a><br><br>
   <a href="https://www.microsoft.com/store/apps/9PP0X5KTJXBC?ocid=badge"><img src="https://assets.windowsphone.com/85864462-9c82-451e-9355-a3d5f874397a/English_get-it-from-MS_InvariantCulture_Default.png" width=100 alt="Get it from Microsoft Store for Windows 10 Desktop" /></a><br><br><br>
   <a href="https://vimeo.com/243429103">Dokumentation Video</a> | <a href="https://vimeo.com/243506598">Gameplay Video</a><br><br><br><br><br>
