@@ -929,7 +929,19 @@ function keyInput(e) {
                 case 39: // right arrow
                     level = 2;
                     gamemode="intro";
-                    break;     
+                    break;
+                case 65: // a
+                    level = 3;
+                    gamemode="intro";
+                    break;
+                case 68: // d
+                    level = 2;
+                    gamemode="intro";
+                    break; 
+                case 87: // w
+                    level = 1;
+                    gamemode="intro";
+                    break;          
                 default: // if any key pressed start intro video
                     //console.log(e);
                     break;
@@ -953,7 +965,19 @@ function keyInput(e) {
                     break;
                 case 27: // esc
                     window.location.reload();
-                    break;       
+                    break;
+                case 65: // a
+                    playDir = "a";
+                    break;
+                case 68: // d
+                    playDir = "d";
+                    break;
+                case 83: // s
+                    playDir = "s";
+                    break;
+                case 87: // w
+                    playDir = "w";
+                    break;           
                 default:
                     sideNum = sideNum;
                     buttonPressed=true;
@@ -976,7 +1000,19 @@ function keyInput(e) {
                     break;
                 case 27: // esc
                     window.location.reload();
-                    break;    
+                    break;                
+                case 65: // a
+                    playDir = "a";
+                    break;
+                case 68: // d
+                    playDir = "d";
+                    break;
+                case 83: // s
+                    playDir = "s";
+                    break;
+                case 87: // w
+                    playDir = "w";
+                    break;         
                 default:
                     sideNum = sideNum;
                     buttonPressed=true;
