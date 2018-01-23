@@ -9,7 +9,7 @@
 
 
 
-![LostBrick-Logo](https://github.com/JanPSchneider/LostBrick/blob/master/mainimages/fulllogo.jpg)
+![LostBrick-Menu](https://github.com/JanPSchneider/LostBrick/blob/master/mainimages/menu.jpg)
 
 <a name="deutsch"></a>
 
@@ -56,7 +56,7 @@ Einen Teil des Spiels als Gameyplay finden Sie hier: [Gameplayvideo](https://vim
 
 ---
 
-![LostBrick-Menu](https://github.com/JanPSchneider/LostBrick/blob/master/mainimages/menu.jpg)
+![LostBrick-Logo](https://github.com/JanPSchneider/LostBrick/blob/master/mainimages/fulllogo.jpg)
 
 ---
 
