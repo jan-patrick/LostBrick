@@ -5,8 +5,8 @@ document.onkeydown=function(){keyInput()};
 window.onload = onReady; // first function call
 
 // the most important variables
-var level = 3; // 1 = first test (alpha); 2 = first good level; 3 = second good level
-var gamemode = "end";
+var level = 0; // 1 = first test (alpha); 2 = first good level; 3 = second good level
+var gamemode = "menu";
 var sideNum = 1;
 
 /** 
@@ -14,7 +14,7 @@ var sideNum = 1;
  * (for different input from makey makey than from keyboard
  * and alpha level, in code level 1, is not playable, else by pressing arrow up)
  */ 
-var presentationmode = true;
+var presentationmode = false;
 
 // if muted (true) music does not play
 // it also saves some power not playing music 
