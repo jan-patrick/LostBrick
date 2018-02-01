@@ -5,8 +5,8 @@ document.onkeydown=function(){keyInput()};
 window.onload = onReady; // first function call
 
 // the most important variables
-var level = 0; // 1 = first test (alpha); 2 = first good level; 3 = second good level
-var gamemode = "menu";
+var level = 3; // 1 = first test (alpha); 2 = first good level; 3 = second good level
+var gamemode = "end";
 var sideNum = 1;
 
 /** 
@@ -14,7 +14,7 @@ var sideNum = 1;
  * (for different input from makey makey than from keyboard
  * and alpha level, in code level 1, is not playable, else by pressing arrow up)
  */ 
-var presentationmode = false;
+var presentationmode = true;
 
 // if muted (true) music does not play
 // it also saves some power not playing music 
@@ -142,6 +142,7 @@ var whichVideo = "no";
 var menuopacityleft = 0;
 var menuopacityright = 0;
 var menutextchange = 0;
+var portfolioopacity = 0.3;
 
 // for end (result)
 var resultTime = 0;
@@ -753,35 +754,50 @@ function draw () {
 
                 if(endtextchange==0){
                     endopacityleft+=0.005;
+                    portfolioopacity+=0.002;
                     if(endopacityleft>=0.7)endtextchange=1;
                 }else if(endtextchange==1){
                     endopacityleft-=0.005;
+                    portfolioopacity-=0.002;
                     if(endopacityleft<=0.005)endtextchange=2;
                 }else if(endtextchange==2){
                     endopacityright+=0.005;
+                    portfolioopacity+=0.002;
                     if(endopacityright>=0.7)endtextchange=3;
                 }else if(endtextchange==3){
                     endopacityright-=0.005;
+                    portfolioopacity-=0.002;
                     if(endopacityright<=0.005)endtextchange=0;
                 }
 
                 ctx.font = "normal 41px Roboto";
                 if(endtextchange<=1){
-                ctx.fillStyle = "rgba(0, 0, 0, " + endopacityleft + ")";
-                if(resultTime<=99){
-                    ctx.fillText(Math.round(resultTime)+" seconds", 1295, 412);
+                    ctx.fillStyle = "rgba(0, 0, 0, " + endopacityleft + ")";
+                    if(playerCounter==0 || playerCounter==0 || godmode == true){
+                        ctx.fillText("you cheated", 1300, 412);
+                    } else if(resultTime<=99){
+                        ctx.fillText(Math.round(resultTime)+" seconds", 1295, 412);
+                    }else{
+                        ctx.fillText(Math.round(resultTime)+" seconds", 1280, 412);
+                    }
                 }else{
-                    ctx.fillText(Math.round(resultTime)+" seconds", 1280, 412);
+                    ctx.fillStyle = "rgba(0, 0, 0, " + endopacityright + ")";
+                    if(resultTime==0 || playerCounter==0 || godmode == true){
+                        ctx.fillText("you cheated", 1300, 412);
+                    }else if(playerCounter==1){
+                        ctx.fillText(playerCounter+" life", 1355, 412);
+                    }else if(playerCounter<=9){
+                        ctx.fillText(playerCounter+" lifes", 1345, 412);
+                    }else{
+                        ctx.fillText(playerCounter+" lifes", 1335, 412);
+                    }    
                 }
-                }else{
-                ctx.fillStyle = "rgba(0, 0, 0, " + endopacityright + ")";
-                if(playerCounter==1){
-                    ctx.fillText(playerCounter+" life", 1355, 412);
-                }else if(playerCounter<=9){
-                    ctx.fillText(playerCounter+" lifes", 1345, 412);
-                }else{
-                    ctx.fillText(playerCounter+" lifes", 1335, 412);
-                }    
+                if (presentationmode) {
+                    ctx.fillStyle = "rgba(0, 0, 0, " + portfolioopacity + ")";
+                    ctx.fillText("Find us in the", 1180, 685);
+                    ctx.fillText("IoT-Portfolio", 1180, 725);
+                    ctx.fillText("IG-Portfolio", 1180, 765);
+                    ctx.fillText("Microsoft Store", 1180, 805);
                 }
             }else{
                 if(endtomenu){
@@ -810,35 +826,50 @@ function draw () {
 
                 if(endtextchange==0){
                     endopacityleft+=0.005;
+                    portfolioopacity+=0.002;
                     if(endopacityleft>=0.7)endtextchange=1;
                 }else if(endtextchange==1){
                     endopacityleft-=0.005;
+                    portfolioopacity-=0.002;
                     if(endopacityleft<=0.005)endtextchange=2;
                 }else if(endtextchange==2){
                     endopacityright+=0.005;
+                    portfolioopacity+=0.002;
                     if(endopacityright>=0.7)endtextchange=3;
                 }else if(endtextchange==3){
                     endopacityright-=0.005;
+                    portfolioopacity-=0.002;
                     if(endopacityright<=0.005)endtextchange=0;
                 }
 
                 ctx.font = "normal 41px Roboto";
                 if(endtextchange<=1){
                 ctx.fillStyle = "rgba(0, 0, 0, " + endopacityleft + ")";
-                if(resultTime<=99){
+                if(playerCounter==0 || resultTime==0 || godmode == true){
+                    ctx.fillText("you cheated", 1300, 412);
+                } else if(resultTime<=99){
                     ctx.fillText(Math.round(resultTime)+" seconds", 1295, 412);
                 }else{
                     ctx.fillText(Math.round(resultTime)+" seconds", 1280, 412);
                 }
                 }else{
                 ctx.fillStyle = "rgba(0, 0, 0, " + endopacityright + ")";
-                if(playerCounter==1){
+                if(resultTime==0 || playerCounter==0 || godmode == true){
+                    ctx.fillText("you cheated", 1300, 412);
+                } else if(playerCounter==1){
                     ctx.fillText(playerCounter+" life", 1355, 412);
                 }else if(playerCounter<=9){
                     ctx.fillText(playerCounter+" lifes", 1345, 412);
                 }else{
                     ctx.fillText(playerCounter+" lifes", 1335, 412);
                 }  
+            }
+            if (presentationmode) {
+                ctx.fillStyle = "rgba(0, 0, 0, " + portfolioopacity + ")";
+                ctx.fillText("Find us in the", 1180, 685);
+                ctx.fillText("IoT-Portfolio", 1180, 725);
+                ctx.fillText("IG-Portfolio", 1180, 765);
+                ctx.fillText("Microsoft Store", 1180, 805);
             }
 
             }else{
@@ -894,7 +925,7 @@ function pick(event) {
     //console.log("mouse x = " + mouseX + "   mouse y = " + mouseY);
 }
 
-// changeing the Sides
+// changing the Sides
 function keyInput(e) {
     e = e || window.event;
     if(gamemode=="menu"){
