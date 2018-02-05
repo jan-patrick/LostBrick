@@ -5,8 +5,8 @@ document.onkeydown=function(){keyInput()};
 window.onload = onReady; // first function call
 
 // the most important variables
-var level = 0; // 1 = first test (alpha); 2 = first good level; 3 = second good level
-var gamemode = "menu";
+var level = 3; // 1 = first test (alpha); 2 = first good level; 3 = second good level
+var gamemode = "end";
 var sideNum = 1;
 
 /** 
@@ -14,7 +14,7 @@ var sideNum = 1;
  * (for different input from makey makey than from keyboard
  * and alpha level, in code level 1, is not playable, else by pressing arrow up)
  */ 
-var presentationmode = false;
+var presentationmode = true;
 
 // if muted (true) music does not play
 // it also saves some power not playing music 
@@ -866,10 +866,10 @@ function draw () {
             }
             if (presentationmode) {
                 ctx.fillStyle = "rgba(0, 0, 0, " + portfolioopacity + ")";
-                ctx.fillText("Find us in the", 1180, 685);
-                ctx.fillText("IoT-Portfolio", 1180, 725);
-                ctx.fillText("IG-Portfolio", 1180, 765);
-                ctx.fillText("Microsoft Store", 1180, 805);
+                ctx.fillText("Find us in the", 1180, 675);
+                ctx.fillText("IoT-Portfolio", 1180, 715);
+                ctx.fillText("IG-Portfolio", 1180, 755);
+                ctx.fillText("Microsoft Store", 1180, 795);
             }
 
             }else{
