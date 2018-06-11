@@ -18,9 +18,9 @@
 LostBrick ist ein Projekt der Vorlesung "3-dimensionale Grundlagen im medialen Raum" an der [HfG Schwäbisch Gmünd](http://www.hfg-gmuend.de) im Wintersemester 2017.
 
 Studenten:
-[Roman Kuhn](https://ig.hfg-gmuend.de/author/roman_kuhn) (IG2),
-[Marcus Schoch](https://iot.hfg-gmuend.de/author/marcus_schoch) (IoT2),
-[Jan Schneider](http://jan-patrick.de) (IoT2)
+[Roman Kuhn](https://ig.hfg-gmuend.de/student:roman-kuhn) (IG2),
+[Marcus Schoch](https://iot.hfg-gmuend.de/student:Marcus-Schoch) (IoT2),
+[Jan Schneider](https://jan-patrick.de) (IoT2)
 
 Professor: [Prof. Dr. Franklin Hernández-Castro](http://skizata.com)
 
@@ -47,7 +47,7 @@ Der Code zur Win 10 App findet sich <a href="https://github.com/jan-patrick/Lost
 
 ## mehr Info
 
-Für mehr Informationen über das Spiel, die Entstehung, das Design und Controller besuchen Sie bitte das HfG IoT-Portfolio: [mehr Information](https://iot.hfg-gmuend.de/Members/jan_schneider/meine-projekte/lostbrick/#deutsch)
+Für mehr Informationen über das Spiel, die Entstehung, das Design und Controller besuchen Sie bitte das HfG IoT-Portfolio: [mehr Information](https://iot.hfg-gmuend.de/projects/lostbrick)
 
 Die Videodokumentation finden Sie auf Vimeo: [Dokumentationsvideo](https://vimeo.com/243429103)
 
@@ -67,9 +67,9 @@ Einen Teil des Spiels als Gameyplay finden Sie hier: [Gameplayvideo](https://vim
 Project of the lecture "3-dimensionale Grundlagen im medialen Raum" at [HfG Schwäbisch Gmünd](http://www.hfg-gmuend.de) in wintersemester 2017
 
 students:
-[Roman Kuhn](https://ig.hfg-gmuend.de/author/roman_kuhn) (IG2),
-[Marcus Schoch](https://iot.hfg-gmuend.de/author/marcus_schoch) (IoT2),
-[Jan Schneider](http://jan-patrick.de) (IoT2)
+[Roman Kuhn](https://ig.hfg-gmuend.de/student:roman-kuhn) (IG2),
+[Marcus Schoch](https://iot.hfg-gmuend.de/student:Marcus-Schoch) (IoT2),
+[Jan Schneider](https://jan-patrick.de) (IoT2)
 
 professor: [Prof. Dr. Franklin Hernández-Castro](http://skizata.com)
 
@@ -95,7 +95,7 @@ The source code of the Win 10 app you can find <a href="https://github.com/jan-p
 
 ## more info
 
-For more information about the game itself, the design, creation and controller please visit the HfG IoT-Portfolio: [more information](https://iot.hfg-gmuend.de/Members/jan_schneider/meine-projekte/lostbrick/#english)
+For more information about the game itself, the design, creation and controller please visit the HfG IoT-Portfolio: [more information](https://iot.hfg-gmuend.de/projects/lostbrick)
 
 You can find our documentation here: [dokumentation video](https://vimeo.com/243429103)
 
