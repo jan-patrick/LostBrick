@@ -95,7 +95,7 @@ The source code of the Win 10 app you can find <a href="https://github.com/jan-p
 
 ## more info
 
-For more information about the game itself, the design, creation and controller please visit the HfG IoT-Portfolio: [more information](https://iot.hfg-gmuend.de/projects/lostbrick)
+For more information about the game itself, the design, creation and controller please visit the HfG IoT-Portfolio: [more information](https://iot.hfg-gmuend.de/en/Projects/lostbrick)
 
 You can find our documentation here: [dokumentation video](https://vimeo.com/243429103)
 
