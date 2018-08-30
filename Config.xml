@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<widget xmlns   = "http://www.w3.org/ns/widgets"
+    xmlns:gap   = "http://phonegap.com/ns/1.0"
+    id          = "com.phonegap.example"
+    versionCode = "10"
+    version     = "1.0.0" >
+
+<!-- versionCode is optional and Android only -->
+
+  <name>LostBrick</name>
+
+  <description>
+      LostBrick is a gravity changing game. The Brick is falling off the big rectangle and wants to be brought back to his place. It is a Jump 'n' Run game with additional gravity influencing the way you play, because there is different gravity on each side of the world. 
+      This game was made by Roman Kuhn, Marcus Schoch and Jan Schneider at the lecture "3-dim. Grundlagen im medialen Raum" with Prof. Dr. Franklin Hernández-Castro at the Hochschule für Gestaltung Schwäbisch Gmünd in wintersemester 2017/18.
+  </description>
+
+  <author href="https://jan-patrick.de" email="mail@jan-patrick.de">
+      Jan Schneider
+  </author>
+
+</widget>
