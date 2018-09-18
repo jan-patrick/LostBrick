@@ -169,7 +169,7 @@ var itisraining = false;
 var zoom = 100;
 
 function onReady() {
-    // your inicialization code here  ----------------------------------------------
+    // your initialization code here  ----------------------------------------------
     canvas = document.getElementById('canvas');
     ctx = canvas.getContext('2d');
     frameCounter = 0;
