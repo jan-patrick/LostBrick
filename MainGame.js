@@ -97,40 +97,40 @@ var musictwotime = 255;
 var musicvolume = 1;
 
 // for background
-var img;
 var started = false;
-var videointroeasy;
-var videoonetotwolow;
-var videoonetotwohigh;
-var videotwotoone;
-var videothreetofourlow;
-var videothreetofourhigh;
+var img,
+    videointroeasy,
+    videoonetotwolow,
+    videoonetotwohigh,
+    videotwotoone,
+    videothreetofourlow,
+    videothreetofourhigh,
 
-var videointrohard;
-var video12;
-var video23;
-var video34
-var video14;
-var video41;
-var video43;
-var video32;
-var video21;
-var videohardend;
-var videohardendtomenu;
+    videointrohard,
+    video12,
+    video23,
+    video34,
+    video14,
+    video41,
+    video43,
+    video32,
+    video21,
+    videohardend,
+    videohardendtomenu,
 
-var ltwovideointrohard;
-var ltwovideo12;
-var ltwovideo12low;
-var ltwovideo24;
-var ltwovideo34
-var ltwovideo14;
-var ltwovideo41;
-var ltwovideo42;
-var ltwovideo43;
-var ltwovideo32;
-var ltwovideo21;
-var ltwovideohardend;
-var ltwovideohardendtomenu;
+    ltwovideointrohard,
+    ltwovideo12,
+    ltwovideo12low,
+    ltwovideo24,
+    ltwovideo34,
+    ltwovideo14,
+    ltwovideo41,
+    ltwovideo42,
+    ltwovideo43,
+    ltwovideo32,
+    ltwovideo21,
+    ltwovideohardend,
+    ltwovideohardendtomenu;
 
 var videoPlayed = true;
 var countFrame = 0;
